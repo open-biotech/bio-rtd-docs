@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.adj_par &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bio_rtd.peak_fitting" href="peak_fitting.html" />
+    <link rel="prev" title="bio_rtd.utils.vectors" href="utils.vectors.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="inlet.html">inlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.fc_uo.html">fc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.sc_uo.html">sc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.surge_tank.html">surge_tank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.special_uo.html">special_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">pdf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_load.html">bt_load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_curve.html">bt_curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.convolution.html">convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.vectors.html">vectors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">adj_par</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adjparslider">AdjParSlider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjparrange">AdjParRange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjparboolean">AdjParBoolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjparbooleanmultiple">AdjParBooleanMultiple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjustableparameter">AdjustableParameter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="peak_fitting.html">peak_fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_shapes.html">peak_shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">core</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>bio_rtd.adj_par</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bio-rtd-adj-par">
+<h1>bio_rtd.adj_par<a class="headerlink" href="#bio-rtd-adj-par" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="adjparslider">
+<h2>AdjParSlider<a class="headerlink" href="#adjparslider" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.adj_par.AdjParSlider">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.adj_par.</code><code class="sig-name descname">AdjParSlider</code><span class="sig-paren">(</span><em class="sig-param">var</em>, <em class="sig-param">v_range</em>, <em class="sig-param">v_init=None</em>, <em class="sig-param">scale_factor=1</em>, <em class="sig-param">par_name=None</em>, <em class="sig-param">gui_type='slider'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/adj_par.html#AdjParSlider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.adj_par.AdjParSlider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+<p>A value slider version of <cite>AdjustableParameter</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Variable of a UnitOperation affected by the parameter.</p></li>
+<li><p><strong>or Sequence</strong><strong>[</strong><strong>bool</strong><strong>]</strong> (<em>v_init</em>) – </p></li>
+<li><p><strong>or</strong><strong> (</strong><strong>float</strong><strong>, </strong><strong>float</strong><strong>) or </strong><strong>(</strong><strong>float</strong><strong>, </strong><strong>float</strong><strong>, </strong><strong>float</strong><strong>)</strong> (<em>v_range</em>) – Defines range end or [start, end] or [start, end, step].
+If step is not defined, the <cite>step = (start - end) / 10</cite>.
+If start is not defined the <cite>start = 0</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>For more info see docstring of <cite>AdjustableParameter</cite> superclass.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="adjparrange">
+<h2>AdjParRange<a class="headerlink" href="#adjparrange" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.adj_par.AdjParRange">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.adj_par.</code><code class="sig-name descname">AdjParRange</code><span class="sig-paren">(</span><em class="sig-param">var_list</em>, <em class="sig-param">v_range</em>, <em class="sig-param">v_init=None</em>, <em class="sig-param">scale_factor=1</em>, <em class="sig-param">par_name=None</em>, <em class="sig-param">gui_type='range'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/adj_par.html#AdjParRange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.adj_par.AdjParRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+<p>Defines a range slider version of <cite>AdjustableParameter</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var_list</strong> (<em>Tuple</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – Defines attributed affected by the <cite>AdjustableParameter</cite>.
+First has value of the start of the interval and second of the
+end of the interval.</p></li>
+<li><p><strong>or Tuple</strong><strong>[</strong><strong>float</strong><strong>, </strong><strong>float</strong><strong>] or </strong><strong>Tuple</strong><strong>[</strong><strong>float</strong><strong>, </strong><strong>float</strong><strong>, </strong><strong>float</strong><strong>]</strong> (<em>v_range</em>) – Defines range end or [start, end] or [start, end, step].
+If step is not defined, the <cite>step = (start - end) / 10</cite>.
+If start is not defined the <cite>start = 0</cite>.</p></li>
+<li><p><strong>v_init</strong> (<em>Tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) – Initial value [interval start, interval end]. If None (default),
+then the initial values are assigned from the initial conditions
+at the start of the simulation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="adjparboolean">
+<h2>AdjParBoolean<a class="headerlink" href="#adjparboolean" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.adj_par.AdjParBoolean">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.adj_par.</code><code class="sig-name descname">AdjParBoolean</code><span class="sig-paren">(</span><em class="sig-param">var</em>, <em class="sig-param">v_init=None</em>, <em class="sig-param">par_name=None</em>, <em class="sig-param">scale_factor=1</em>, <em class="sig-param">gui_type='checkbox'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/adj_par.html#AdjParBoolean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.adj_par.AdjParBoolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+<p>A boolean variation of <a class="reference internal" href="#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdjustableParameter</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Variable of a UnitOperation affected by the parameter.</p></li>
+<li><p><strong>or list of bool</strong> (<em>v_init</em>) – Initial value or list of initial values for each item in
+<cite>var_list</cite>.</p></li>
+<li><p><strong>or list of str</strong> (<em>par_name</em>) – List of parameter names. If defined,
+the shape of the should match <cite>var_list</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="adjparbooleanmultiple">
+<h2>AdjParBooleanMultiple<a class="headerlink" href="#adjparbooleanmultiple" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.adj_par.AdjParBooleanMultiple">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.adj_par.</code><code class="sig-name descname">AdjParBooleanMultiple</code><span class="sig-paren">(</span><em class="sig-param">var_list</em>, <em class="sig-param">v_init=None</em>, <em class="sig-param">par_name=None</em>, <em class="sig-param">scale_factor=1</em>, <em class="sig-param">gui_type='radio_group'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/adj_par.html#AdjParBooleanMultiple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.adj_par.AdjParBooleanMultiple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+<p>A radio group variation of <cite>AdjustableParameter</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var_list</strong> (<em>list of str</em>) – A list of attributes of a <cite>UnitOperation</cite> affected by the
+<cite>AdjustableParameter</cite>.</p></li>
+<li><p><strong>v_init</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]]) – Initial value for each entry in <cite>var_list</cite>.
+If None (default), the value is inherited from the initial
+attribute values at the start of the runtime. If specified,
+the shape should match the shape of <cite>var_list</cite>.</p></li>
+<li><p><strong>par_name</strong> (<em>list of str</em>) – Attribute title (e.g. ‘Initial delay [min]’) for each option.
+The shape should batch the shape of <cite>var_list</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="adjustableparameter">
+<h2>AdjustableParameter<a class="headerlink" href="#adjustableparameter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.adj_par.AdjustableParameter">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.adj_par.</code><code class="sig-name descname">AdjustableParameter</code><span class="sig-paren">(</span><em class="sig-param">var_list</em>, <em class="sig-param">v_range=None</em>, <em class="sig-param">v_init=None</em>, <em class="sig-param">scale_factor=1</em>, <em class="sig-param">par_name=None</em>, <em class="sig-param">gui_type=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/adj_par.html#AdjustableParameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.adj_par.AdjustableParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Adjustable parameter for a UnitOperation (or Inlet).</p>
+<p>The class does not provide any logic. It just provides a
+unified way to specify an adjustable attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var_list</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – A list of attributes of a <cite>UnitOperation</cite> affected by the
+<cite>AdjustableParameter</cite>.</p></li>
+<li><p><strong>v_range</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]], <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – Range of values.
+For boolean set None.
+For range specify [start, end, step].
+For list set list. If the list has two columns,
+the first one is the title and the second is the value.</p></li>
+<li><p><strong>v_init</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – Initial value. If None (default), the value is inherited from
+the initial attribute value (at the start of the runtime).</p></li>
+<li><p><strong>scale_factor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The scale factor to compensate for differences in units.
+E.g.: Setting time in [h] for attribute set in [min] requires
+a <cite>scale_factor</cite> of 60.</p></li>
+<li><p><strong>par_name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – Attribute title (e.g. ‘Initial delay [min]’) or list of titles
+in case of multiple options (e.g. radio button group).</p></li>
+<li><p><strong>gui_type</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Preferred method for setting parameter in gui parameters.
+If None (default) or the gui does not support the type,
+then the gui should decide the method based on <cite>v_init</cite> and/or
+<cite>var_list</cite>.
+Example values:
+‘checkbox’, ‘range’, ‘slider’, ‘select’, ‘multi-select’</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Technically the class relates to instance attributes
+rather than parameters. However, the term ‘process parameters’
+is well established in biotech, hence the class name.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="peak_fitting.html" class="btn btn-neutral float-right" title="bio_rtd.peak_fitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="utils.vectors.html" class="btn btn-neutral float-left" title="bio_rtd.utils.vectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

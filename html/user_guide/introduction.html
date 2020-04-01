@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Features" href="features.html" />
+    <link rel="prev" title="User Guide" href="../user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../user_guide.html">User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding.html">Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../user_guide.html">User Guide</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="residence-time-distribution-rtd">
+<h2>Residence time distribution (RTD)<a class="headerlink" href="#residence-time-distribution-rtd" title="Permalink to this headline">¶</a></h2>
+<p>Let’s simulate a protein pulse response measurement on a small flow-through column:</p>
+
+<script src="bokeh-plot-41dd10fb1dad42b1bf660a5983c091ea-external-user_guide-introduction.js" id="1730f1ee-ed81-4c9d-80b3-2607666321d4"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">peak_shapes</span><span class="p">,</span> <span class="n">utils</span>
+
+<span class="c1"># Time vector.</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+
+<span class="c1"># Generate noisy data.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">peak_shapes</span><span class="o">.</span><span class="n">emg</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># clean signal</span>
+<span class="n">y_noisy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mi">10</span>
+
+<span class="c1"># Determine peak start, end and max position.</span>
+<span class="n">i_start</span><span class="p">,</span> <span class="n">i_end</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">true_start_and_end</span><span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">i_max</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+
+<span class="c1"># Plot.</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">690</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Measurements&quot;</span><span class="p">,</span>
+           <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c [mg/mL]&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_noisy</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;c [mg/mL]&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="n">i_max</span><span class="p">,</span> <span class="n">i_start</span><span class="p">,</span> <span class="n">i_end</span><span class="p">]:</span>  <span class="c1"># plot circles</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fill_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+             <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s fit an exponentially modified gaussian distribution to the peak using
+the reference points in blue circles.</p>
+<blockquote>
+<div><p>Probability distribution classes, such as
+<a class="reference internal" href="../bio_rtd/pdf.html#bio_rtd.pdf.ExpModGaussianFixedDispersion" title="bio_rtd.pdf.ExpModGaussianFixedDispersion"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.pdf.ExpModGaussianFixedDispersion</span></code></a>
+allow the probability distribution functions (pdf)
+to be dependent on process parameters and inlet flow rate.</p>
+</div></blockquote>
+
+<script src="bokeh-plot-dfe8087c76ee41ac929adb6aea2876cd-external-user_guide-introduction.js" id="66261a2c-ca63-4a64-8927-e609669af237"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">uo</span><span class="p">,</span> <span class="n">peak_shapes</span><span class="p">,</span> <span class="n">peak_fitting</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+
+<span class="c1"># Calc rt_mean, sigma and skew from peak points.</span>
+<span class="n">rt</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">skew</span> <span class="o">=</span> <span class="n">peak_fitting</span><span class="o">.</span><span class="n">calc_emg_parameters_from_peak_shape</span><span class="p">(</span>
+    <span class="n">t_peak_max</span><span class="o">=</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">t_peak_start</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">t_peak_end</span><span class="o">=</span><span class="mf">3.9</span><span class="p">,</span>
+    <span class="n">relative_threshold</span><span class="o">=</span><span class="mf">0.1</span>
+<span class="p">)</span>
+
+<span class="c1"># Define pdf.</span>
+<span class="n">pdf_emg</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">ExpModGaussianFixedDispersion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">rt</span><span class="p">,</span> <span class="n">skew</span><span class="p">)</span>
+<span class="n">pdf_emg</span><span class="o">.</span><span class="n">update_pdf</span><span class="p">(</span><span class="n">rt_mean</span><span class="o">=</span><span class="n">rt</span><span class="p">)</span>
+<span class="n">p_emg</span> <span class="o">=</span> <span class="n">pdf_emg</span><span class="o">.</span><span class="n">get_p</span><span class="p">()</span>
+
+<span class="c1"># Generate noisy data.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">peak_shapes</span><span class="o">.</span><span class="n">emg</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># clean signal</span>
+<span class="n">y_noisy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mi">10</span>
+
+<span class="c1"># Plot.</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">690</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Probability Distribution&quot;</span><span class="p">,</span>
+           <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c [mg/mL]&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_noisy</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;c [mg/mL] (data)&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p_emg</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;p (pdf)&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s expand the example by introducing flow-through unit operation
+which uses pdf:</p>
+
+<script src="bokeh-plot-7443ed41332f4309875eb7993ead3513-external-user_guide-introduction.js" id="81aed660-965d-4920-bacb-7ae96fb8d69d"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">uo</span><span class="p">,</span> <span class="n">peak_shapes</span><span class="p">,</span> <span class="n">peak_fitting</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+
+<span class="c1"># Concentration with spike at t = 0</span>
+<span class="n">c_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">size</span><span class="p">])</span>
+<span class="n">c_in</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Flow rate</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.5</span>
+
+<span class="c1"># Calc rt_mean, sigma and skew from peak points</span>
+<span class="n">rt</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">skew</span> <span class="o">=</span> <span class="n">peak_fitting</span><span class="o">.</span><span class="n">calc_emg_parameters_from_peak_shape</span><span class="p">(</span>
+    <span class="n">t_peak_max</span><span class="o">=</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">t_peak_start</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">t_peak_end</span><span class="o">=</span><span class="mf">3.9</span><span class="p">,</span>
+    <span class="n">relative_threshold</span><span class="o">=</span><span class="mf">0.1</span>
+<span class="p">)</span>
+
+<span class="c1"># Define unit operation</span>
+<span class="n">ft_uo</span> <span class="o">=</span> <span class="n">uo</span><span class="o">.</span><span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThrough</span><span class="p">(</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;ft_example&quot;</span><span class="p">,</span>
+    <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">ExpModGaussianFixedDispersion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">rt</span><span class="p">,</span> <span class="n">skew</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">ft_uo</span><span class="o">.</span><span class="n">v_void</span> <span class="o">=</span> <span class="n">rt</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># set void volume as rt * flow rate</span>
+
+<span class="c1"># Simulate.</span>
+<span class="n">f_out</span><span class="p">,</span> <span class="n">c_out</span> <span class="o">=</span> <span class="n">ft_uo</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">c_in</span><span class="p">)</span>
+
+<span class="c1"># Define noisy data.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">peak_shapes</span><span class="o">.</span><span class="n">emg</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># clean signal</span>
+<span class="n">y_noisy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mi">10</span>
+
+<span class="c1"># Plot.</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">690</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Unit Operation - Pulse Response&quot;</span><span class="p">,</span>
+           <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c [mg/mL]&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_noisy</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;c [mg/mL] (data)&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">c_out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;c [mg/mL] (model)&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Simulating breakthrough profile with the same unit operation:</p>
+
+<script src="bokeh-plot-2a839f08b918403797a152ed693fdb3d-external-user_guide-introduction.js" id="6736947e-7f16-4849-9ac2-29719607556d"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">uo</span>
+
+<span class="c1"># Define inlet profiles.</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>  <span class="c1"># time</span>
+<span class="n">c_in</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">size</span><span class="p">])</span>  <span class="c1"># concentration (constant)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.5</span>  <span class="c1"># flow rate</span>
+
+<span class="c1"># Define unit operation.</span>
+<span class="n">ft_uo</span> <span class="o">=</span> <span class="n">uo</span><span class="o">.</span><span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThrough</span><span class="p">(</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;ft_example&quot;</span><span class="p">,</span>
+    <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">ExpModGaussianFixedDispersion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.3</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="n">ft_uo</span><span class="o">.</span><span class="n">v_void</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># set void volume (rt * flow rate)</span>
+
+<span class="c1"># Simulation.</span>
+<span class="n">f_out</span><span class="p">,</span> <span class="n">c_out</span> <span class="o">=</span> <span class="n">ft_uo</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">c_in</span><span class="p">)</span>
+
+<span class="c1"># Plot.</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">690</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Unit Operation - Breakthrough&quot;</span><span class="p">,</span>
+           <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c [mg/mL]&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">c_out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;c [mg/mL]&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Simulating breakthrough profile with  <a class="reference internal" href="../bio_rtd/core.html#bio_rtd.core.RtdModel" title="bio_rtd.core.RtdModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.RtdModel</span></code></a> with inlet and two unit operations.</p>
+
+<script src="bokeh-plot-031d693f8b4340fa85aa931ffa830553-external-user_guide-introduction.js" id="e8ddccd0-4800-484d-b69b-57d80c2b123f"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">uo</span>
+<span class="kn">from</span> <span class="nn">bio_rtd.core</span> <span class="kn">import</span> <span class="n">RtdModel</span>
+<span class="kn">from</span> <span class="nn">bio_rtd.inlet</span> <span class="kn">import</span> <span class="n">ConstantInlet</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>  <span class="c1"># time</span>
+
+<span class="c1"># Define inlet</span>
+<span class="n">inlet</span> <span class="o">=</span> <span class="n">ConstantInlet</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">inlet_id</span><span class="o">=</span><span class="s2">&quot;sample_inlet&quot;</span><span class="p">,</span>
+                      <span class="n">f</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]),</span>
+                      <span class="n">species_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;protein [mg/mL]&#39;</span><span class="p">])</span>
+
+<span class="c1"># Define unit operation.</span>
+<span class="n">ft_uo_1</span> <span class="o">=</span> <span class="n">uo</span><span class="o">.</span><span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThrough</span><span class="p">(</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;ft_example&quot;</span><span class="p">,</span>
+    <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">ExpModGaussianFixedDispersion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mf">0.3</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="n">ft_uo_1</span><span class="o">.</span><span class="n">rt_target</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="c1"># Define another unit operation.</span>
+<span class="n">ft_uo_2</span> <span class="o">=</span> <span class="n">uo</span><span class="o">.</span><span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThrough</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;ft_example_2&quot;</span><span class="p">,</span>
+                               <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">TanksInSeries</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ft_uo_2</span><span class="o">.</span><span class="n">rt_target</span> <span class="o">=</span> <span class="mf">1.2</span>
+
+<span class="c1"># Create an RtdModel.</span>
+<span class="n">rtd_model</span> <span class="o">=</span> <span class="n">RtdModel</span><span class="p">(</span><span class="n">inlet</span><span class="p">,</span> <span class="n">dsp_uo_chain</span><span class="o">=</span><span class="p">[</span><span class="n">ft_uo_1</span><span class="p">,</span> <span class="n">ft_uo_2</span><span class="p">])</span>
+
+<span class="c1"># Run simulation.</span>
+<span class="n">rtd_model</span><span class="o">.</span><span class="n">recalculate</span><span class="p">()</span>
+
+<span class="c1"># Plot.</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">690</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Model with 2 unit operations - Breakthrough&quot;</span><span class="p">,</span>
+           <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c [mg/mL]&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">inlet</span><span class="o">.</span><span class="n">get_result</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;inlet&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ft_uo_1</span><span class="o">.</span><span class="n">get_result</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;outlet of uo_1&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ft_uo_2</span><span class="o">.</span><span class="n">get_result</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+       <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;outlet of uo_2&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;bottom_right&quot;</span>
+<span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../examples.html#examples"><span class="std std-ref">Examples</span></a> section for more examples.</p>
+<p>See <a class="reference internal" href="../examples/templates.html#templates"><span class="std std-ref">Templates</span></a> section on how to set up specific unit operations.</p>
+<p>See <a class="reference internal" href="features.html#features"><span class="std std-ref">Features</span></a> section for brief overview of individual unit operations.</p>
+<p>See <a class="reference internal" href="../api_reference.html#api-reference"><span class="std std-ref">API Reference</span></a> for detailed info about parameters,
+attributes and methods for each unit operation.</p>
+</div>
+<div class="section" id="creating-custom-rtd-model">
+<h2>Creating custom rtd model<a class="headerlink" href="#creating-custom-rtd-model" title="Permalink to this headline">¶</a></h2>
+<p>We recommend checking <a class="reference internal" href="../examples/models.html#models"><span class="std std-ref">Models</span></a> and making a local copy of one that
+most closely resembles you needs and modify it accordingly.
+To define new instances of unit operations, use the parameter
+and attribute list from <a class="reference internal" href="../examples/templates.html#templates"><span class="std std-ref">Templates</span></a>.</p>
+<p>Also check <a class="reference internal" href="coding.html#coding"><span class="std std-ref">Coding</span></a> section in order to better
+understand the coding style in <em>bio_rtd</em>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="features.html" class="btn btn-neutral float-right" title="Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../user_guide.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

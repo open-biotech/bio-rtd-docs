@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.utils.convolution &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>bio_rtd.utils.convolution</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for bio_rtd.utils.convolution</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time_conv&#39;</span><span class="p">,</span> <span class="s1">&#39;piece_wise_conv_with_init_state&#39;</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;0.2&#39;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Jure Sencar&#39;</span>
+
+<span class="kn">import</span> <span class="nn">typing</span> <span class="k">as</span> <span class="nn">_typing</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">_np</span>
+
+<span class="kn">import</span> <span class="nn">bio_rtd.logger</span> <span class="k">as</span> <span class="nn">_logger</span>
+<span class="kn">import</span> <span class="nn">bio_rtd.utils.vectors</span> <span class="k">as</span> <span class="nn">_vectors</span>
+
+
+<div class="viewcode-block" id="time_conv"><a class="viewcode-back" href="../../../bio_rtd/utils.convolution.html#bio_rtd.utils.convolution.time_conv">[docs]</a><span class="k">def</span> <span class="nf">time_conv</span><span class="p">(</span><span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+              <span class="n">c_in</span><span class="p">:</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+              <span class="n">rtd</span><span class="p">:</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+              <span class="n">c_equilibration</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+              <span class="n">logger</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_logger</span><span class="o">.</span><span class="n">RtdLogger</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform time convolution</span>
+
+<span class="sd">    First time-point of `c_in` and &#39;c_rtd&#39; is at t == 0 (and not at t == dt).</span>
+<span class="sd">    Convolution is applied to all columns (= species) of the `c_in`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dt: float</span>
+<span class="sd">        Time step.</span>
+<span class="sd">    c_in: np.ndarray</span>
+<span class="sd">        Starting concentration profile for each specie</span>
+<span class="sd">    rtd</span>
+<span class="sd">        Residence time distribution (= unit impulse response)</span>
+<span class="sd">    c_equilibration</span>
+<span class="sd">        Initial concentrations of species inside the void volume of the unit operation.</span>
+<span class="sd">        E. g. the composition of equilibration buffer for flow-through column.</span>
+<span class="sd">    logger</span>
+<span class="sd">        Logger can be passed from unit operations</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Final concentration profile for each specie</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># it can happen that array is empty, then just return empty one</span>
+    <span class="k">if</span> <span class="n">c_in</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">logger</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="s2">&quot;Convolution: Got empty c_in&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c_in</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">rtd</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">logger</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="s2">&quot;Convolution: Got empty bio_rtd&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c_in</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">c_equilibration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">_np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">c_equilibration</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">c_equilibration</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">c_out</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">c_in</span><span class="p">)</span>
+
+    <span class="c1"># simulate pre-flushing and washout</span>
+    <span class="n">c_ext</span> <span class="o">=</span> <span class="n">c_in</span>
+
+    <span class="n">n_prepend</span> <span class="o">=</span> <span class="n">rtd</span><span class="o">.</span><span class="n">size</span> <span class="k">if</span> <span class="n">c_equilibration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">c_equilibration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">c_ext</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">c_ext</span><span class="p">,</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">n_prepend</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;constant&quot;</span><span class="p">)</span>
+        <span class="n">c_ext</span><span class="p">[:,</span> <span class="p">:</span><span class="n">n_prepend</span><span class="p">]</span> <span class="o">=</span> <span class="n">c_equilibration</span>
+
+    <span class="c1"># convolution</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c_out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">c_out</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">c_ext</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">rtd</span><span class="p">)[</span><span class="n">n_prepend</span><span class="p">:</span><span class="n">n_prepend</span> <span class="o">+</span> <span class="n">c_in</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">c_out</span></div>
+
+
+<div class="viewcode-block" id="piece_wise_conv_with_init_state"><a class="viewcode-back" href="../../../bio_rtd/utils.convolution.html#bio_rtd.utils.convolution.piece_wise_conv_with_init_state">[docs]</a><span class="k">def</span> <span class="nf">piece_wise_conv_with_init_state</span><span class="p">(</span><span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                                    <span class="n">f_in</span><span class="p">:</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                    <span class="n">c_in</span><span class="p">:</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                    <span class="n">t_cycle</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                                    <span class="n">rt_mean</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                                    <span class="n">rtd</span><span class="p">:</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                    <span class="n">c_equilibration</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                    <span class="n">c_wash</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                    <span class="n">logger</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_logger</span><span class="o">.</span><span class="n">RtdLogger</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+
+    <span class="k">assert</span> <span class="n">c_in</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">f_in</span><span class="o">.</span><span class="n">size</span>
+    <span class="k">assert</span> <span class="n">t_cycle</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">rt_mean</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+
+    <span class="c1"># it can happen that the input array is empty, then just return empty one</span>
+    <span class="k">if</span> <span class="n">c_in</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">logger</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="s2">&quot;Convolution: Got empty c_in&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c_in</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">rtd</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">logger</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="s2">&quot;Convolution: Got empty bio_rtd&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c_in</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">f_in</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">logger</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="s2">&quot;Convolution: Got empty f_in&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">c_in</span><span class="p">)</span>
+
+    <span class="n">i_cycle</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t_cycle</span> <span class="o">/</span> <span class="n">dt</span><span class="p">))</span>
+    <span class="n">i_rt_mean</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">rt_mean</span> <span class="o">/</span> <span class="n">dt</span><span class="p">))</span>
+    <span class="n">i_start</span><span class="p">,</span> <span class="n">i_end</span> <span class="o">=</span> <span class="n">_vectors</span><span class="o">.</span><span class="n">true_start_and_end</span><span class="p">(</span><span class="n">f_in</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">i_switch_inlet</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="n">_np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i_start</span><span class="p">,</span> <span class="n">i_end</span><span class="p">,</span> <span class="n">t_cycle</span> <span class="o">/</span> <span class="n">dt</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">i_switch_inlet_off</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_switch_inlet</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">i_end</span><span class="p">)</span>
+    <span class="n">i_switch_outlet</span> <span class="o">=</span> <span class="p">(</span><span class="n">i_switch_inlet</span> <span class="o">+</span> <span class="n">i_rt_mean</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="nb">max</span><span class="o">=</span><span class="n">f_in</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">i_switch_outlet_off</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_switch_outlet</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="nb">min</span><span class="p">(</span><span class="n">i_switch_outlet</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">i_cycle</span><span class="p">,</span> <span class="n">f_in</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+
+    <span class="n">c_out</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">c_in</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i_switch_inlet</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="c1"># inlet concentration profile for the cycle; prolonged by wash buffer</span>
+        <span class="n">c_conv_inlet</span> <span class="o">=</span> <span class="n">c_in</span><span class="p">[:,</span> <span class="n">i_switch_inlet</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">i_switch_outlet_off</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">c_conv_inlet</span><span class="p">[:,</span> <span class="n">i_switch_inlet_off</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">i_switch_inlet</span><span class="p">[</span><span class="n">i</span><span class="p">]:]</span> <span class="o">=</span> <span class="n">c_wash</span> <span class="k">if</span> <span class="n">c_wash</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span>
+
+        <span class="c1"># calculate outlet concentration profile</span>
+        <span class="n">c_conv_outlet</span> <span class="o">=</span> <span class="n">time_conv</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">c_conv_inlet</span><span class="p">,</span> <span class="n">rtd</span><span class="p">,</span> <span class="n">c_equilibration</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+
+        <span class="c1"># insert the result in the outlet vector</span>
+        <span class="n">c_out</span><span class="p">[:,</span> <span class="n">i_switch_outlet</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">i_switch_outlet_off</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> \
+            <span class="n">c_conv_outlet</span><span class="p">[:,</span> <span class="n">i_switch_outlet</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">i_switch_inlet</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">i_switch_outlet_off</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">i_switch_inlet</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">c_out</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

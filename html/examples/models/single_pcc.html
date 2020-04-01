@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Single unit operation - PCC &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Integrated mAB model" href="integrated_mab.html" />
+    <link rel="prev" title="Single unit operation - UF DF" href="single_uf_df.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../examples.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../models.html">Models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="single_uf_df.html">Single unit operation - UF DF</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Single unit operation - PCC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integrated_mab.html">Integrated mAB model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integrated_mab_gui.html">Integrated mAB GUI model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integrated_excel_gui.html">Integrated Excel GUI model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../templates.html">Templates</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../examples.html">Examples</a> &raquo;</li>
+        
+          <li><a href="../models.html">Models</a> &raquo;</li>
+        
+      <li>Single unit operation - PCC</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="single-unit-operation-pcc">
+<h1>Single unit operation - PCC<a class="headerlink" href="#single-unit-operation-pcc" title="Permalink to this headline">¶</a></h1>
+
+<script src="bokeh-plot-acb1e85e6738499ebf8d14ed2f822ba6-external-examples-models-single_pcc.js" id="540ed69c-e928-422b-88c2-a8541b88f80d"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example use of PCC unit operation.</span>
+
+<span class="sd">`pcc` instance is taken from (and generated by) `pcc_template`.</span>
+
+<span class="sd">In this example we simulate propagation of constant inlet flow rate</span>
+<span class="sd">and concentration profiles throughout the pcc. Afterwards we create</span>
+<span class="sd">a bunch of plots.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">gridplot</span>
+<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">LinearAxis</span><span class="p">,</span> <span class="n">Range1d</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
+
+<span class="kn">from</span> <span class="nn">bio_rtd.logger</span> <span class="kn">import</span> <span class="n">DataStoringLogger</span>
+<span class="kn">from</span> <span class="nn">examples.templates.sc_uo.pcc_template</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">pcc</span>
+
+<span class="sd">&quot;&quot;&quot;Basic use.&quot;&quot;&quot;</span>
+<span class="c1"># Define inlet flow rate. Same shape at `t`.</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.5</span>
+<span class="c1"># Inlet concentration profile. Shape = (n_components, t.size).</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">size</span><span class="p">])</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="c1"># Set logger that stored data</span>
+<span class="n">pcc</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">DataStoringLogger</span><span class="p">()</span>
+<span class="c1"># Simulate.</span>
+<span class="n">f_out</span><span class="p">,</span> <span class="n">c_out</span> <span class="o">=</span> <span class="n">pcc</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Plot inlet and outlet profiles.&quot;&quot;&quot;</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">695</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;PCC&quot;</span><span class="p">,</span>
+            <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c [mg/mL]&quot;</span><span class="p">)</span>
+<span class="c1"># Add new axis for flow rate to the right.</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">extra_y_ranges</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="n">Range1d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">f_out</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">)}</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span><span class="n">LinearAxis</span><span class="p">(</span><span class="n">y_range_name</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">),</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">yaxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;f [mL/min]&quot;</span>
+<span class="c1"># Set scale to CV.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">pcc</span><span class="o">.</span><span class="n">cv</span> <span class="o">*</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">y_range_name</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">,</span>
+        <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;f_in&#39;</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;c_in&#39;</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_out</span><span class="p">,</span> <span class="n">y_range_name</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">,</span>
+        <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;f_out&#39;</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c_out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;c_out&#39;</span><span class="p">)</span>
+<span class="c1"># show(p1)</span>
+
+<span class="sd">&quot;&quot;&quot;Print data from log.&quot;&quot;&quot;</span>
+<span class="c1"># get data tree from log</span>
+<span class="n">data_tree</span> <span class="o">=</span> <span class="n">pcc</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">get_data_tree</span><span class="p">(</span><span class="n">pcc</span><span class="o">.</span><span class="n">uo_id</span><span class="p">)</span>
+<span class="c1"># print data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;t_cycle_optimization_loop_iter&quot;</span><span class="p">])</span>
+
+<span class="sd">&quot;&quot;&quot;Plot elution step profiles from log.</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">Model stores parameters in log if</span>
+<span class="sd">    `pcc.log.log_data == True` and</span>
+<span class="sd">    `pcc.log.log_level_data &lt;= pcc.log.INFO`.</span>
+<span class="sd">Model stores parameters and time profiles in log if:</span>
+<span class="sd">    `pcc.log.log_data == True` and</span>
+<span class="sd">    `pcc.log.log_level_data &lt;= pcc.log.DEBUG`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># Elution peak shape.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data_tree</span><span class="p">[</span><span class="s1">&#39;p_elution_peak&#39;</span><span class="p">]</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">695</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Elution peak shape&quot;</span><span class="p">,</span>
+            <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;p []&quot;</span><span class="p">)</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[:</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;elution peak shape&#39;</span><span class="p">)</span>
+<span class="c1"># Elution peak collection interval.</span>
+<span class="n">y_mask</span> <span class="o">=</span> <span class="n">data_tree</span><span class="p">[</span><span class="s1">&#39;elution_peak_interval&#39;</span><span class="p">]</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[:</span><span class="n">y_mask</span><span class="o">.</span><span class="n">size</span><span class="p">],</span> <span class="n">y_mask</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;elution peak collection range&#39;</span><span class="p">)</span>
+<span class="c1"># Duration of elution step.</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">data_tree</span><span class="p">[</span><span class="s1">&#39;elution_t&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dotdash&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">line_alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;elution step end&#39;</span><span class="p">)</span>
+<span class="c1"># show(p2)</span>
+
+<span class="c1"># Plot breakthrough profile for 2 cycles worth of inlet material.</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">695</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Binding capacity&#39;</span><span class="p">,</span>
+            <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c / c_load&quot;</span><span class="p">)</span>
+<span class="n">i_cycle</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;cycle_t&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">dt</span><span class="p">))</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[:</span><span class="n">i_cycle</span> <span class="o">*</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:</span><span class="n">i_cycle</span> <span class="o">*</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;load material&#39;</span><span class="p">)</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[:</span><span class="n">i_cycle</span> <span class="o">*</span> <span class="mi">2</span><span class="p">],</span> <span class="n">pcc</span><span class="o">.</span><span class="n">load_bt</span><span class="o">.</span><span class="n">calc_c_bound</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">c</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:</span><span class="n">i_cycle</span> <span class="o">*</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;bound material&#39;</span><span class="p">)</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">line</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="n">i_cycle</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">i_cycle</span><span class="p">]),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dotdash&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;cycle&#39;</span><span class="p">)</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">line</span><span class="p">((</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dotdash&#39;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;cycle&#39;</span><span class="p">)</span>
+<span class="c1"># show(p3)</span>
+
+<span class="c1"># Plot profiles for each cycle of load.</span>
+<span class="n">p4_group</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_tree</span><span class="p">[</span><span class="s1">&#39;cycles&#39;</span><span class="p">]):</span>
+    <span class="c1"># When column starts seeing recycled material.</span>
+    <span class="n">i_s</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;i_cycle_load_start&#39;</span><span class="p">]</span>
+    <span class="c1"># When column starts seeing load material (beginning of load step).</span>
+    <span class="n">i_ss</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;i_cycle_load_step_start&#39;</span><span class="p">]</span>
+    <span class="c1"># When the load step ends.</span>
+    <span class="n">i_e</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;i_cycle_load_end&#39;</span><span class="p">]</span>
+
+    <span class="n">y_max</span> <span class="o">=</span> <span class="mf">8.5</span>  <span class="c1"># Just so all plots have same y range.</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">695</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Cycle &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [min]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c [mg/mL]&quot;</span><span class="p">)</span>
+    <span class="c1"># Profiles.</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_s</span><span class="p">:</span><span class="n">i_e</span><span class="p">],</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;f_load&#39;</span><span class="p">],</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;load flow rate&#39;</span><span class="p">)</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_s</span><span class="p">:</span><span class="n">i_e</span><span class="p">],</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;c_load&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;load conc&#39;</span><span class="p">)</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_s</span><span class="p">:</span><span class="n">i_e</span><span class="p">],</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;c_bound&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span>
+            <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;bound part of load conc&#39;</span><span class="p">)</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_s</span><span class="p">:</span><span class="n">i_e</span><span class="p">],</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;c_unbound&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span>
+            <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;unbound part of load conc&#39;</span><span class="p">)</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_s</span><span class="p">:</span><span class="n">i_e</span><span class="p">],</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;c_out_load&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;overload conc&#39;</span><span class="p">)</span>
+    <span class="c1"># Vertical markers.</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_s</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_max</span><span class="p">),</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+            <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;previous load start&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">i_wash_recycle</span> <span class="o">=</span> <span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;cycles&quot;</span><span class="p">][</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;c_wash_recycle&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_s</span> <span class="o">+</span> <span class="n">i_wash_recycle</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_max</span><span class="p">),</span>
+                <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+                <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;wash recycle end&#39;</span><span class="p">)</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_ss</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_max</span><span class="p">),</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dotdash&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+            <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;load start&#39;</span><span class="p">)</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_e</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_max</span><span class="p">),</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashdot&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+            <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;load end&#39;</span><span class="p">)</span>
+    <span class="n">t_wash</span> <span class="o">=</span> <span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;wash_t&quot;</span><span class="p">]</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i_e</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">t_wash</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_max</span><span class="p">),</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+            <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;wash end&#39;</span><span class="p">)</span>
+    <span class="c1"># ## WASH ##</span>
+    <span class="n">cvd</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;c_wash_desorbed&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">cvd</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">cvd</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+            <span class="n">t</span><span class="p">[</span><span class="n">i_e</span><span class="p">]</span> <span class="o">+</span> <span class="n">t</span><span class="p">[:</span><span class="n">cvd</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+            <span class="n">cvd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dotdash&#39;</span><span class="p">,</span>
+            <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;wash desorbed&#39;</span>
+        <span class="p">)</span>
+    <span class="n">cow</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="s1">&#39;c_out_wash&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">cow</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">cow</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">pc</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+            <span class="n">t</span><span class="p">[</span><span class="n">i_e</span><span class="p">]</span> <span class="o">+</span> <span class="n">t</span><span class="p">[:</span><span class="n">cow</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+            <span class="n">cow</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+            <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;wash outlet&#39;</span>
+        <span class="p">)</span>
+    <span class="n">pc</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;top_center&quot;</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">pc</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">visible</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">p4_group</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">pc</span><span class="p">])</span>
+<span class="c1"># show(gridplot(p4_group))</span>
+
+<span class="n">show</span><span class="p">(</span><span class="n">gridplot</span><span class="p">([[</span><span class="n">p1</span><span class="p">],</span> <span class="p">[</span><span class="n">p2</span><span class="p">],</span> <span class="p">[</span><span class="n">p3</span><span class="p">],</span> <span class="o">*</span><span class="n">p4_group</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="integrated_mab.html" class="btn btn-neutral float-right" title="Integrated mAB model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="single_uf_df.html" class="btn btn-neutral float-left" title="Single unit operation - UF DF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
