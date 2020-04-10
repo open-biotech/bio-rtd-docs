@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User Guide" href="user_guide.html" />
+    <link rel="prev" title="Welcome to bio-rtd documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Python 3.7.+</p>
+<p>Packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span>
+<span class="n">scipy</span>
+<span class="n">bokeh</span>
+<span class="n">xlrd</span>
+<span class="n">pandas</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy</span></code> are basic requirements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bokeh</span></code> and <code class="docutils literal notranslate"><span class="pre">xlrd</span></code> are needed for plotting and/or GUI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> is needed for reading data from Excel in one of the examples.</p></li>
+</ul>
+<p>It is generally recommended to use <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">python virtual environment</a> or
+<a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda
+virtual
+environment</a>.</p>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Clone git repo:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/open-biotech/bio-rtd.git
+</pre></div>
+</div>
+<p>Go to repo folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> bio-rtd
+</pre></div>
+</div>
+<p>Install requirements:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-first-example">
+<h2>Running first example<a class="headerlink" href="#running-first-example" title="Permalink to this headline">¶</a></h2>
+<p>Run an example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python example/models/single_pcc.py
+</pre></div>
+</div>
+<p>If you see:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;bio_rtd&#39;</span>
+</pre></div>
+</div>
+<p>then you need to add repo to PYTHONPATH (either in your IDE or in terminal):</p>
+<p>PyCharm</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Check</span> <span class="s2">&quot;Add source root to PYTHONPATH&quot;</span> <span class="n">under</span>
+<span class="s2">&quot;Run/Debug configuration&quot;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PYTHONPATH</span><span class="si">}</span>:<span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-example-with-bokeh-serve">
+<h2>Running example with bokeh serve<a class="headerlink" href="#running-example-with-bokeh-serve" title="Permalink to this headline">¶</a></h2>
+<p>Examples that end with <code class="docutils literal notranslate"><span class="pre">_gui.py</span></code> are
+python scripts for creating an interactive web application.</p>
+<p>In background a <cite>Bokeh Server</cite> instance is created. The server connects UI elements with python script (see
+more at <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/user_guide/server.html#userguide-server-applications">Building Bokeh Applications</a>).</p>
+<hr class="docutils" />
+<p><strong>Terminal</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bokeh serve --show example/models/integrated_mab_gui.py
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bokeh</span></code> can also run as a python script (good for debugging):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python <span class="sb">`</span>which bokeh<span class="sb">`</span> serve --show example/models/integrated_mab_gui.py
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>PyCharm</strong></p>
+<p>To run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">bokeh</span> <span class="pre">serve</span></code> with PyCharm, set the following <em>Run Configuration</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Configuration</span><span class="p">:</span> <span class="n">python</span>
+<span class="n">Script</span> <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">path_to</span><span class="o">/</span><span class="n">bokeh</span>
+<span class="n">Parameters</span><span class="p">:</span> <span class="n">serve</span> <span class="o">--</span><span class="n">show</span> <span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">integrated_mab_gui</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">/path_to/bokeh</span></code> can be obtained by running <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">bokeh</span></code> command in terminal in PyCharm.</p>
+<hr class="docutils" />
+<p>Also make sure the repo is added to the PYTHONPATH as described in <a class="reference internal" href="#running-first-example"><span class="std std-ref">Running first example</span></a>.</p>
+<p>Flag <code class="docutils literal notranslate"><span class="pre">--show</span></code> is optional and runs the newly created instance in a new tab in a web browser.
+Only one server instance can be run (on the same port). If you try to run another <code class="docutils literal notranslate"><span class="pre">bokeh</span> <span class="pre">serve</span></code> command while one
+is running, you will see the following exception:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cannot start Bokeh server, port <span class="m">5006</span> is already in use
+</pre></div>
+</div>
+<p>In that case find and close the existing running <code class="docutils literal notranslate"><span class="pre">bokeh</span> <span class="pre">serve</span></code> process.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user_guide.html" class="btn btn-neutral float-right" title="User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to bio-rtd documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

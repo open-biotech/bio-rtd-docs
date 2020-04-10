@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Integrated mAB model &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Integrated mAB GUI model" href="integrated_mab_gui.html" />
+    <link rel="prev" title="Single unit operation - PCC" href="single_pcc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../examples.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../models.html">Models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="single_uf_df.html">Single unit operation - UF DF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="single_pcc.html">Single unit operation - PCC</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Integrated mAB model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integrated_mab_gui.html">Integrated mAB GUI model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integrated_excel_gui.html">Integrated Excel GUI model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../templates.html">Templates</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../examples.html">Examples</a> &raquo;</li>
+        
+          <li><a href="../models.html">Models</a> &raquo;</li>
+        
+      <li>Integrated mAB model</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="integrated-mab-model">
+<h1>Integrated mAB model<a class="headerlink" href="#integrated-mab-model" title="Permalink to this headline">¶</a></h1>
+
+<script src="bokeh-plot-90820bd0cfac483d8f836269c790ac4c-external-examples-models-integrated_mab.js" id="15d109c4-8188-45cb-ae24-8163e1133616"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example `RtdModel` for mAB downstream process</span>
+
+<span class="sd">In this example we define unit operations for a hypothetical mAB</span>
+<span class="sd">process. We use only single specie in the model in order to narrow</span>
+<span class="sd">the scope of the sample.</span>
+
+<span class="sd">Examples</span>
+<span class="sd">--------</span>
+<span class="sd">Additional species can be added to the model by following the steps:</span>
+<span class="sd">&gt;&gt;&gt; # Add new species to the inlet concentration vector.</span>
+<span class="sd">&gt;&gt;&gt; rtd_model.inlet.species_list = [&#39;mAB&#39;, &#39;new_sp_1&#39;, &#39;new_sp_2&#39;]</span>
+<span class="sd">&gt;&gt;&gt; rtd_model.inlet.c = np.array([2.4, 20, 30])</span>
+<span class="sd">&gt;&gt;&gt; # Update unit operations.</span>
+<span class="sd">&gt;&gt;&gt; # E.g. PCC should not bind new species.</span>
+<span class="sd">&gt;&gt;&gt; pcc_pro_a.non_binding_species = [1, 2]</span>
+<span class="sd">&gt;&gt;&gt; # E.g. UFDF should not retain not bind new species.</span>
+<span class="sd">&gt;&gt;&gt; conc.non_retained_species = [1, 2]</span>
+<span class="sd">&gt;&gt;&gt; buffer_exchange.non_retained_species = [1, 2]</span>
+<span class="sd">&gt;&gt;&gt; # Update parameters, like elution buffer composition, if needed.</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">Process parameters</span>
+<span class="sd">    Process parameters were chosen in a way that the workflow and the</span>
+<span class="sd">    results can be easily interpreted by the user. This means that the</span>
+<span class="sd">    process parameters might not always represent an actual mAB</span>
+<span class="sd">    production process.</span>
+
+<span class="sd">    See templates of individual unit operations for more information</span>
+<span class="sd">    about which process parameters can be defined.</span>
+
+<span class="sd">    See docstrings of individual unit operations for more details about</span>
+<span class="sd">    individual process parameters.</span>
+
+<span class="sd">Units</span>
+<span class="sd">    RtdModel does not depend on any specific set of units.</span>
+<span class="sd">    They just need to be consistent across the model. E.g.:</span>
+<span class="sd">    Unit `base`:</span>
+<span class="sd">      * time [min]</span>
+<span class="sd">      * volume [mL]</span>
+<span class="sd">      * weight [mg]</span>
+<span class="sd">    Independent species can have different units, e.g.:</span>
+<span class="sd">      * protein [IU]</span>
+<span class="sd">      * acetate [mmol]</span>
+<span class="sd">      * salt [mg]</span>
+<span class="sd">    All derived units need to be a combination of &#39;basic&#39; units.</span>
+<span class="sd">      * flow rate [mL/min]</span>
+<span class="sd">      * column height [cm]</span>
+<span class="sd">      * column binding capacity (protein) [IU/mL]</span>
+<span class="sd">      * etc.</span>
+<span class="sd">    In presented model, [mL], [mg] and [min] were used as a &#39;base&#39;.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">column</span>
+<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">Range1d</span><span class="p">,</span> <span class="n">LinearAxis</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
+
+<span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">peak_fitting</span><span class="p">,</span> <span class="n">inlet</span>
+<span class="kn">from</span> <span class="nn">bio_rtd.chromatography</span> <span class="kn">import</span> <span class="n">bt_load</span>
+<span class="kn">from</span> <span class="nn">bio_rtd.uo</span> <span class="kn">import</span> <span class="n">sc_uo</span><span class="p">,</span> <span class="n">fc_uo</span><span class="p">,</span> <span class="n">surge_tank</span><span class="p">,</span> <span class="n">special_uo</span>
+<span class="kn">from</span> <span class="nn">bio_rtd.core</span> <span class="kn">import</span> <span class="n">RtdModel</span>
+<span class="kn">from</span> <span class="nn">bio_rtd.logger</span> <span class="kn">import</span> <span class="n">DataStoringLogger</span>
+
+
+<span class="sd">&quot;&quot;&quot;Simulation time.&quot;&quot;&quot;</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># min</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">24.1</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+
+<span class="sd">&quot;&quot;&quot;DSP train.&quot;&quot;&quot;</span>
+
+<span class="c1"># Cell removal.</span>
+<span class="n">ft_cell_removal</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThroughWithSwitching</span><span class="p">(</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">GaussianFixedRelativeWidth</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">relative_sigma</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span>
+    <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;cell_removal_ft&quot;</span><span class="p">,</span>
+    <span class="n">gui_title</span><span class="o">=</span><span class="s2">&quot;Cell removal&quot;</span>
+<span class="p">)</span>
+<span class="n">ft_cell_removal</span><span class="o">.</span><span class="n">v_void</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># mL</span>
+<span class="n">ft_cell_removal</span><span class="o">.</span><span class="n">v_cycle</span> <span class="o">=</span> <span class="mi">20000</span>  <span class="c1"># mL; switch filter unit after 20 L</span>
+
+<span class="c1"># ProteinA PCC.</span>
+<span class="c1"># Describe binding dynamics during load.</span>
+<span class="n">load_bt</span> <span class="o">=</span> <span class="n">bt_load</span><span class="o">.</span><span class="n">ConstantPatternSolution</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">dbc_100</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.12</span><span class="p">)</span>
+<span class="c1"># Describe elution peak with EMG pdf.</span>
+<span class="n">ep_rt_mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">skew</span> <span class="o">=</span> \
+    <span class="n">peak_fitting</span><span class="o">.</span><span class="n">calc_emg_parameters_from_peak_shape</span><span class="p">(</span><span class="n">t_peak_start</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+                                                     <span class="n">t_peak_max</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+                                                     <span class="n">t_peak_end</span><span class="o">=</span><span class="mf">27.5</span><span class="p">,</span>
+                                                     <span class="n">relative_threshold</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="c1"># Assuming the above experiments were done with 10 mL column.</span>
+<span class="n">ep_rt_mean_cv</span> <span class="o">=</span> <span class="n">ep_rt_mean</span> <span class="o">/</span> <span class="mi">10</span>
+<span class="c1"># Elution peak shape pdf.</span>
+<span class="n">peak_shape_pdf</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">ExpModGaussianFixedRelativeWidth</span><span class="p">(</span>
+    <span class="n">t</span><span class="p">,</span>
+    <span class="n">sigma_relative</span><span class="o">=</span><span class="n">sigma</span> <span class="o">/</span> <span class="n">ep_rt_mean</span><span class="p">,</span>
+    <span class="n">tau_relative</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">skew</span> <span class="o">/</span> <span class="n">ep_rt_mean</span><span class="p">,</span>
+    <span class="n">pdf_id</span><span class="o">=</span><span class="s2">&quot;emg_rw_el_peak&quot;</span>
+<span class="p">)</span>
+<span class="c1"># Load recycle pdf. We try to describe the propagation of unbound and/or</span>
+<span class="c1"># desorbed material throughout the column during load (and wash) step.</span>
+<span class="n">load_recycle_pdf</span> <span class="o">=</span> <span class="n">pdf</span><span class="o">.</span><span class="n">GaussianFixedDispersion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span>
+                                               <span class="n">dispersion_index</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">30</span><span class="p">,</span>
+                                               <span class="n">pdf_id</span><span class="o">=</span><span class="s2">&quot;g_fd_load_recycle_pdf&quot;</span><span class="p">)</span>
+<span class="n">pcc_pro_a</span> <span class="o">=</span> <span class="n">sc_uo</span><span class="o">.</span><span class="n">PCC</span><span class="p">(</span>
+    <span class="n">t</span><span class="p">,</span>
+    <span class="n">load_bt</span><span class="o">=</span><span class="n">load_bt</span><span class="p">,</span>
+    <span class="n">peak_shape_pdf</span><span class="o">=</span><span class="n">peak_shape_pdf</span><span class="p">,</span>
+    <span class="n">load_recycle_pdf</span><span class="o">=</span><span class="n">load_recycle_pdf</span><span class="p">,</span>
+    <span class="c1"># Porosity of the column for protein.</span>
+    <span class="n">column_porosity_retentate</span><span class="o">=</span><span class="mf">0.64</span><span class="p">,</span>
+    <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;pro_a_pcc&quot;</span><span class="p">,</span>
+    <span class="n">gui_title</span><span class="o">=</span><span class="s2">&quot;ProteinA PCC&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">cv</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># mL</span>
+<span class="c1"># Equilibration step.</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">equilibration_cv</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="c1"># Equilibration flow rate is same as load flow rate.</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">equilibration_f_rel</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Load until 70 % breakthrough.</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">load_c_end_relative_ss</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="c1"># Automatically prolong first cycle in order to achieve steady-state faster.</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">load_extend_first_cycle</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># Define wash step. There is no desorption during wash step in this example.</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">wash_cv</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">wash_recycle</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">wash_recycle_duration_cv</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># Elution step.</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">elution_cv</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="c1"># 1st momentum of elution peak from data from above.</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">elution_peak_position_cv</span> <span class="o">=</span> <span class="n">ep_rt_mean_cv</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">elution_peak_cut_start_c_rel_to_peak_max</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">elution_peak_cut_end_c_rel_to_peak_max</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="c1"># Regeneration step.</span>
+<span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">regeneration_cv</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="c1"># Surge tank - CSTR.</span>
+<span class="n">st_cstr</span> <span class="o">=</span> <span class="n">surge_tank</span><span class="o">.</span><span class="n">CSTR</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;st_cstr&quot;</span><span class="p">,</span> <span class="n">gui_title</span><span class="o">=</span><span class="s2">&quot;Surge Tank - CSTR&quot;</span><span class="p">)</span>
+<span class="n">st_cstr</span><span class="o">.</span><span class="n">v_min_ratio</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># 10 % fill level remains after discharge</span>
+<span class="n">st_cstr</span><span class="o">.</span><span class="n">starts_empty</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Virus inactivation - FlowThrough, no switching</span>
+<span class="n">ft_vi</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThrough</span><span class="p">(</span>
+    <span class="n">t</span><span class="p">,</span>
+    <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">GaussianFixedDispersion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dispersion_index</span><span class="o">=</span><span class="mi">20</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;vi_ft&quot;</span><span class="p">,</span> <span class="n">gui_title</span><span class="o">=</span><span class="s2">&quot;Virus Inactivation - flow-through column&quot;</span><span class="p">)</span>
+<span class="n">ft_vi</span><span class="o">.</span><span class="n">rt_target</span> <span class="o">=</span> <span class="mi">68</span>  <span class="c1"># min</span>
+
+<span class="c1"># AEX polishing step, FlowThroughWithSwitching.</span>
+<span class="n">ft_aex</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThroughWithSwitching</span><span class="p">(</span>
+    <span class="n">t</span><span class="p">,</span>
+    <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">GaussianFixedDispersion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dispersion_index</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;aex_ft&quot;</span><span class="p">,</span> <span class="n">gui_title</span><span class="o">=</span><span class="s2">&quot;Polishing, AEX, flow-through&quot;</span><span class="p">)</span>
+<span class="n">ft_aex</span><span class="o">.</span><span class="n">v_void</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># mL</span>
+<span class="n">ft_aex</span><span class="o">.</span><span class="n">v_cycle</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">*</span> <span class="mi">10</span>  <span class="c1"># mL; switch column unit after 20 L</span>
+
+<span class="c1"># UFDF</span>
+<span class="c1"># Concentration.</span>
+<span class="n">conc</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">Concentration</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">flow_reduction</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;uf_df_conc&quot;</span><span class="p">)</span>
+<span class="c1"># BufferExchange</span>
+<span class="n">buffer_exchange</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">BufferExchange</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">exchange_ratio</span><span class="o">=</span><span class="mf">0.995</span><span class="p">,</span>
+                                       <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;uf_df_buffer_exchange&quot;</span><span class="p">)</span>
+<span class="c1"># FlowThrough</span>
+<span class="n">flow_through</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThrough</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">TanksInSeries</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">n_tanks</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+                                 <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;uf_df_rtd&quot;</span><span class="p">)</span>
+<span class="n">flow_through</span><span class="o">.</span><span class="n">v_void</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="mi">3</span>  <span class="c1"># mL</span>
+<span class="n">uf_df</span> <span class="o">=</span> <span class="n">special_uo</span><span class="o">.</span><span class="n">ComboUO</span><span class="p">(</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">sub_uo_list</span><span class="o">=</span><span class="p">[</span><span class="n">conc</span><span class="p">,</span> <span class="n">buffer_exchange</span><span class="p">,</span> <span class="n">flow_through</span><span class="p">],</span>
+    <span class="n">uo_id</span><span class="o">=</span><span class="s2">&quot;uf_df&quot;</span><span class="p">,</span> <span class="n">gui_title</span><span class="o">=</span><span class="s2">&quot;UFDF&quot;</span><span class="p">)</span>
+
+<span class="c1"># DSP train</span>
+<span class="n">dsp_train</span> <span class="o">=</span> <span class="p">[</span><span class="n">ft_cell_removal</span><span class="p">,</span> <span class="n">pcc_pro_a</span><span class="p">,</span> <span class="n">st_cstr</span><span class="p">,</span> <span class="n">ft_vi</span><span class="p">,</span> <span class="n">ft_aex</span><span class="p">,</span> <span class="n">uf_df</span><span class="p">]</span>
+
+
+<span class="sd">&quot;&quot;&quot;Inlet.&quot;&quot;&quot;</span>
+
+<span class="n">const_inlet</span> <span class="o">=</span> <span class="n">inlet</span><span class="o">.</span><span class="n">ConstantInlet</span><span class="p">(</span><span class="n">t</span><span class="p">,</span>
+                                  <span class="n">f</span><span class="o">=</span><span class="mi">1000</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span>  <span class="c1"># mL/min (= 1 L / h)</span>
+                                  <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.4</span><span class="p">]),</span>  <span class="c1"># mg/mL</span>
+                                  <span class="n">species_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mAB [mg/mL]&quot;</span><span class="p">],</span>
+                                  <span class="n">inlet_id</span><span class="o">=</span><span class="s2">&quot;constant_inlet&quot;</span><span class="p">,</span>
+                                  <span class="n">gui_title</span><span class="o">=</span><span class="s2">&quot;Constant inlet&quot;</span><span class="p">)</span>
+
+
+<span class="sd">&quot;&quot;&quot;`RtdModel`.&quot;&quot;&quot;</span>
+
+<span class="n">rtd_model</span> <span class="o">=</span> <span class="n">RtdModel</span><span class="p">(</span><span class="n">inlet</span><span class="o">=</span><span class="n">const_inlet</span><span class="p">,</span> <span class="n">dsp_uo_chain</span><span class="o">=</span><span class="n">dsp_train</span><span class="p">,</span>
+                     <span class="n">logger</span><span class="o">=</span><span class="n">DataStoringLogger</span><span class="p">(),</span>
+                     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Sample model for mAB production process&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">!=</span> <span class="s2">&quot;examples.models.integrated_mab&quot;</span><span class="p">:</span>
+    <span class="c1"># Ignore warnings when not running script directly.</span>
+    <span class="n">rtd_model</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="n">rtd_model</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">ERROR</span>
+
+<span class="sd">&quot;&quot;&quot;Running simulation.&quot;&quot;&quot;</span>
+
+<span class="n">rtd_model</span><span class="o">.</span><span class="n">recalculate</span><span class="p">()</span>
+
+
+<span class="sd">&quot;&quot;&quot;Display info about the losses during PCC step from log.</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">Various additional process data and profiles are stored within the log.</span>
+<span class="sd">`examples/models/single_pcc.py` contains an example of plotting</span>
+<span class="sd">intermediate data, such as concentration profiles during the wash step.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">print_pcc_info</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Displaying data about load material&quot;</span>
+          <span class="sa">f</span><span class="s2">&quot; distribution during the pcc:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;--&quot;</span> <span class="o">*</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="n">pcc_data</span> <span class="o">=</span> <span class="n">rtd_model</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">get_data_tree</span><span class="p">(</span><span class="n">pcc_pro_a</span><span class="o">.</span><span class="n">uo_id</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cycle_data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pcc_data</span><span class="p">[</span><span class="s2">&quot;cycles&quot;</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cycle </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+        <span class="n">m_load</span> <span class="o">=</span> <span class="n">cycle_data</span><span class="p">[</span><span class="s1">&#39;m_load&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded amount:&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">m_load</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> mg&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Captured protein:&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">cycle_data</span><span class="p">[</span><span class="s1">&#39;m_bound&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">m_load</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> %&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Load recycled during load step:&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">cycle_data</span><span class="p">[</span><span class="s1">&#39;m_load_recycle&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">m_load</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> %&quot;</span><span class="p">)</span>
+        <span class="c1"># Wash gets recycled on 2nd column, thus we pull data from next cycle.</span>
+        <span class="n">m_wash</span> <span class="o">=</span> <span class="n">pcc_data</span><span class="p">[</span><span class="s2">&quot;cycles&quot;</span><span class="p">][</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="s1">&#39;m_wash_recycle&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> \
+            <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pcc_data</span><span class="p">[</span><span class="s2">&quot;cycles&quot;</span><span class="p">])</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Load recycled during wash step:&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">m_wash</span> <span class="o">/</span> <span class="n">m_load</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> %&quot;</span><span class="p">)</span>
+        <span class="n">m_elution</span> <span class="o">=</span> <span class="n">cycle_data</span><span class="p">[</span><span class="s1">&#39;m_elution&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">m_elution_peak</span> <span class="o">=</span> <span class="n">cycle_data</span><span class="p">[</span><span class="s1">&#39;m_elution_peak_cut_loss&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Losses due to peak cut:&quot;</span>
+              <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">m_elution_peak</span> <span class="o">/</span> <span class="n">m_elution</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> %&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">pcc_data</span><span class="p">[</span><span class="s2">&quot;cycles&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;--&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="sd">&quot;&quot;&quot;Plot flow rate and concentration profile.&quot;&quot;&quot;</span>
+
+
+<span class="c1"># noinspection DuplicatedCode</span>
+<span class="k">def</span> <span class="nf">plot_profiles</span><span class="p">():</span>
+    <span class="n">plt_group</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">uo</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">const_inlet</span><span class="p">,</span> <span class="o">*</span><span class="n">dsp_train</span><span class="p">]):</span>
+        <span class="n">f</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">uo</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>  <span class="c1"># get profiles</span>
+        <span class="c1"># Prepare figure.</span>
+        <span class="n">plt</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">690</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">uo</span><span class="o">.</span><span class="n">gui_title</span><span class="p">,</span>
+                     <span class="n">tools</span><span class="o">=</span><span class="s2">&quot;crosshair,reset,save,wheel_zoom,box_zoom,hover&quot;</span><span class="p">,</span>
+                     <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;t [h]&quot;</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;c [mg/mL]&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">extra_y_ranges</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="n">Range1d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">)}</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span><span class="n">LinearAxis</span><span class="p">(</span><span class="n">y_range_name</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">),</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">yaxis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis_label</span> <span class="o">=</span> <span class="s2">&quot;f [mL/min]&quot;</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">y_range</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">y_range</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.25</span>
+        <span class="c1"># Plot profiles.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span>
+                 <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;mAB conc&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="mi">60</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">y_range_name</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
+                 <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;flow rate&#39;</span><span class="p">)</span>
+        <span class="c1"># Add plot to plot list.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;bottom_right&quot;</span>
+        <span class="n">plt_group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
+    <span class="c1"># Show plots.</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">column</span><span class="p">(</span><span class="o">*</span><span class="n">plt_group</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">plot_profiles</span><span class="p">()</span>
+    <span class="n">print_pcc_info</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">!=</span> <span class="s2">&quot;examples.models.integrated_mab&quot;</span><span class="p">:</span>
+    <span class="c1"># Just plot, unless imported as module.</span>
+    <span class="n">plot_profiles</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="integrated_mab_gui.html" class="btn btn-neutral float-right" title="Integrated mAB GUI model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="single_pcc.html" class="btn btn-neutral float-left" title="Single unit operation - PCC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

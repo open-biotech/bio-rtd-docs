@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.logger &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bio_rtd.chromatography.bt_load" href="chromatography.bt_load.html" />
+    <link rel="prev" title="bio_rtd.pdf" href="pdf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="inlet.html">inlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.fc_uo.html">fc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.sc_uo.html">sc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.surge_tank.html">surge_tank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.special_uo.html">special_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">pdf</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">logger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#defaultlogger">DefaultLogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datastoringlogger">DataStoringLogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strictlogger">StrictLogger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rtdlogger">RtdLogger</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_load.html">bt_load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_curve.html">bt_curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.convolution.html">convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.vectors.html">vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adj_par.html">adj_par</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_fitting.html">peak_fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_shapes.html">peak_shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">core</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>bio_rtd.logger</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-bio_rtd.logger">
+<span id="bio-rtd-logger"></span><h1>bio_rtd.logger<a class="headerlink" href="#module-bio_rtd.logger" title="Permalink to this headline">¶</a></h1>
+<p>Module with different loggers for rtd models and its components.</p>
+<p><cite>RtdLogger</cite> is main abstract class that all other loggers implement.
+Loggers handle non-fatal events (info, debug, warning and non-fatal
+error messages) as well as internally stored intermediate process data.</p>
+<p>General guidelines:</p>
+<ul class="simple">
+<li><p><strong>Skip logging and raise Exception directly</strong> in case of a serious
+error.</p></li>
+<li><p>ERROR messages for highly probable sources of inaccuracies within the
+model (e.g. in case a probability distributions contains only a few
+data points), but we don’t necessarily want to raise an exception.</p></li>
+<li><p>WARNING messages for warnings about potential sources of inaccuracy
+in the model.</p></li>
+<li><p>INFO for storing short intermediate data (everything apart from time
+series).</p></li>
+<li><p>DEBUG for storing long intermediate data (time series).</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">DefaultLogger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="s2">&quot;Error Description&quot;</span><span class="p">)</span>  <span class="c1"># log error</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">RuntimeError</span>: <span class="n">Error Description</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="s2">&quot;Warning Description&quot;</span><span class="p">)</span>  <span class="c1"># log waring</span>
+<span class="go">Warning Description</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="s2">&quot;Info&quot;</span><span class="p">)</span>  <span class="c1"># log info</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">log_data</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">log_level_data</span> <span class="o">=</span> <span class="n">RtdLogger</span><span class="o">.</span><span class="n">DEBUG</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">set_data_tree</span><span class="p">(</span><span class="s2">&quot;test_data_tree&quot;</span><span class="p">,</span> <span class="n">data_tree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># store value in logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">d_data</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;lots_of_data&quot;</span><span class="p">)</span>  <span class="c1"># store at DEBUG level</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">get_data_tree</span><span class="p">(</span><span class="s2">&quot;test_data_tree&quot;</span><span class="p">,)[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<span class="go">&#39;lots_of_data&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">StrictLogger</span><span class="p">()</span>  <span class="c1"># raises RuntimeError already on WARNING level</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="s2">&quot;Warning Info&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">RuntimeError</span>: <span class="n">Warning Info</span>
+</pre></div>
+</div>
+<div class="section" id="defaultlogger">
+<h2>DefaultLogger<a class="headerlink" href="#defaultlogger" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.logger.DefaultLogger">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">DefaultLogger</code><span class="sig-paren">(</span><em class="sig-param">log_level=30</em>, <em class="sig-param">log_data=False</em>, <em class="sig-param">log_level_data=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DefaultLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DefaultLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
+<p>Prints warnings to terminal and raises errors.</p>
+<p>Does not store data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Default: WARNING.</p></li>
+<li><p><strong>log_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Default: False.</p></li>
+<li><p><strong>log_level_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Default: DEBUG.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">DefaultLogger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">set_data_tree</span><span class="p">(</span><span class="s2">&quot;my_uo&quot;</span><span class="p">,</span> <span class="n">data_tree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;par_i&quot;</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">)</span>  <span class="c1"># ignored</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">d_data</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;par_d&quot;</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">)</span>  <span class="c1"># ignored</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">data_tree</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>  <span class="c1"># no data</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Info msg&quot;</span><span class="p">)</span>  <span class="c1"># ignored</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Warning msg&quot;</span><span class="p">)</span>
+<span class="go">Warning msg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Error msg&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">RuntimeError</span>: <span class="n">Error msg</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="bio_rtd.logger.DefaultLogger.log">
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DefaultLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DefaultLogger.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log messages.</p>
+<p>Prints warnings (and infos)
+to terminal and raises errors as <cite>RuntimeError</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="datastoringlogger">
+<h2>DataStoringLogger<a class="headerlink" href="#datastoringlogger" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.logger.DataStoringLogger">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">DataStoringLogger</code><span class="sig-paren">(</span><em class="sig-param">log_level=30</em>, <em class="sig-param">log_data=True</em>, <em class="sig-param">log_level_data=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DataStoringLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DataStoringLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
+<p>Prints messages to terminal. Stores all data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Default: WARNING.</p></li>
+<li><p><strong>log_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Default: True.</p></li>
+<li><p><strong>log_level_data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Default: DEBUG.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">DataStoringLogger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">set_data_tree</span><span class="p">(</span><span class="s2">&quot;my_uo&quot;</span><span class="p">,</span> <span class="n">data_tree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;par_i&quot;</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">)</span>  <span class="c1"># stored</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">d_data</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;par_d&quot;</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">)</span>  <span class="c1"># stored</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">data_tree</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>  <span class="c1"># no data</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;par_i&quot;</span><span class="p">]</span>
+<span class="go">8.4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;par_d&quot;</span><span class="p">]</span>
+<span class="go">5.4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Info msg&quot;</span><span class="p">)</span>  <span class="c1"># ignored</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Warning msg&quot;</span><span class="p">)</span>
+<span class="go">Warning msg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Error msg&quot;</span><span class="p">)</span>
+<span class="go">Error msg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">INFO</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;par_i_2&quot;</span><span class="p">,</span> <span class="mf">18.4</span><span class="p">)</span>  <span class="c1"># stored and printed</span>
+<span class="go">Value set: par_i_2: 18.4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;par_i_2&quot;</span><span class="p">]</span>
+<span class="go">18.4</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="bio_rtd.logger.DataStoringLogger.log">
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DataStoringLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DataStoringLogger.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints to terminal everything above <cite>log_level</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="strictlogger">
+<h2>StrictLogger<a class="headerlink" href="#strictlogger" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.logger.StrictLogger">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">StrictLogger</code><a class="reference internal" href="../_modules/bio_rtd/logger.html#StrictLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.StrictLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
+<p>Raises RuntimeError on warning and error messages.</p>
+<p>log_level = WARNING.</p>
+<p>log_data = False.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">StrictLogger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Info msg&quot;</span><span class="p">)</span>  <span class="c1"># ignored</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Warning msg&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">RuntimeError</span>: <span class="n">Warning msg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Error msg&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">RuntimeError</span>: <span class="n">Error msg</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="bio_rtd.logger.StrictLogger.log">
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#StrictLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.StrictLogger.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises RuntimeError if <cite>level</cite> &gt;= WARNING.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="rtdlogger">
+<h2>RtdLogger<a class="headerlink" href="#rtdlogger" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.logger.RtdLogger">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">RtdLogger</code><span class="sig-paren">(</span><em class="sig-param">log_level=30</em>, <em class="sig-param">log_data=False</em>, <em class="sig-param">log_level_data=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract class for log and log data in rtd models.</p>
+<p>Logger has different levels: DEBUG, INFO, WARNING, ERROR.
+Logger has option to hold copies of intermediate data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_level</strong> – Verbosity level for messages. Default = <cite>WARNING</cite>.</p></li>
+<li><p><strong>log_data</strong> – If True, logger collects copies of intermediate data.
+Default = False.</p></li>
+<li><p><strong>log_level_data</strong> – ‘Verbosity level’ for data.
+Default = <cite>DEBUG</cite>. Ignored if <cite>log_data</cite> is False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="bio_rtd.logger.RtdLogger.ERROR">
+<code class="sig-name descname">ERROR</code><em class="property"> = 40</em><a class="headerlink" href="#bio_rtd.logger.RtdLogger.ERROR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log level ERROR.</p>
+<p>ERROR level is meant for signaling events (with messages) that very
+likely impact the accuracy of the model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.logger.RtdLogger.WARNING">
+<code class="sig-name descname">WARNING</code><em class="property"> = 30</em><a class="headerlink" href="#bio_rtd.logger.RtdLogger.WARNING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log level WARNING.</p>
+<p>WARNING level is meant for signaling events (with messages) that
+might be the source of inaccuracies in the model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.logger.RtdLogger.INFO">
+<code class="sig-name descname">INFO</code><em class="property"> = 20</em><a class="headerlink" href="#bio_rtd.logger.RtdLogger.INFO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log level INFO.</p>
+<p>INFO level is meant for events that might indicate potential mishaps
+in the model, but can also occur normally (e.g. if surge tank runs
+dry). This info might help explain the spectra, but it might also
+be a normal occurrence during the shut-down phase.</p>
+<p>INFO level is also meant for keeping small intermediate results
+(no time series) in logger.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.logger.RtdLogger.DEBUG">
+<code class="sig-name descname">DEBUG</code><em class="property"> = 10</em><a class="headerlink" href="#bio_rtd.logger.RtdLogger.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log level DEBUG.</p>
+<p>DEBUG level is meant for keeping also large intermediate data
+(time series) in logger.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.i">
+<code class="sig-name descname">i</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.i"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.i" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log message at INFO level</p>
+<p>INFO level is meant for events that might indicate potential
+mishaps the model, but can also occur normally.</p>
+<p class="rubric">Examples</p>
+<dl class="simple">
+<dt>Reporting that surge tank ran dry.</dt><dd><p>This info might help explain the spectra, but it might just
+as well be a normal occurrence during the shut-down phase.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.w">
+<code class="sig-name descname">w</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.w"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log message at WARNING level</p>
+<p>WARNING level is meant for signaling events that might be the
+source of inaccuracies in the model.</p>
+<p class="rubric">Examples</p>
+<p>Suspicious probability distributions.
+Empty concentration of flow rate profiles.
+Assumptions that might impact the results, such as assumptions
+during steady-state estimation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.e">
+<code class="sig-name descname">e</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.e"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log message at ERROR level</p>
+<p>ERROR level is meant for signaling events that are very likely
+the source of or the sign of inaccuracies in the model, but not
+severe enough to raise an exception in all situations (e.g. in
+an interactive session via GUI).</p>
+<p>If the issue is big enough to warrant an exception, then raise
+the exception instead of using this log.</p>
+<p class="rubric">Examples</p>
+<p>Probability distribution with only few data points.
+Probability distribution with a high cut-off at time 0.
+Load phase of PCC being shorter than the rest of the process.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.set_data_tree">
+<code class="sig-name descname">set_data_tree</code><span class="sig-paren">(</span><em class="sig-param">data_tree_id</em>, <em class="sig-param">data_tree</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.set_data_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.set_data_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seeds data tree in root dictionary.</p>
+<p>Typically <cite>tree_id = uo.id</cite> and <cite>tree_root = dict()</cite>.</p>
+<p>Unit operation needs to save a reference to the <cite>tree_root</cite>
+in order to store data in this logger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_tree_id</strong> (<em>str</em>) – Id of root tree (typically id of unit operation).</p></li>
+<li><p><strong>data_tree</strong> (<em>dict</em>) – Root for data logging (for that unit operation).</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">DataStoringLogger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">set_data_tree</span><span class="p">(</span><span class="s2">&quot;my_uo&quot;</span><span class="p">,</span> <span class="n">data_tree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;par_a&quot;</span><span class="p">,</span> <span class="mf">10.4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;par_a&quot;</span><span class="p">]</span>
+<span class="go">10.4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.set_branch">
+<code class="sig-name descname">set_branch</code><span class="sig-paren">(</span><em class="sig-param">data_tree</em>, <em class="sig-param">branch_name</em>, <em class="sig-param">branch</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.set_branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.set_branch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seeds branch into data tree.</p>
+<p>Typically used to store data from nested unit operations or
+parts of unit operations (evaluation data of probability
+distributions, breakthrough profiles, etc.).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_tree</strong> (<em>dict</em>) – Parent data tree.</p></li>
+<li><p><strong>branch_name</strong> (<em>dict</em>) – Branch (child tree) name.</p></li>
+<li><p><strong>branch</strong> (<em>dict</em>) – Branch (child tree).</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">DataStoringLogger</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">branch_tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">set_data_tree</span><span class="p">(</span><span class="s2">&quot;my_uo&quot;</span><span class="p">,</span> <span class="n">data_tree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">set_branch</span><span class="p">(</span><span class="n">data_tree</span><span class="p">,</span> <span class="s2">&quot;pdf&quot;</span><span class="p">,</span> <span class="n">branch_tree</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="n">branch_tree</span><span class="p">,</span> <span class="s2">&quot;par_b&quot;</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_tree</span><span class="p">[</span><span class="s2">&quot;pdf&quot;</span><span class="p">][</span><span class="s2">&quot;par_b&quot;</span><span class="p">]</span>
+<span class="go">8.4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">branch_tree</span><span class="p">[</span><span class="s2">&quot;par_b&quot;</span><span class="p">]</span>
+<span class="go">8.4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.i_data">
+<code class="sig-name descname">i_data</code><span class="sig-paren">(</span><em class="sig-param">tree</em>, <em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.i_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.i_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log smaller data (no time series).</p>
+<p>Populates (key, value.copy()) pair into <cite>tree</cite>
+if <cite>log_level_data</cite> &gt;= <cite>INFO</cite> and <cite>log_data</cite> is True.</p>
+<p>If the copy of the value is stored, then the
+<cite>self._on_data_stored</cite> function is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.d_data">
+<code class="sig-name descname">d_data</code><span class="sig-paren">(</span><em class="sig-param">tree</em>, <em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.d_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.d_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log larger intermediate data (time series).</p>
+<p>Populates (key, value.copy()) pair into <cite>tree</cite>
+if <cite>log_level_data</cite> &gt;= <cite>DEBUG</cite> and <cite>log_data</cite> is True.</p>
+<p>If the copy of the value is stored, then the
+<cite>self._on_data_stored</cite> function is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.get_data_tree">
+<code class="sig-name descname">get_data_tree</code><span class="sig-paren">(</span><em class="sig-param">data_tree_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.get_data_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.get_data_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns reference to the registered data tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.get_entire_data_tree">
+<code class="sig-name descname">get_entire_data_tree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.get_entire_data_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.get_entire_data_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns reference to the dict with all logged data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.logger.RtdLogger.log">
+<em class="property">abstract </em><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log messages at specific log level.</p>
+<p>See documentation of <cite>self.e()</cite>, <cite>self.w()</cite> and <cite>self.i()</cite> on
+info about what belongs under which log level.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chromatography.bt_load.html" class="btn btn-neutral float-right" title="bio_rtd.chromatography.bt_load" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pdf.html" class="btn btn-neutral float-left" title="bio_rtd.pdf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

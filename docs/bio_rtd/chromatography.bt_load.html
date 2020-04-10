@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.chromatography.bt_load &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bio_rtd.chromatography.bt_curve" href="chromatography.bt_curve.html" />
+    <link rel="prev" title="bio_rtd.logger" href="logger.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="inlet.html">inlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.fc_uo.html">fc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.sc_uo.html">sc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.surge_tank.html">surge_tank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.special_uo.html">special_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">pdf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">logger</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">bt_load</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constantpatternsolution">ConstantPatternSolution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_curve.html">bt_curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.convolution.html">convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.vectors.html">vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adj_par.html">adj_par</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_fitting.html">peak_fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_shapes.html">peak_shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">core</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>bio_rtd.chromatography.bt_load</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-bio_rtd.chromatography.bt_load">
+<span id="bio-rtd-chromatography-bt-load"></span><h1>bio_rtd.chromatography.bt_load<a class="headerlink" href="#module-bio_rtd.chromatography.bt_load" title="Permalink to this headline">¶</a></h1>
+<p>Load breakthrough profiles.</p>
+<p>Load breakthrough profiles determine what parts of load bind to the
+column.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="core.html#bio_rtd.core.ChromatographyLoadBreakthrough" title="bio_rtd.core.ChromatographyLoadBreakthrough"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.ChromatographyLoadBreakthrough</span></code></a></p>
+</div>
+<div class="section" id="constantpatternsolution">
+<h2>ConstantPatternSolution<a class="headerlink" href="#constantpatternsolution" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.chromatography.bt_load.</code><code class="sig-name descname">ConstantPatternSolution</code><span class="sig-paren">(</span><em class="sig-param">dt</em>, <em class="sig-param">dbc_100</em>, <em class="sig-param">k</em>, <em class="sig-param">bt_profile_id='ConstantPatternSolution'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/chromatography/bt_load.html#ConstantPatternSolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.ChromatographyLoadBreakthrough" title="bio_rtd.core.ChromatographyLoadBreakthrough"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.ChromatographyLoadBreakthrough</span></code></a></p>
+<p>Breakthrough profile - Constant Pattern Solution.</p>
+<p>r = 1 / (1 + exp(<cite>k</cite> * (<cite>dbc_100</cite> - <cite>m_load</cite> / <cite>cv</cite>)))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dt</strong> – Time step duration.</p></li>
+<li><p><strong>dbc_100</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Dynamic binding capacity if the load would last indefinitely.</p></li>
+<li><p><strong>k</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Steepness of the breakthrough profile.</p></li>
+<li><p><strong>bt_profile_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of the PDF instance. Used for logs.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>  <span class="c1"># min</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">btc</span> <span class="o">=</span> <span class="n">ConstantPatternSolution</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">dbc_100</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">btc</span><span class="o">.</span><span class="n">update_btc_parameters</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mf">8.0</span><span class="p">)</span>  <span class="c1"># column volume [mL]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">btc</span><span class="o">.</span><span class="n">get_total_bc</span><span class="p">()</span>  <span class="c1"># 8.0 [mL] * 240 [mg/mL] = 1920.0 [mg]</span>
+<span class="go">1920.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f_in</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>  <span class="c1"># mL / min</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c_in</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">size</span><span class="p">])</span> <span class="o">*</span> <span class="mi">15</span>  <span class="c1"># mg / mL</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c_captured</span> <span class="o">=</span> <span class="n">btc</span><span class="o">.</span><span class="n">calc_c_bound</span><span class="p">(</span><span class="n">f_in</span><span class="p">,</span> <span class="n">c_in</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c_captured</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">c_in</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c_captured</span>
+<span class="go">array([[14.99990679, 14.99990574, 14.99990467, ..., 10.22437591,</span>
+<span class="go">        10.18768049, 10.15083683]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">((</span><span class="n">c_captured</span> <span class="o">*</span> <span class="n">f_in</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># &lt; 1920.0</span>
+<span class="go">1739.0</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS">
+<code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><em class="property"> = [['cv']]</em><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.OPTIONAL_KEYS">
+<code class="sig-name descname">OPTIONAL_KEYS</code><em class="property"> = []</em><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.dbc_100">
+<code class="sig-name descname">dbc_100</code><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.dbc_100" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dynamic binding capacity at 100 % load breakthrough.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.k">
+<code class="sig-name descname">k</code><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steepness of the breakthrough profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.assert_and_get_provided_kv_pairs">
+<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Filtered <cite>**kwargs</cite> so the keys contain first possible key
+group in <a class="reference internal" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS" title="bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">POSSIBLE_KEY_GROUPS</span></code></a> and any number of
+optional keys from <a class="reference internal" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.OPTIONAL_KEYS" title="bio_rtd.chromatography.bt_load.ConstantPatternSolution.OPTIONAL_KEYS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">OPTIONAL_KEYS</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <cite>**kwargs</cite> do not contain keys from any of the groups
+    in <a class="reference internal" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS" title="bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">POSSIBLE_KEY_GROUPS</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.calc_c_bound">
+<code class="sig-name descname">calc_c_bound</code><span class="sig-paren">(</span><em class="sig-param">f_load</em>, <em class="sig-param">c_load</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.calc_c_bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates what parts of load bind to the column.</p>
+<p>The default implementation calculates cumulative mass of the
+load material and passes it to <code class="xref py py-func docutils literal notranslate"><span class="pre">_update_btc_parameters()</span></code>
+abstract method for evaluation on what shares of the load
+bind to the column. Those shares are then multiplied by <cite>c_load</cite>
+in order to obtain resulting <cite>c_bound</cite>.</p>
+<p>This method is meant to be overridden, if needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_load</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Load flow rate profile.</p></li>
+<li><p><strong>c_load</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Load concentration profile. Concentration profile should
+include only species which bind to the column.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>c_bound</strong> – Parts of the load that bind to the column during the
+load step.</p>
+<p><cite>c_bound</cite> has the same shape as <cite>c_load</cite>.</p>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.log">
+<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
+<p>Setter also plants instance data tree into passed logger.</p>
+<p>If logger is requested, but not yet set, then a
+<a class="reference internal" href="logger.html#bio_rtd.logger.DefaultLogger" title="bio_rtd.logger.DefaultLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.DefaultLogger</span></code></a> is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.set_logger_from_parent">
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherit logger from parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of parent instance.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>) – Logger from parent instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.update_btc_parameters">
+<code class="sig-name descname">update_btc_parameters</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.update_btc_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update binding dynamics for a given set of parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Should contain keys from one of the group in
+<a class="reference internal" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS" title="bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">POSSIBLE_KEY_GROUPS</span></code></a>.
+It may contain additional keys from <a class="reference internal" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.OPTIONAL_KEYS" title="bio_rtd.chromatography.bt_load.ConstantPatternSolution.OPTIONAL_KEYS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">OPTIONAL_KEYS</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.get_total_bc">
+<code class="sig-name descname">get_total_bc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/chromatography/bt_load.html#ConstantPatternSolution.get_total_bc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.get_total_bc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total binding capacity.</p>
+<p>Meant e.g. for determining column utilization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chromatography.bt_curve.html" class="btn btn-neutral float-right" title="bio_rtd.chromatography.bt_curve" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="logger.html" class="btn btn-neutral float-left" title="bio_rtd.logger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

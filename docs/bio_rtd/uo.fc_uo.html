@@ -1,0 +1,946 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.uo.fc_uo &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bio_rtd.uo.sc_uo" href="uo.sc_uo.html" />
+    <link rel="prev" title="bio_rtd.inlet" href="inlet.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="inlet.html">inlet</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">fc_uo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dilution">Dilution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#concentration">Concentration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bufferexchange">BufferExchange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flowthrough">FlowThrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flowthroughwithswitching">FlowThroughWithSwitching</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="uo.sc_uo.html">sc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.surge_tank.html">surge_tank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.special_uo.html">special_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">pdf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_load.html">bt_load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_curve.html">bt_curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.convolution.html">convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.vectors.html">vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adj_par.html">adj_par</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_fitting.html">peak_fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_shapes.html">peak_shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">core</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>bio_rtd.uo.fc_uo</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-bio_rtd.uo.fc_uo">
+<span id="bio-rtd-uo-fc-uo"></span><h1>bio_rtd.uo.fc_uo<a class="headerlink" href="#module-bio_rtd.uo.fc_uo" title="Permalink to this headline">¶</a></h1>
+<p>Semi continuous unit operations.</p>
+<p>Unit operations that accept and provide
+constant or box-shaped flow rate profile.</p>
+<p>Box-shaped flow rate profile is a profile with constant value with
+optional trailing zeros at front or at end.</p>
+<div class="section" id="dilution">
+<h2>Dilution<a class="headerlink" href="#dilution" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.uo.fc_uo.Dilution">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">Dilution</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">dilution_ratio</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">gui_title='Dilution'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#Dilution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
+<p>Process fluid stream dilution by constant ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
+Starts with 0 and has a constant time step.</p></li>
+<li><p><strong>dilution_ratio</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Dilution ratio. Must be &gt;= 1.</p></li>
+<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “Dilution”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.Dilution.c_add_buffer" title="bio_rtd.uo.fc_uo.Dilution.c_add_buffer"><strong>c_add_buffer</strong></a> – Concentration of species in dilution buffer.</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.dilution_ratio">
+<code class="sig-name descname">dilution_ratio</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.dilution_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dilution ratio. Must be &gt;= 1.</p>
+<p>Dilution ratio of 1.2 means adding 20 % of dilution buffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.c_add_buffer">
+<code class="sig-name descname">c_add_buffer</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.c_add_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concentration of species in dilution buffer.</p>
+<p>Default = empty array (= all components are 0).</p>
+<p>If defined, it must have a value for each process fluid specie.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.Dilution.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the propagation throughout the unit operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Inlet concentration profile with shape
+(n_species, n_time_steps).</p></li>
+<li><p><strong>f_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – Inlet flow rate profile with shape (n_time_steps,).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.Dilution.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns existing flow rate and concentration profiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.Dilution.log">
+<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
+<p>Setter also plants instance data tree into passed logger.</p>
+<p>If logger is requested, but not yet set, then a
+<a class="reference internal" href="logger.html#bio_rtd.logger.DefaultLogger" title="bio_rtd.logger.DefaultLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.DefaultLogger</span></code></a> is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.Dilution.set_logger_from_parent">
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherit logger from parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of parent instance.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>) – Logger from parent instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="concentration">
+<h2>Concentration<a class="headerlink" href="#concentration" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.uo.fc_uo.Concentration">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">Concentration</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">flow_reduction</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">gui_title='Concentration'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#Concentration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
+<p>Concentrate process fluid stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
+Starts with 0 and has a constant time step.</p></li>
+<li><p><strong>flow_reduction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Flow reduction (== volume reduction). Must be &gt; 1.</p></li>
+<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “Concentration”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.Concentration.non_retained_species" title="bio_rtd.uo.fc_uo.Concentration.non_retained_species"><strong>non_retained_species</strong></a> – List of indexes of non-retained species. Indexing starts with 0.</p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.Concentration.relative_losses" title="bio_rtd.uo.fc_uo.Concentration.relative_losses"><strong>relative_losses</strong></a> – Relative losses of retained species.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.flow_reduction">
+<code class="sig-name descname">flow_reduction</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.flow_reduction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flow reduction (== volume reduction). Must be &gt; 1.</p>
+<p><cite>outlet flow rate</cite> = <cite>inlet flow rate</cite> / <cite>flow_reduction</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.non_retained_species">
+<code class="sig-name descname">non_retained_species</code><em class="property">: Sequence[int]</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.non_retained_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indexes of non-retained species. Indexing starts with 0.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.relative_losses">
+<code class="sig-name descname">relative_losses</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.relative_losses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative losses of retained species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.Concentration.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the propagation throughout the unit operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Inlet concentration profile with shape
+(n_species, n_time_steps).</p></li>
+<li><p><strong>f_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – Inlet flow rate profile with shape (n_time_steps,).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.Concentration.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns existing flow rate and concentration profiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.Concentration.log">
+<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
+<p>Setter also plants instance data tree into passed logger.</p>
+<p>If logger is requested, but not yet set, then a
+<a class="reference internal" href="logger.html#bio_rtd.logger.DefaultLogger" title="bio_rtd.logger.DefaultLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.DefaultLogger</span></code></a> is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.Concentration.set_logger_from_parent">
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherit logger from parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of parent instance.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>) – Logger from parent instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="bufferexchange">
+<h2>BufferExchange<a class="headerlink" href="#bufferexchange" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">BufferExchange</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">exchange_ratio</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">gui_title='BufferExchange'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#BufferExchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
+<p>Buffer exchange.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
+Starts with 0 and has a constant time step.</p></li>
+<li><p><strong>exchange_ratio</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Exchange ratio (== efficiency). Must be &gt; 0 and &lt;= 1.</p></li>
+<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “BufferExchange”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.BufferExchange.non_retained_species" title="bio_rtd.uo.fc_uo.BufferExchange.non_retained_species"><strong>non_retained_species</strong></a> – List of indexes of non-retained species. Indexing starts with 0.</p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.BufferExchange.c_exchange_buffer" title="bio_rtd.uo.fc_uo.BufferExchange.c_exchange_buffer"><strong>c_exchange_buffer</strong></a> – Exchange buffer composition.</p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.BufferExchange.relative_losses" title="bio_rtd.uo.fc_uo.BufferExchange.relative_losses"><strong>relative_losses</strong></a> – Relative losses of retained species.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Can be combined with <cite>Concentration</cite> and one of the <cite>FlowThrough</cite>
+or <cite>FlowThroughWithSwitching</cite> steps
+in order to simulate unit operations such as SPTFF or UFDF</p>
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.exchange_ratio">
+<code class="sig-name descname">exchange_ratio</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.exchange_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exchange ratio (== efficiency). Must be &gt; 0 and &lt;= 1.</p>
+<p>Share of exchange buffer in outlet buffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.non_retained_species">
+<code class="sig-name descname">non_retained_species</code><em class="property">: Sequence[int]</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.non_retained_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indexes of non-retained species. Indexing starts with 0.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.c_exchange_buffer">
+<code class="sig-name descname">c_exchange_buffer</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.c_exchange_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concentration of species in exchange buffer.</p>
+<p>Default = empty array (= all components are 0).</p>
+<p>If defined, it must have a value for each process fluid specie.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.relative_losses">
+<code class="sig-name descname">relative_losses</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.relative_losses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative losses of retained species during dilution.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the propagation throughout the unit operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Inlet concentration profile with shape
+(n_species, n_time_steps).</p></li>
+<li><p><strong>f_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – Inlet flow rate profile with shape (n_time_steps,).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns existing flow rate and concentration profiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.log">
+<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
+<p>Setter also plants instance data tree into passed logger.</p>
+<p>If logger is requested, but not yet set, then a
+<a class="reference internal" href="logger.html#bio_rtd.logger.DefaultLogger" title="bio_rtd.logger.DefaultLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.DefaultLogger</span></code></a> is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.set_logger_from_parent">
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherit logger from parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of parent instance.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>) – Logger from parent instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="flowthrough">
+<h2>FlowThrough<a class="headerlink" href="#flowthrough" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">FlowThrough</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">pdf</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">gui_title='FlowThrough'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#FlowThrough"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
+<p>Fully continuous unit operation without life cycle.</p>
+<p><cite>FlowThrough</cite> has a constant PDF, which depends on <cite>flow rate</cite> and
+<cite>void volume</cite>.</p>
+<p>If <cite>initial volume</cite> &lt; <cite>void volume</cite>,
+then the unit operation is first filled up.
+During the fill-up an ideal mixing is assumed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
+Starts with 0 and has a constant time step.</p></li>
+<li><p><strong>pdf</strong> (<a class="reference internal" href="core.html#bio_rtd.core.PDF" title="bio_rtd.core.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDF</span></code></a>) – <p>PDF that described propagation of process fluid through the
+unit operation.</p>
+<p><cite>pdf</cite> is updated with <cite>void volume</cite> and <cite>flow rate</cite> at runtime.</p>
+</p></li>
+<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “FlowThrough”.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><strong>Attributes with short description:</strong></p>
+<p>Void volume (one should be defined):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_void" title="bio_rtd.uo.fc_uo.FlowThrough.v_void"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_void</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.rt_target" title="bio_rtd.uo.fc_uo.FlowThrough.rt_target"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rt_target</span></code></a> - <cite>void volume</cite> = <cite>rt_target</cite> * <cite>flow rate</cite></p></li>
+</ul>
+<p>Initial fill volume (one can be defined, optional):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init" title="bio_rtd.uo.fc_uo.FlowThrough.v_init"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio" title="bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init_ratio</span></code></a> - <cite>init volume</cite> = <cite>v_init_ratio</cite> *
+<cite>void volume</cite></p></li>
+<li><p>If none are defined, then <cite>init volume</cite> = <cite>void volume</cite></p></li>
+</ul>
+<p>Init fill volume concentration (optional):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.c_init" title="bio_rtd.uo.fc_uo.FlowThrough.c_init"><code class="xref py py-attr docutils literal notranslate"><span class="pre">c_init</span></code></a> - must have values for each specie</p></li>
+<li><p>In undefined, then all species are 0.</p></li>
+</ul>
+<p>Losses (optional):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_share" title="bio_rtd.uo.fc_uo.FlowThrough.losses_share"><code class="xref py py-attr docutils literal notranslate"><span class="pre">losses_share</span></code></a> - 0.1 == 10 % losses</p></li>
+</ul>
+<p>Losses species list (required if <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_share" title="bio_rtd.uo.fc_uo.FlowThrough.losses_share"><code class="xref py py-attr docutils literal notranslate"><span class="pre">losses_share</span></code></a> is defined):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_species_list" title="bio_rtd.uo.fc_uo.FlowThrough.losses_species_list"><code class="xref py py-attr docutils literal notranslate"><span class="pre">losses_species_list</span></code></a> - Indexes of species affected by
+losses. Indexing starts at 0.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p>A vessel is half-empty at the beginning of the process,
+then <code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init_ratio</span> <span class="pre">=</span> <span class="pre">0.5</span></code>.
+During simulation, the vessel gets fully filled in first part.
+Ideal mixing is assumed during the first part.
+Fully filled vessel serves then as an initial state for
+the rest of the simulation.</p>
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.pdf">
+<code class="sig-name descname">pdf</code><em class="property">: _core.PDF</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probability distribution function for describing RTD.</p>
+<p>PDF that described propagation of process fluid through the
+unit operation.</p>
+<p><cite>pdf</cite> is updated with <cite>void volume</cite> and <cite>flow rate</cite> at runtime.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.v_void">
+<code class="sig-name descname">v_void</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_void" title="Permalink to this definition">¶</a></dt>
+<dd><p>Void volume. This is effective void volume.</p>
+<p>Either <cite>v_void</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.rt_target" title="bio_rtd.uo.fc_uo.FlowThrough.rt_target"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rt_target</span></code></a> should be defined.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.rt_target">
+<code class="sig-name descname">rt_target</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.rt_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target residence time.</p>
+<p>Used to determine (effective) void volume of the unit operation.</p>
+<p>Either <cite>rt_target</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_void" title="bio_rtd.uo.fc_uo.FlowThrough.v_void"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_void</span></code></a> should be defined.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.v_init">
+<code class="sig-name descname">v_init</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial fill volume.</p>
+<p>One of <cite>v_init</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio" title="bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init_ratio</span></code></a> may be defined,
+but not both. If both are undefined, then the init volume is
+the same as void volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio">
+<code class="sig-name descname">v_init_ratio</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial fill volume relative to void volume.</p>
+<p>One of <cite>v_init</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio" title="bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init_ratio</span></code></a> may be defined,
+but not both. If both are undefined, then the init volume is
+the same as void volume.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.c_init">
+<code class="sig-name descname">c_init</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.c_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Buffer composition in initial fill volume.</p>
+<p>E.g. equilibration buffer composition.</p>
+<p>If undefined (default) then all components are set to 0.</p>
+<p>If defined then it has to have a value for each specie.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.losses_share">
+<code class="sig-name descname">losses_share</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_share" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative losses.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.losses_species_list">
+<code class="sig-name descname">losses_species_list</code><em class="property">: Sequence[int]</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_species_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indexes of process fluid components affected by losses.</p>
+<p>Must be defined if <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_share" title="bio_rtd.uo.fc_uo.FlowThrough.losses_share"><code class="xref py py-attr docutils literal notranslate"><span class="pre">losses_share</span></code></a> &gt; 0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.log">
+<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
+<p>Setter also plants instance data tree into passed logger.</p>
+<p>If logger is requested, but not yet set, then a
+<a class="reference internal" href="logger.html#bio_rtd.logger.DefaultLogger" title="bio_rtd.logger.DefaultLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.DefaultLogger</span></code></a> is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the propagation throughout the unit operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Inlet concentration profile with shape
+(n_species, n_time_steps).</p></li>
+<li><p><strong>f_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – Inlet flow rate profile with shape (n_time_steps,).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns existing flow rate and concentration profiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.set_logger_from_parent">
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherit logger from parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of parent instance.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>) – Logger from parent instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="flowthroughwithswitching">
+<h2>FlowThroughWithSwitching<a class="headerlink" href="#flowthroughwithswitching" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">FlowThroughWithSwitching</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">pdf</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">gui_title='FlowThroughWithSwitching'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#FlowThroughWithSwitching"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough" title="bio_rtd.uo.fc_uo.FlowThrough"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.uo.fc_uo.FlowThrough</span></code></a></p>
+<p>Fully continuous unit operation with inline switching.</p>
+<p><cite>FlowThroughWithSwitching</cite> has a constant PDF, which depends on
+<cite>flow rate</cite> and <cite>void volume</cite>.</p>
+<p>First cycle starts when the inlet flow rate is turned on.
+Cycle duration might represent a flow-through column lifetime.</p>
+<p>If <cite>initial volume</cite> &lt; <cite>void volume</cite>,
+then the unit operation is first filled up.
+During the fill-up an ideal mixing is assumed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
+Starts with 0 and has a constant time step.</p></li>
+<li><p><strong>pdf</strong> (<a class="reference internal" href="core.html#bio_rtd.core.PDF" title="bio_rtd.core.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDF</span></code></a>) – <p>PDF that described propagation of process fluid through the
+unit operation.</p>
+<p><cite>pdf</cite> is updated with <cite>void volume</cite> and <cite>flow rate</cite> at runtime.</p>
+</p></li>
+<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “FlowThroughWithSwitching”.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Cycle duration (e.g. column lifetime) should be defined by one of
+the following attributes:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">t_cycle</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle_relative</span></code></a></p></li>
+</ul>
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the propagation throughout the unit operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Inlet concentration profile with shape
+(n_species, n_time_steps).</p></li>
+<li><p><strong>f_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – Inlet flow rate profile with shape (n_time_steps,).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns existing flow rate and concentration profiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.log">
+<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
+<p>Setter also plants instance data tree into passed logger.</p>
+<p>If logger is requested, but not yet set, then a
+<a class="reference internal" href="logger.html#bio_rtd.logger.DefaultLogger" title="bio_rtd.logger.DefaultLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.DefaultLogger</span></code></a> is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.set_logger_from_parent">
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherit logger from parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of parent instance.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>) – Logger from parent instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle">
+<code class="sig-name descname">t_cycle</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycle duration (time).</p>
+<p>E.g. lifecycle of flow-through column.</p>
+<p>Only one cycle duration definition is expected. Available:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">t_cycle</span></code></a> (this one)</p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle_relative</span></code></a></p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle">
+<code class="sig-name descname">v_cycle</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycle duration (volume).</p>
+<p>Cycle duration (time) = <cite>v_cycle</cite> / <cite>inlet flow rate</cite>.</p>
+<p>E.g. lifecycle of flow-through column.</p>
+<p>Only one cycle duration definition is expected. Available:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">t_cycle</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle</span></code></a> (this one)</p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle_relative</span></code></a></p></li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative">
+<code class="sig-name descname">v_cycle_relative</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycle duration (relative volume).</p>
+<p>Cycle duration (time) = <cite>v_cycle_relative</cite> * <cite>void volume</cite>
+/ <cite>inlet flow rate</cite>.</p>
+<p>E.g. lifecycle of flow-through column.</p>
+<p>Only one cycle duration definition is expected. Available:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">t_cycle</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle_relative</span></code></a> (this one)</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="uo.sc_uo.html" class="btn btn-neutral float-right" title="bio_rtd.uo.sc_uo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="inlet.html" class="btn btn-neutral float-left" title="bio_rtd.inlet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.adj_par &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>bio_rtd.adj_par</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for bio_rtd.adj_par</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module for defining adjustable attributes of the RtdModel.</span>
+
+<span class="sd">Adjustable attributes are mainly used by GUI in order to offer</span>
+<span class="sd">responsive parameter setting.</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">Technically this module relates to instance attributes</span>
+<span class="sd">rather than parameters. However, the term &#39;process parameters&#39;</span>
+<span class="sd">is well established in biotech, hence the word &#39;parameter&#39; appears</span>
+<span class="sd">in class names and docstring instead of &#39;instance attribute`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AdjParSlider&#39;</span><span class="p">,</span> <span class="s1">&#39;AdjParRange&#39;</span><span class="p">,</span> <span class="s1">&#39;AdjParBoolean&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;AdjParBooleanMultiple&#39;</span><span class="p">,</span> <span class="s1">&#39;AdjustableParameter&#39;</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;0.7.1&#39;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Jure Sencar&#39;</span>
+
+<span class="kn">import</span> <span class="nn">typing</span> <span class="k">as</span> <span class="nn">_typing</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span> <span class="k">as</span> <span class="n">_ABC</span>
+
+
+<div class="viewcode-block" id="AdjustableParameter"><a class="viewcode-back" href="../../bio_rtd/adj_par.html#bio_rtd.adj_par.AdjustableParameter">[docs]</a><span class="k">class</span> <span class="nc">AdjustableParameter</span><span class="p">(</span><span class="n">_ABC</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Adjustable parameter for `UnitOperation` (or `Inlet`).</span>
+
+<span class="sd">    The class does not provide any logic. It just provides a</span>
+<span class="sd">    unified way to specify an adjustable attribute.</span>
+
+<span class="sd">    This class primarily serves as an abstract class for specific</span>
+<span class="sd">    extensions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    var_list</span>
+<span class="sd">        A list of attributes affected by the `AdjustableParameter`.</span>
+<span class="sd">    v_range</span>
+<span class="sd">        Range of values.</span>
+<span class="sd">    v_init</span>
+<span class="sd">        Initial value. If None, the value is inherited from attribute.</span>
+<span class="sd">    scale_factor</span>
+<span class="sd">        Scale factor.</span>
+<span class="sd">    par_name</span>
+<span class="sd">        Attribute title.</span>
+<span class="sd">    gui_type</span>
+<span class="sd">        Method for setting parameter in GUI.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">var_list</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                 <span class="n">v_range</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">v_init</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span>
+                     <span class="nb">float</span><span class="p">,</span>
+                     <span class="nb">bool</span><span class="p">,</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">scale_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">par_name</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span>
+                     <span class="nb">str</span><span class="p">,</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">gui_type</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">var_list</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_list</span>
+        <span class="sd">&quot;&quot;&quot;A list of attributes affected by the `AdjustableParameter`.</span>
+<span class="sd">        </span>
+<span class="sd">        Attributes typically belong to </span>
+<span class="sd">        :class:`bio_rtd.core.UnitOperation` or</span>
+<span class="sd">        :class:`bio_rtd.core.Inlet` instance.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        var_list = [&#39;c_start[1]&#39;, &#39;c_end[1]&#39;]</span>
+<span class="sd">        </span>
+<span class="sd">        var_list = [&#39;starts_empty&#39;]</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_range</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]]</span> <span class="o">=</span> <span class="n">v_range</span>
+        <span class="sd">&quot;&quot;&quot;Range of values.</span>
+<span class="sd">        </span>
+<span class="sd">        For boolean set None.</span>
+<span class="sd">        </span>
+<span class="sd">        For range specify [start, end, step].</span>
+<span class="sd">        </span>
+<span class="sd">        For list set list. If the list has two columns,</span>
+<span class="sd">        the first one is the title and the second is the value.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_init</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span>
+                     <span class="nb">float</span><span class="p">,</span>
+                     <span class="nb">bool</span><span class="p">,</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">v_init</span>
+        <span class="sd">&quot;&quot;&quot;Initial value.</span>
+<span class="sd">        </span>
+<span class="sd">        If None (default), the value is inherited from initial attribute</span>
+<span class="sd">        value at the start of runtime.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">scale_factor</span>
+        <span class="sd">&quot;&quot;&quot;Scale factor for compensation for differences in units.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Setting time (:attr:`v_init`) in [h] for attribute </span>
+<span class="sd">        (in :attr:`var_list`) in [min] requires</span>
+<span class="sd">        a `scale_factor` of 60.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">par_name</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span>
+                     <span class="nb">str</span><span class="p">,</span>
+                     <span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">par_name</span>
+        <span class="sd">&quot;&quot;&quot;Attribute title.</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        par_name = &#39;Initial delay [min]&#39;  # slider, range, boolean</span>
+<span class="sd">        </span>
+<span class="sd">        par_name = [&#39;Option 1&#39;, &#39;Option 2&#39;, &#39;Option 3&#39;]  # radio buttons</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gui_type</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">gui_type</span>
+        <span class="sd">&quot;&quot;&quot;Method for setting parameter in GUI.</span>
+<span class="sd">        </span>
+<span class="sd">        If None (default) or the gui does not support the type,</span>
+<span class="sd">        then the gui should decide the method based on `v_init` and/or</span>
+<span class="sd">        `var_list`.</span>
+<span class="sd">        </span>
+<span class="sd">        Example values:</span>
+<span class="sd">        &#39;checkbox&#39;, &#39;range&#39;, &#39;slider&#39;, &#39;select&#39;, &#39;multi-select&#39;</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="AdjParBoolean"><a class="viewcode-back" href="../../bio_rtd/adj_par.html#bio_rtd.adj_par.AdjParBoolean">[docs]</a><span class="k">class</span> <span class="nc">AdjParBoolean</span><span class="p">(</span><span class="n">AdjustableParameter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A boolean variation of :class:`AdjustableParameter`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    var</span>
+<span class="sd">        Attribute affected by the `AdjParBoolean`.</span>
+<span class="sd">    v_init</span>
+<span class="sd">        Initial value. If None, the value is inherited from attribute.</span>
+<span class="sd">    par_name</span>
+<span class="sd">        Attribute title.</span>
+<span class="sd">    gui_type</span>
+<span class="sd">        Method for setting parameter in GUI. Default = &#39;checkbox&#39;.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :class:`bio_rtd.adj_par.AdjustableParameter`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">var</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">v_init</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">par_name</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">gui_type</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;checkbox&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([</span><span class="n">var</span><span class="p">],</span>
+                         <span class="n">v_init</span><span class="o">=</span><span class="n">v_init</span><span class="p">,</span>
+                         <span class="n">par_name</span><span class="o">=</span><span class="n">par_name</span><span class="p">,</span>
+                         <span class="n">gui_type</span><span class="o">=</span><span class="n">gui_type</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AdjParBooleanMultiple"><a class="viewcode-back" href="../../bio_rtd/adj_par.html#bio_rtd.adj_par.AdjParBooleanMultiple">[docs]</a><span class="k">class</span> <span class="nc">AdjParBooleanMultiple</span><span class="p">(</span><span class="n">AdjustableParameter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A radio group variation of `AdjustableParameter`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    var_list</span>
+<span class="sd">        List of attributes affected by the `AdjParBooleanMultiple`.</span>
+<span class="sd">    v_init</span>
+<span class="sd">        Initial value. If None, the value is inherited from attribute.</span>
+<span class="sd">    par_name</span>
+<span class="sd">        Attribute title.</span>
+<span class="sd">    gui_type</span>
+<span class="sd">        Method for setting parameter in GUI. Default = &#39;radio_group&#39;.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :class:`bio_rtd.adj_par.AdjustableParameter`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">var_list</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                 <span class="n">v_init</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">par_name</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">gui_type</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;radio_group&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">v_init</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_init</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_list</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">par_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">par_name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_list</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">var_list</span><span class="o">=</span><span class="n">var_list</span><span class="p">,</span>
+                         <span class="n">v_init</span><span class="o">=</span><span class="n">v_init</span><span class="p">,</span>
+                         <span class="n">par_name</span><span class="o">=</span><span class="n">par_name</span><span class="p">,</span>
+                         <span class="n">gui_type</span><span class="o">=</span><span class="n">gui_type</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AdjParSlider"><a class="viewcode-back" href="../../bio_rtd/adj_par.html#bio_rtd.adj_par.AdjParSlider">[docs]</a><span class="k">class</span> <span class="nc">AdjParSlider</span><span class="p">(</span><span class="n">AdjustableParameter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A value slider version of `AdjustableParameter`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    var</span>
+<span class="sd">        Attribute affected by the `AdjParSlider`.</span>
+<span class="sd">    v_range</span>
+<span class="sd">        Range of values.</span>
+
+<span class="sd">        Defines range end or [start, end] or [start, end, step].</span>
+
+<span class="sd">        If step is not defined, the `step = (start - end) / 10`.</span>
+
+<span class="sd">        If start is not defined the `start = 0`.</span>
+<span class="sd">    v_init</span>
+<span class="sd">        Initial value. If None, the value is inherited from attribute.</span>
+<span class="sd">    scale_factor</span>
+<span class="sd">        Scale factor for compensation for differences in units.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Setting time (:attr:`v_init`) in [h] for attribute</span>
+<span class="sd">        (in :attr:`var_list`) in [min] requires</span>
+<span class="sd">        a `scale_factor` of 60.</span>
+<span class="sd">    par_name</span>
+<span class="sd">        Attribute title.</span>
+<span class="sd">    gui_type</span>
+<span class="sd">        Method for setting parameter in GUI. Default = &#39;slider&#39;.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :class:`bio_rtd.adj_par.AdjustableParameter`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">var</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">v_range</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span>
+                                        <span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+                                        <span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+                 <span class="n">v_init</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">scale_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">par_name</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">gui_type</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;slider&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">v_range</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">v_range</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v_range</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">v_range</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">float</span><span class="p">:</span>
+            <span class="n">v_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">v_range</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_range</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">v_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">v_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">v_range</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([</span><span class="n">var</span><span class="p">],</span>
+                         <span class="n">v_range</span><span class="p">,</span>
+                         <span class="n">v_init</span><span class="o">=</span><span class="n">v_init</span><span class="p">,</span>
+                         <span class="n">scale_factor</span><span class="o">=</span><span class="n">scale_factor</span><span class="p">,</span>
+                         <span class="n">par_name</span><span class="o">=</span><span class="n">par_name</span><span class="p">,</span>
+                         <span class="n">gui_type</span><span class="o">=</span><span class="n">gui_type</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AdjParRange"><a class="viewcode-back" href="../../bio_rtd/adj_par.html#bio_rtd.adj_par.AdjParRange">[docs]</a><span class="k">class</span> <span class="nc">AdjParRange</span><span class="p">(</span><span class="n">AdjustableParameter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Defines a range slider version of `AdjustableParameter`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    var_list</span>
+<span class="sd">        Defines attributed affected by the `AdjParRange`.</span>
+
+<span class="sd">        First has value of the start of the interval and second of the</span>
+<span class="sd">        end of the interval.</span>
+<span class="sd">    v_range</span>
+<span class="sd">        Range of values.</span>
+
+<span class="sd">        Defines range end or [start, end] or [start, end, step].</span>
+
+<span class="sd">        If step is not defined, the `step = (start - end) / 10`.</span>
+
+<span class="sd">        If start is not defined the `start = 0`.</span>
+<span class="sd">    v_init</span>
+<span class="sd">        Initial value [interval start, interval end]. If None (default),</span>
+<span class="sd">        then the initial values are assigned from the initial conditions</span>
+<span class="sd">        at the start of the simulation.</span>
+<span class="sd">    scale_factor</span>
+<span class="sd">        Scale factor for compensation for differences in units.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Setting time (:attr:`v_init`) in [h] for attribute</span>
+<span class="sd">        (in :attr:`var_list`) in [min] requires</span>
+<span class="sd">        a `scale_factor` of 60.</span>
+<span class="sd">    par_name</span>
+<span class="sd">        Attribute title.</span>
+<span class="sd">    gui_type</span>
+<span class="sd">        Method for setting parameter in GUI. Default = &#39;range&#39;.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :class:`bio_rtd.adj_par.AdjustableParameter`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">var_list</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                 <span class="n">v_range</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span>
+                                        <span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+                                        <span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]],</span>
+                 <span class="n">v_init</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">_typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">scale_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">par_name</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">gui_type</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;range&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">v_range</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">v_range</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v_range</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">v_range</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">float</span><span class="p">:</span>
+            <span class="n">v_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">v_range</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_range</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">v_range</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">v_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">v_range</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">var_list</span><span class="p">),</span>
+                         <span class="n">v_range</span><span class="p">,</span>
+                         <span class="n">v_init</span><span class="o">=</span><span class="n">v_init</span><span class="p">,</span>
+                         <span class="n">scale_factor</span><span class="o">=</span><span class="n">scale_factor</span><span class="p">,</span>
+                         <span class="n">par_name</span><span class="o">=</span><span class="n">par_name</span><span class="p">,</span>
+                         <span class="n">gui_type</span><span class="o">=</span><span class="n">gui_type</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

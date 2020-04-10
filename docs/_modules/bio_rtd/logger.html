@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.logger &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>bio_rtd.logger</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for bio_rtd.logger</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module with different loggers for rtd models and its components.</span>
+
+<span class="sd">`RtdLogger` is main abstract class that all other loggers implement.</span>
+<span class="sd">Loggers handle non-fatal events (info, debug, warning and non-fatal</span>
+<span class="sd">error messages) as well as internally stored intermediate process data.</span>
+
+<span class="sd">General guidelines:</span>
+
+<span class="sd">- **Skip logging and raise Exception directly** in case of a serious</span>
+<span class="sd">  error.</span>
+<span class="sd">- ERROR messages for highly probable sources of inaccuracies within the</span>
+<span class="sd">  model (e.g. in case a probability distributions contains only a few</span>
+<span class="sd">  data points), but we don&#39;t necessarily want to raise an exception.</span>
+<span class="sd">- WARNING messages for warnings about potential sources of inaccuracy</span>
+<span class="sd">  in the model.</span>
+<span class="sd">- INFO for storing short intermediate data (everything apart from time</span>
+<span class="sd">  series).</span>
+<span class="sd">- DEBUG for storing long intermediate data (time series).</span>
+
+<span class="sd">See Also</span>
+<span class="sd">--------</span>
+<span class="sd">:class:`bio_rtd.logger.RtdLogger`</span>
+
+<span class="sd">Examples</span>
+<span class="sd">--------</span>
+<span class="sd">&gt;&gt;&gt; log = DefaultLogger()</span>
+<span class="sd">&gt;&gt;&gt; log.e(&quot;Error Description&quot;)  # log error</span>
+<span class="sd">Traceback (most recent call last):</span>
+<span class="sd">RuntimeError: Error Description</span>
+<span class="sd">&gt;&gt;&gt; log.w(&quot;Warning Description&quot;)  # log waring</span>
+<span class="sd">Warning Description</span>
+<span class="sd">&gt;&gt;&gt; log.i(&quot;Info&quot;)  # log info</span>
+<span class="sd">&gt;&gt;&gt; log.log_data = True</span>
+<span class="sd">&gt;&gt;&gt; log.log_level_data = RtdLogger.DEBUG</span>
+<span class="sd">&gt;&gt;&gt; data_tree = dict()</span>
+<span class="sd">&gt;&gt;&gt; log.set_data_tree(&quot;test_data_tree&quot;, data_tree)</span>
+<span class="sd">&gt;&gt;&gt; log.i_data(data_tree, &quot;a&quot;, 3)  # store value in logger</span>
+<span class="sd">&gt;&gt;&gt; log.d_data(data_tree, &quot;b&quot;, &quot;lots_of_data&quot;)  # store at DEBUG level</span>
+<span class="sd">&gt;&gt;&gt; log.get_data_tree(&quot;test_data_tree&quot;,)[&quot;b&quot;]</span>
+<span class="sd">&#39;lots_of_data&#39;</span>
+<span class="sd">&gt;&gt;&gt; log = StrictLogger()  # raises RuntimeError already on WARNING level</span>
+<span class="sd">&gt;&gt;&gt; log.w(&quot;Warning Info&quot;)</span>
+<span class="sd">Traceback (most recent call last):</span>
+<span class="sd">RuntimeError: Warning Info</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RtdLogger&#39;</span><span class="p">,</span> <span class="s1">&#39;DefaultLogger&#39;</span><span class="p">,</span> <span class="s1">&#39;DataStoringLogger&#39;</span><span class="p">,</span> <span class="s1">&#39;StrictLogger&#39;</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;0.7.1&#39;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Jure Sencar&#39;</span>
+
+
+<span class="kn">import</span> <span class="nn">inspect</span> <span class="k">as</span> <span class="nn">_inspect</span>
+<span class="kn">import</span> <span class="nn">typing</span> <span class="k">as</span> <span class="nn">_typing</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span> <span class="k">as</span> <span class="n">_ABC</span><span class="p">,</span> <span class="n">abstractmethod</span> <span class="k">as</span> <span class="n">_abstractmethod</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span> <span class="k">as</span> <span class="n">_OrderedDict</span>
+
+
+<div class="viewcode-block" id="RtdLogger"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger">[docs]</a><span class="k">class</span> <span class="nc">RtdLogger</span><span class="p">(</span><span class="n">_ABC</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Abstract class for log and log data in rtd models.</span>
+
+<span class="sd">    Logger has different levels: DEBUG, INFO, WARNING, ERROR.</span>
+<span class="sd">    Logger has option to hold copies of intermediate data.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    log_level</span>
+<span class="sd">        Verbosity level for messages. Default = `WARNING`.</span>
+<span class="sd">    log_data</span>
+<span class="sd">        If True, logger collects copies of intermediate data.</span>
+<span class="sd">        Default = False.</span>
+<span class="sd">    log_level_data</span>
+<span class="sd">        &#39;Verbosity level&#39; for data.</span>
+<span class="sd">        Default = `DEBUG`. Ignored if `log_data` is False.</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="mi">40</span>
+    <span class="sd">&quot;&quot;&quot;Log level ERROR.</span>
+<span class="sd">    </span>
+<span class="sd">    ERROR level is meant for signaling events (with messages) that very</span>
+<span class="sd">    likely impact the accuracy of the model.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">WARNING</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="sd">&quot;&quot;&quot;Log level WARNING.</span>
+<span class="sd">    </span>
+<span class="sd">    WARNING level is meant for signaling events (with messages) that</span>
+<span class="sd">    might be the source of inaccuracies in the model.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">INFO</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="sd">&quot;&quot;&quot;Log level INFO.</span>
+<span class="sd">    </span>
+<span class="sd">    INFO level is meant for events that might indicate potential mishaps</span>
+<span class="sd">    in the model, but can also occur normally (e.g. if surge tank runs </span>
+<span class="sd">    dry). This info might help explain the spectra, but it might also</span>
+<span class="sd">    be a normal occurrence during the shut-down phase.</span>
+<span class="sd">    </span>
+<span class="sd">    INFO level is also meant for keeping small intermediate results</span>
+<span class="sd">    (no time series) in logger.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">DEBUG</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="sd">&quot;&quot;&quot;Log level DEBUG.</span>
+<span class="sd">    </span>
+<span class="sd">    DEBUG level is meant for keeping also large intermediate data</span>
+<span class="sd">    (time series) in logger.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">log_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">WARNING</span><span class="p">,</span>
+                 <span class="n">log_data</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">log_level_data</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEBUG</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="n">log_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_data</span> <span class="o">=</span> <span class="n">log_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_level_data</span> <span class="o">=</span> <span class="n">log_level_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_tree_root</span> <span class="o">=</span> <span class="n">_OrderedDict</span><span class="p">()</span>
+
+<div class="viewcode-block" id="RtdLogger.i"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.i">[docs]</a>    <span class="k">def</span> <span class="nf">i</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Log message at INFO level</span>
+
+<span class="sd">        INFO level is meant for events that might indicate potential</span>
+<span class="sd">        mishaps the model, but can also occur normally.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Reporting that surge tank ran dry.</span>
+<span class="sd">            This info might help explain the spectra, but it might just</span>
+<span class="sd">            as well be a normal occurrence during the shut-down phase.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RtdLogger.w"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.w">[docs]</a>    <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Log message at WARNING level</span>
+
+<span class="sd">        WARNING level is meant for signaling events that might be the</span>
+<span class="sd">        source of inaccuracies in the model.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Suspicious probability distributions.</span>
+<span class="sd">        Empty concentration of flow rate profiles.</span>
+<span class="sd">        Assumptions that might impact the results, such as assumptions</span>
+<span class="sd">        during steady-state estimation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RtdLogger.e"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.e">[docs]</a>    <span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Log message at ERROR level</span>
+
+<span class="sd">        ERROR level is meant for signaling events that are very likely</span>
+<span class="sd">        the source of or the sign of inaccuracies in the model, but not</span>
+<span class="sd">        severe enough to raise an exception in all situations (e.g. in</span>
+<span class="sd">        an interactive session via GUI).</span>
+
+<span class="sd">        If the issue is big enough to warrant an exception, then raise</span>
+<span class="sd">        the exception instead of using this log.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Probability distribution with only few data points.</span>
+<span class="sd">        Probability distribution with a high cut-off at time 0.</span>
+<span class="sd">        Load phase of PCC being shorter than the rest of the process.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RtdLogger.set_data_tree"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.set_data_tree">[docs]</a>    <span class="k">def</span> <span class="nf">set_data_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_tree_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data_tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Seeds data tree in root dictionary.</span>
+
+<span class="sd">        Typically `tree_id = uo.id` and `tree_root = dict()`.</span>
+
+<span class="sd">        Unit operation needs to save a reference to the `tree_root`</span>
+<span class="sd">        in order to store data in this logger.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data_tree_id: str</span>
+<span class="sd">            Id of root tree (typically id of unit operation).</span>
+<span class="sd">        data_tree: dict</span>
+<span class="sd">            Root for data logging (for that unit operation).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; log = DataStoringLogger()</span>
+<span class="sd">        &gt;&gt;&gt; data_tree = dict()</span>
+<span class="sd">        &gt;&gt;&gt; log.set_data_tree(&quot;my_uo&quot;, data_tree)</span>
+<span class="sd">        &gt;&gt;&gt; log.i_data(data_tree, &quot;par_a&quot;, 10.4)</span>
+<span class="sd">        &gt;&gt;&gt; data_tree[&quot;par_a&quot;]</span>
+<span class="sd">        10.4</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_tree_root</span><span class="p">[</span><span class="n">data_tree_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_tree</span></div>
+
+    <span class="c1"># noinspection PyMethodMayBeStatic</span>
+<div class="viewcode-block" id="RtdLogger.set_branch"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.set_branch">[docs]</a>    <span class="k">def</span> <span class="nf">set_branch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                   <span class="n">data_tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                   <span class="n">branch_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                   <span class="n">branch</span><span class="p">:</span> <span class="n">_typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;Seeds branch into data tree.</span>
+
+<span class="sd">        Typically used to store data from nested unit operations or</span>
+<span class="sd">        parts of unit operations (evaluation data of probability</span>
+<span class="sd">        distributions, breakthrough profiles, etc.).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data_tree: dict</span>
+<span class="sd">            Parent data tree.</span>
+<span class="sd">        branch_name: dict</span>
+<span class="sd">            Branch (child tree) name.</span>
+<span class="sd">        branch: dict</span>
+<span class="sd">            Branch (child tree).</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; log = DataStoringLogger()</span>
+<span class="sd">        &gt;&gt;&gt; data_tree = dict()</span>
+<span class="sd">        &gt;&gt;&gt; branch_tree = dict()</span>
+<span class="sd">        &gt;&gt;&gt; log.set_data_tree(&quot;my_uo&quot;, data_tree)</span>
+<span class="sd">        &gt;&gt;&gt; log.set_branch(data_tree, &quot;pdf&quot;, branch_tree)</span>
+<span class="sd">        &gt;&gt;&gt; log.i_data(branch_tree, &quot;par_b&quot;, 8.4)</span>
+<span class="sd">        &gt;&gt;&gt; data_tree[&quot;pdf&quot;][&quot;par_b&quot;]</span>
+<span class="sd">        8.4</span>
+<span class="sd">        &gt;&gt;&gt; branch_tree[&quot;par_b&quot;]</span>
+<span class="sd">        8.4</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data_tree</span><span class="p">[</span><span class="n">branch_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">branch</span></div>
+
+<div class="viewcode-block" id="RtdLogger.i_data"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.i_data">[docs]</a>    <span class="k">def</span> <span class="nf">i_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Log smaller data (no time series).</span>
+
+<span class="sd">        Populates (key, value.copy()) pair into `tree`</span>
+<span class="sd">        if `log_level_data` &gt;= `INFO` and `log_data` is True.</span>
+
+<span class="sd">        If the copy of the value is stored, then the</span>
+<span class="sd">        `self._on_data_stored` function is called.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_store_data</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RtdLogger.d_data"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.d_data">[docs]</a>    <span class="k">def</span> <span class="nf">d_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Log larger intermediate data (time series).</span>
+
+<span class="sd">        Populates (key, value.copy()) pair into `tree`</span>
+<span class="sd">        if `log_level_data` &gt;= `DEBUG` and `log_data` is True.</span>
+
+<span class="sd">        If the copy of the value is stored, then the</span>
+<span class="sd">        `self._on_data_stored` function is called.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_store_data</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_store_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_data</span> <span class="ow">and</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_level_data</span><span class="p">:</span>
+            <span class="n">tree</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;copy&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_on_data_stored</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@_abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_on_data_stored</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                        <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                        <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="sd">&quot;&quot;&quot;Functions that is called after the data has been logged.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_parent_log_id</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Find closest &#39;log_entity_id&#39; of the notifying instance.</span>
+
+<span class="sd">        It is convenience method to provide unit operation to be used</span>
+<span class="sd">        e.g. for adding information to the printed log messages.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">_inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">():</span>
+            <span class="c1"># noinspection PyProtectedMember</span>
+            <span class="k">if</span> <span class="s2">&quot;self&quot;</span> <span class="ow">in</span> <span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">f_locals</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> \
+                    <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="s2">&quot;self&quot;</span><span class="p">],</span> <span class="s1">&#39;_log_entity_id&#39;</span><span class="p">)</span>\
+                    <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="s1">&#39;self&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_log_entity_id</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># noinspection PyProtectedMember</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="s1">&#39;self&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_log_entity_id</span><span class="si">}</span><span class="s2">: &quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+<div class="viewcode-block" id="RtdLogger.get_data_tree"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.get_data_tree">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_tree_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns reference to the registered data tree.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_tree_root</span><span class="p">[</span><span class="n">data_tree_id</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="RtdLogger.get_entire_data_tree"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.get_entire_data_tree">[docs]</a>    <span class="k">def</span> <span class="nf">get_entire_data_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns reference to the dict with all logged data.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_tree_root</span></div>
+
+<div class="viewcode-block" id="RtdLogger.log"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.log">[docs]</a>    <span class="nd">@_abstractmethod</span>
+    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="sd">&quot;&quot;&quot;Log messages at specific log level.</span>
+
+<span class="sd">        See documentation of `self.e()`, `self.w()` and `self.i()` on</span>
+<span class="sd">        info about what belongs under which log level.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+
+
+<div class="viewcode-block" id="DefaultLogger"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.DefaultLogger">[docs]</a><span class="k">class</span> <span class="nc">DefaultLogger</span><span class="p">(</span><span class="n">RtdLogger</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prints warnings to terminal and raises errors.</span>
+
+<span class="sd">    Does not store data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    log_level</span>
+<span class="sd">        Default: WARNING.</span>
+<span class="sd">    log_data</span>
+<span class="sd">        Default: False.</span>
+<span class="sd">    log_level_data</span>
+<span class="sd">        Default: DEBUG.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; log = DefaultLogger()</span>
+<span class="sd">    &gt;&gt;&gt; data_tree = dict()</span>
+<span class="sd">    &gt;&gt;&gt; log.set_data_tree(&quot;my_uo&quot;, data_tree)</span>
+<span class="sd">    &gt;&gt;&gt; log.i_data(data_tree, &quot;par_i&quot;, 8.4)  # ignored</span>
+<span class="sd">    &gt;&gt;&gt; log.d_data(data_tree, &quot;par_d&quot;, 5.4)  # ignored</span>
+<span class="sd">    &gt;&gt;&gt; len(data_tree.keys())  # no data</span>
+<span class="sd">    0</span>
+<span class="sd">    &gt;&gt;&gt; log.i(msg=&quot;Info msg&quot;)  # ignored</span>
+<span class="sd">    &gt;&gt;&gt; log.w(msg=&quot;Warning msg&quot;)</span>
+<span class="sd">    Warning msg</span>
+<span class="sd">    &gt;&gt;&gt; log.e(msg=&quot;Error msg&quot;)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">    RuntimeError: Error msg</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :class:`bio_rtd.logger.RtdLogger`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">log_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">RtdLogger</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span>
+                 <span class="n">log_data</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">log_level_data</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">RtdLogger</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">log_level</span><span class="p">,</span> <span class="n">log_data</span><span class="p">,</span> <span class="n">log_level_data</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DefaultLogger.log"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.DefaultLogger.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Log messages.</span>
+
+<span class="sd">        Prints warnings (and infos)</span>
+<span class="sd">        to terminal and raises errors as `RuntimeError`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_level</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">WARNING</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_on_data_stored</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="DataStoringLogger"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.DataStoringLogger">[docs]</a><span class="k">class</span> <span class="nc">DataStoringLogger</span><span class="p">(</span><span class="n">RtdLogger</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prints messages to terminal. Stores all data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    log_level</span>
+<span class="sd">        Default: WARNING.</span>
+<span class="sd">    log_data</span>
+<span class="sd">        Default: True.</span>
+<span class="sd">    log_level_data</span>
+<span class="sd">        Default: DEBUG.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; log = DataStoringLogger()</span>
+<span class="sd">    &gt;&gt;&gt; data_tree = dict()</span>
+<span class="sd">    &gt;&gt;&gt; log.set_data_tree(&quot;my_uo&quot;, data_tree)</span>
+<span class="sd">    &gt;&gt;&gt; log.i_data(data_tree, &quot;par_i&quot;, 8.4)  # stored</span>
+<span class="sd">    &gt;&gt;&gt; log.d_data(data_tree, &quot;par_d&quot;, 5.4)  # stored</span>
+<span class="sd">    &gt;&gt;&gt; len(data_tree.keys())  # no data</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; data_tree[&quot;par_i&quot;]</span>
+<span class="sd">    8.4</span>
+<span class="sd">    &gt;&gt;&gt; data_tree[&quot;par_d&quot;]</span>
+<span class="sd">    5.4</span>
+<span class="sd">    &gt;&gt;&gt; log.i(msg=&quot;Info msg&quot;)  # ignored</span>
+<span class="sd">    &gt;&gt;&gt; log.w(msg=&quot;Warning msg&quot;)</span>
+<span class="sd">    Warning msg</span>
+<span class="sd">    &gt;&gt;&gt; log.e(msg=&quot;Error msg&quot;)</span>
+<span class="sd">    Error msg</span>
+<span class="sd">    &gt;&gt;&gt; log.log_level = log.INFO</span>
+<span class="sd">    &gt;&gt;&gt; log.i_data(data_tree, &quot;par_i_2&quot;, 18.4)  # stored and printed</span>
+<span class="sd">    Value set: par_i_2: 18.4</span>
+<span class="sd">    &gt;&gt;&gt; data_tree[&quot;par_i_2&quot;]</span>
+<span class="sd">    18.4</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :class:`bio_rtd.logger.RtdLogger`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">log_level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">RtdLogger</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span>
+                 <span class="n">log_data</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">log_level_data</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">RtdLogger</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">log_level</span><span class="p">,</span> <span class="n">log_data</span><span class="p">,</span> <span class="n">log_level_data</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DataStoringLogger.log"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.DataStoringLogger.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Prints to terminal everything above `log_level`.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_level</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">WARNING</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">INFO</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;INFO: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DEBUG: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_on_data_stored</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
+        <span class="c1"># send to log function if INFO or higher</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">INFO</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="s2">&quot;Value set: &quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="StrictLogger"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.StrictLogger">[docs]</a><span class="k">class</span> <span class="nc">StrictLogger</span><span class="p">(</span><span class="n">RtdLogger</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Raises RuntimeError on warning and error messages.</span>
+
+<span class="sd">    log_level = WARNING.</span>
+
+<span class="sd">    log_data = False.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; log = StrictLogger()</span>
+<span class="sd">    &gt;&gt;&gt; log.i(msg=&quot;Info msg&quot;)  # ignored</span>
+<span class="sd">    &gt;&gt;&gt; log.w(msg=&quot;Warning msg&quot;)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">    RuntimeError: Warning msg</span>
+<span class="sd">    &gt;&gt;&gt; log.e(msg=&quot;Error msg&quot;)</span>
+<span class="sd">    Traceback (most recent call last):</span>
+<span class="sd">    RuntimeError: Error msg</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :class:`bio_rtd.logger.RtdLogger`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">log_level</span><span class="o">=</span><span class="n">RtdLogger</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="n">log_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<div class="viewcode-block" id="StrictLogger.log"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.StrictLogger.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Raises RuntimeError if `level` &gt;= WARNING.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="n">RtdLogger</span><span class="o">.</span><span class="n">WARNING</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span> <span class="o">+</span> <span class="n">msg</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_on_data_stored</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

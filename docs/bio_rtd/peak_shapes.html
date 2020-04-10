@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.peak_shapes &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bio_rtd.core" href="core.html" />
+    <link rel="prev" title="bio_rtd.peak_fitting" href="peak_fitting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="inlet.html">inlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.fc_uo.html">fc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.sc_uo.html">sc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.surge_tank.html">surge_tank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.special_uo.html">special_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">pdf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_load.html">bt_load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_curve.html">bt_curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.convolution.html">convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.vectors.html">vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adj_par.html">adj_par</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_fitting.html">peak_fitting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">peak_shapes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gaussian">gaussian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#emg">emg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skewed-normal">skewed_normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tanks-in-series">tanks_in_series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">core</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>bio_rtd.peak_shapes</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-bio_rtd.peak_shapes">
+<span id="bio-rtd-peak-shapes"></span><h1>bio_rtd.peak_shapes<a class="headerlink" href="#module-bio_rtd.peak_shapes" title="Permalink to this headline">¶</a></h1>
+<p>Peak shapes based on mean residence time (<cite>rt_mean</cite>).</p>
+<p class="rubric">Notes</p>
+<p>Functions are evaluated for given time vectors. Peaks are considered
+clipped if they do not fully fit on the time vector.</p>
+<p>For un-clipped peak, the integral over the peak over time == 1.</p>
+<p>For un-clipped peak, first momentum == <cite>rt_mean</cite>.</p>
+<div class="section" id="gaussian">
+<h2>gaussian<a class="headerlink" href="#gaussian" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="bio_rtd.peak_shapes.gaussian">
+<code class="sig-prename descclassname">bio_rtd.peak_shapes.</code><code class="sig-name descname">gaussian</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">rt_mean</em>, <em class="sig-param">sigma</em>, <em class="sig-param">logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#gaussian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.peak_shapes.gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gaussian distribution.</p>
+<p>p = exp(- ((t - rt_mean) / sigma) ** 2 / 2) / (sigma * sqrt(2 * pi))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Time vector.</p></li>
+<li><p><strong>rt_mean</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Mean residence time (== first momentum of un-clipped peak)</p></li>
+<li><p><strong>sigma</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Standard deviation.</p></li>
+<li><p><strong>logger</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>]) – Logger for logging suspicious parameters or peak shapes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>p</strong> – Evaluated pdf for specified time vector (<cite>t</cite>).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="emg">
+<h2>emg<a class="headerlink" href="#emg" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="bio_rtd.peak_shapes.emg">
+<code class="sig-prename descclassname">bio_rtd.peak_shapes.</code><code class="sig-name descname">emg</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">rt_mean</em>, <em class="sig-param">sigma</em>, <em class="sig-param">skew</em>, <em class="sig-param">logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#emg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.peak_shapes.emg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exponentially modified Gaussian distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> – Time vector.</p></li>
+<li><p><strong>rt_mean</strong> – Mean residence time (== first momentum of un-clipped peak).</p></li>
+<li><p><strong>sigma</strong> – Standard deviation of Gaussian part.</p></li>
+<li><p><strong>skew</strong> – The rate of exponential part. Recommended: 1/40 &lt; <cite>skew</cite> &lt; 10.</p></li>
+<li><p><strong>logger</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>]) – Logger for logging suspicious parameters or peak shapes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>p</strong> – Evaluated pdf for specified time vector (<cite>t</cite>).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="skewed-normal">
+<h2>skewed_normal<a class="headerlink" href="#skewed-normal" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="bio_rtd.peak_shapes.skewed_normal">
+<code class="sig-prename descclassname">bio_rtd.peak_shapes.</code><code class="sig-name descname">skewed_normal</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">rt_mean</em>, <em class="sig-param">sigma</em>, <em class="sig-param">skew</em>, <em class="sig-param">logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#skewed_normal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.peak_shapes.skewed_normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Skewed normal distribution.</p>
+<p>For <cite>skew</cite> == 0, the distribution becomes Gaussian distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> – Time vector.</p></li>
+<li><p><strong>rt_mean</strong> – Mean residence time (== first momentum of un-clipped peak).</p></li>
+<li><p><strong>sigma</strong> – Standard deviation of Gaussian part.</p></li>
+<li><p><strong>skew</strong> – Skewness of the peak. Recommended: -20 &lt; <cite>skew</cite> &lt; 20.</p></li>
+<li><p><strong>logger</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>]) – Logger for logging suspicious parameters or peak shapes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>p</strong> – Evaluated pdf for specified time vector (<cite>t</cite>).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tanks-in-series">
+<h2>tanks_in_series<a class="headerlink" href="#tanks-in-series" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="bio_rtd.peak_shapes.tanks_in_series">
+<code class="sig-prename descclassname">bio_rtd.peak_shapes.</code><code class="sig-name descname">tanks_in_series</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">rt_mean</em>, <em class="sig-param">n_tanks</em>, <em class="sig-param">logger=None</em>, <em class="sig-param">allow_open_end=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#tanks_in_series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.peak_shapes.tanks_in_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>N tanks in series distribution.</p>
+<p><cite>rt_mean</cite> is for entire unit operation (all tanks together).</p>
+<p>For <cite>n_tanks</cite> == 1, the distribution results in exponential decay.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Time vector.</p></li>
+<li><p><strong>rt_mean</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Mean residence time (== first momentum of un-clipped peak).</p></li>
+<li><p><strong>n_tanks</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of tanks. Recommended: 1 &lt;= <cite>n_tanks</cite> &lt; 50</p></li>
+<li><p><strong>logger</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>]) – Logger for logging suspicious parameters or peak shapes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>p</strong> – Evaluated pdf for specified time vector (<cite>t</cite>).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core.html" class="btn btn-neutral float-right" title="bio_rtd.core" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="peak_fitting.html" class="btn btn-neutral float-left" title="bio_rtd.peak_fitting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

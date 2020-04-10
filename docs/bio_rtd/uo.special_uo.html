@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.uo.special_uo &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bio_rtd.pdf" href="pdf.html" />
+    <link rel="prev" title="bio_rtd.uo.surge_tank" href="uo.surge_tank.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="inlet.html">inlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.fc_uo.html">fc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.sc_uo.html">sc_uo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uo.surge_tank.html">surge_tank</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">special_uo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combouo">ComboUO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">pdf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_load.html">bt_load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chromatography.bt_curve.html">bt_curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.convolution.html">convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.vectors.html">vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adj_par.html">adj_par</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_fitting.html">peak_fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peak_shapes.html">peak_shapes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">core</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
+        
+      <li>bio_rtd.uo.special_uo</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-bio_rtd.uo.special_uo">
+<span id="bio-rtd-uo-special-uo"></span><h1>bio_rtd.uo.special_uo<a class="headerlink" href="#module-bio_rtd.uo.special_uo" title="Permalink to this headline">¶</a></h1>
+<p>Special unit operations.</p>
+<p>Special unit operations are the ones that cannot be assigned to one of
+the following groups:</p>
+<ul class="simple">
+<li><p>Fully continuous (accept constant and provide constant flow rate)</p></li>
+<li><p>Semi continuous (accept constant and provide periodic flow rate)</p></li>
+<li><p>Surge tanks (accept any and provide constant flow rate)</p></li>
+</ul>
+<div class="section" id="combouo">
+<h2>ComboUO<a class="headerlink" href="#combouo" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bio_rtd.uo.special_uo.ComboUO">
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.special_uo.</code><code class="sig-name descname">ComboUO</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">sub_uo_list</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">gui_title='ComboUO'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
+<p>Combines multiple unit operations into one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – <p>Simulation time vector.</p>
+<p>All unit operations need to have the same <cite>t</cite>.</p>
+</p></li>
+<li><p><strong>sub_uo_list</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitOperation</span></code></a>]) – List of unit operations to be merged into <cite>ComboUO</cite>.</p></li>
+<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identified of combined unit operation.</p></li>
+<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Human readable title for GUI or plots. Default = “ComboUO”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.sub_uo_list">
+<code class="sig-name descname">sub_uo_list</code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.sub_uo_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of unit operations that are merged into <cite>ComboUO</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.special_uo.ComboUO.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates all child unit operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code>) – Inlet flow rate profile.</p></li>
+<li><p><strong>c_in</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Inlet concentration profile.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.special_uo.ComboUO.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns existing flow rate and concentration profiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>f_out</em> – Outlet flow rate profile.</p></li>
+<li><p><em>c_out</em> – Outlet concentration profile.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.special_uo.ComboUO.log">
+<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
+<p>Setter also plants instance data tree into passed logger.</p>
+<p>If logger is requested, but not yet set, then a
+<a class="reference internal" href="logger.html#bio_rtd.logger.DefaultLogger" title="bio_rtd.logger.DefaultLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.DefaultLogger</span></code></a> is instantiated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bio_rtd.uo.special_uo.ComboUO.set_logger_from_parent">
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherit logger from parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of parent instance.</p></li>
+<li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>) – Logger from parent instance.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pdf.html" class="btn btn-neutral float-right" title="bio_rtd.pdf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="uo.surge_tank.html" class="btn btn-neutral float-left" title="bio_rtd.uo.surge_tank" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

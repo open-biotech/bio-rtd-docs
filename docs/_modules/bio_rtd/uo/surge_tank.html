@@ -1,0 +1,819 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bio_rtd.uo.surge_tank &mdash; bio_rtd  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> bio_rtd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_reference.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">bio_rtd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>bio_rtd.uo.surge_tank</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for bio_rtd.uo.surge_tank</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Surge tanks.</span>
+
+<span class="sd">Unit operations that accept various flow rate profiles and provide</span>
+<span class="sd">constant or box-shaped profile.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CSTR&#39;</span><span class="p">,</span> <span class="s1">&#39;TwoAlternatingCSTRs&#39;</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;0.7.1&#39;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Jure Sencar&#39;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">_np</span>
+
+<span class="kn">import</span> <span class="nn">bio_rtd.core</span> <span class="k">as</span> <span class="nn">_core</span>
+<span class="kn">import</span> <span class="nn">bio_rtd.utils</span> <span class="k">as</span> <span class="nn">_utils</span>
+<span class="kn">import</span> <span class="nn">bio_rtd.peak_shapes</span> <span class="k">as</span> <span class="nn">_peak_shapes</span>
+
+
+<div class="viewcode-block" id="CSTR"><a class="viewcode-back" href="../../../bio_rtd/uo.surge_tank.html#bio_rtd.uo.surge_tank.CSTR">[docs]</a><span class="k">class</span> <span class="nc">CSTR</span><span class="p">(</span><span class="n">_core</span><span class="o">.</span><span class="n">UnitOperation</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Simulation of CSTR with ideal mixing.</span>
+
+<span class="sd">    Accepts constant, box-shaped or box-shaped periodic flow rate</span>
+<span class="sd">    profiles.</span>
+
+<span class="sd">    Provides constant or box-shaped flow rate profile.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t</span>
+<span class="sd">        Simulation time vector.</span>
+<span class="sd">        Starts with 0 and has a constant time step.</span>
+<span class="sd">    uo_id</span>
+<span class="sd">        Unique identifier.</span>
+<span class="sd">    gui_title</span>
+<span class="sd">        Readable title for GUI. Default = &quot;CSTR&quot;.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Target upper fill volume can be defined via:</span>
+
+<span class="sd">    - :attr:`v_void`</span>
+<span class="sd">    - :attr:`rt_target`</span>
+<span class="sd">    - :attr:`v_min`</span>
+<span class="sd">    - :attr:`v_min_ratio`</span>
+
+<span class="sd">    Initial fill volume can be defined via:</span>
+
+<span class="sd">    - :attr:`v_init`</span>
+<span class="sd">    - :attr:`v_init_ratio`</span>
+<span class="sd">    - :attr:`starts_empty` -&gt; If `True` it overrides :attr:`v_init` and</span>
+<span class="sd">      :attr:`v_init_ratio`</span>
+
+<span class="sd">    The concentration of pre-filled part is defined by :attr:`c_init`.</span>
+<span class="sd">    Empty array (default) means that all components are 0.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; t = _np.linspace(0, 100, 1001)  # min</span>
+<span class="sd">    &gt;&gt;&gt; cstr = CSTR(t, uo_id=&quot;sample_cstr&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; # Size of the surge tank.</span>
+<span class="sd">    &gt;&gt;&gt; cstr.v_void = 140  # mL</span>
+<span class="sd">    &gt;&gt;&gt; cstr.starts_empty = True  # optional</span>
+<span class="sd">    &gt;&gt;&gt; f_in = _np.zeros_like(t)</span>
+<span class="sd">    &gt;&gt;&gt; f_in[0:800] = 12.5  # mL/min</span>
+<span class="sd">    &gt;&gt;&gt; c_in = _np.zeros([1, t.size])</span>
+<span class="sd">    &gt;&gt;&gt; c_in[0][0:800] = 2.5  # mg/mL</span>
+<span class="sd">    &gt;&gt;&gt; f_out, c_out = cstr.evaluate(f_in, c_in)</span>
+<span class="sd">    &gt;&gt;&gt; f_out</span>
+<span class="sd">    array([0., 0., 0., ..., 0., 0., 0.])</span>
+<span class="sd">    &gt;&gt;&gt; f_out[105:115]</span>
+<span class="sd">    array([ 0. ,  0. ,  0. ,  0. ,  0. ,  0. , 12.5, 12.5, 12.5, 12.5])</span>
+<span class="sd">    &gt;&gt;&gt; c_out</span>
+<span class="sd">    array([[0., 0., 0., ..., 0., 0., 0.]])</span>
+<span class="sd">    &gt;&gt;&gt; c_out[0][105:115]</span>
+<span class="sd">    array([0. , 0. , 0. , 0. , 0. , 0. , 2.5, 2.5, 2.5, 2.5])</span>
+<span class="sd">    &gt;&gt;&gt; # Pre-filled with buffer (and no product).</span>
+<span class="sd">    &gt;&gt;&gt; cstr.starts_empty = False</span>
+<span class="sd">    &gt;&gt;&gt; cstr.v_init_ratio = 1  # starts completely pre-filled (default)</span>
+<span class="sd">    &gt;&gt;&gt; f_out, c_out = cstr.evaluate(f_in, c_in)</span>
+<span class="sd">    &gt;&gt;&gt; f_out</span>
+<span class="sd">    array([12.5, 12.5, 12.5, ...,  0. ,  0. ,  0. ])</span>
+<span class="sd">    &gt;&gt;&gt; c_out</span>
+<span class="sd">    array([[0.02232143, 0.04444445, 0.06637082, ..., 0.42450783, 0.42073445,</span>
+<span class="sd">            0.41699166]])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">uo_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">gui_title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;CSTR&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">uo_id</span><span class="p">,</span> <span class="n">gui_title</span><span class="p">)</span>
+        <span class="c1"># CSTR volume definition (one of those should be positive).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_void</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;Target upper fluid volume (max fill level) in the CSTR.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rt_target</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;Target mean residence time in the CSTR.</span>
+<span class="sd">        </span>
+<span class="sd">        Max fill level = `rt_target` * outlet flow rate.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_min</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;Target lowest fill level in the CSTR.</span>
+<span class="sd">        </span>
+<span class="sd">        Only valid for periodic inlet flow rate profile.</span>
+<span class="sd">        </span>
+<span class="sd">        Upper fill level is calculated at runtime.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_min_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;Ratio between max and min fill levels in the CSTR.</span>
+<span class="sd">        </span>
+<span class="sd">        Only valid for periodic inlet flow rate profile.</span>
+<span class="sd">        </span>
+<span class="sd">        Absolute fill levels are calculated at runtime.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Initial volume definition.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_init</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;Initial pre-fill level - absolute value.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_init_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;Initial pre-fill level as a share of max fill level.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">starts_empty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot;CSTR has a 0 initial fill level.</span>
+<span class="sd">        </span>
+<span class="sd">        If `True` it overrides `v_init` and `v_init_ratio`.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_init</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="sd">&quot;&quot;&quot;Pre-fill buffer composition. Default = array([]) = all 0&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_calc_f_out_target_and_t_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Estimate target outlet flow rate and inlet cycle duration.</span>
+
+<span class="sd">        Target outlet flow rate (`self._f_out_target`).</span>
+
+<span class="sd">        Inlet cycle duration (`self._t_cycle`).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Determine if it is boxed shaped</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_f_in_box_shaped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_flow_box_shaped</span><span class="p">()</span>
+        <span class="c1"># Calc target out flow.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_f_in_box_shaped</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">_estimate_steady_state_mean_f</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_calc_v_void</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calc cstr max volume (`self._v_void`)&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_single_non_negative_parameter</span><span class="p">(</span>
+            <span class="n">log_level_multiple</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="n">log_level_none</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+            <span class="n">v_void</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">v_void</span><span class="p">,</span>
+            <span class="n">v_min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">v_min</span><span class="p">,</span>
+            <span class="n">v_min_ratio</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">v_min_ratio</span><span class="p">,</span>
+            <span class="n">rt_target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rt_target</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_void</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_void</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_min</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;`v_min_ratio` can only de defined&quot;</span> \
+                                      <span class="sa">f</span><span class="s2">&quot; for periodic inlet flow rate&quot;</span>
+            <span class="n">f_in</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">f_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+            <span class="n">dv</span> <span class="o">=</span> <span class="n">f_out</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">f_out</span> <span class="o">/</span> <span class="n">f_in</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_min</span> <span class="o">+</span> <span class="n">dv</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_min_ratio</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;`v_min_ratio` can only de defined&quot;</span> \
+                                      <span class="sa">f</span><span class="s2">&quot; for periodic inlet flow rate&quot;</span>
+            <span class="n">f_in</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">f_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+            <span class="n">dv</span> <span class="o">=</span> <span class="n">f_out</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">f_out</span> <span class="o">/</span> <span class="n">f_in</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">=</span> <span class="n">dv</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_min_ratio</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># self.rt_target &gt;= 0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rt_target</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+
+    <span class="k">def</span> <span class="nf">_calc_v_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calc initial volume `self._v_init`.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">starts_empty</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_v_init</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_init</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_v_init</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_init</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_init_ratio</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initial volume is already defined by&quot;</span>
+                               <span class="sa">f</span><span class="s2">&quot; `v_init` (`v_init_ratio` is ignored)&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_init_ratio</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_v_void&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> \
+                    <span class="s2">&quot;`_v_void` should be defined by now&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_v_init</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_init_ratio</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_v_void&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> \
+                    <span class="s2">&quot;`_v_void` should be defined by now&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initial volume for CSTR is undefined.&quot;</span>
+                           <span class="sa">f</span><span class="s2">&quot; Using (`v_init_ratio` = 1).&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_v_init</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span>
+
+    <span class="k">def</span> <span class="nf">_calc_c_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calc initial concentration `self._c_init`.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_init</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_c_init</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_species</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_init</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_species</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_c_init</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c_init</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_species</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`c_init` should have one element&quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot; for each component&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_sim_convolution</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convolution instead of iterative numerical simulation.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_f_out_target&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_v_void&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_c_init&#39;</span><span class="p">)</span> \
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_init</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_species</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_is_f_in_box_shaped&#39;</span><span class="p">)</span> \
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_f_in_box_shaped</span>
+        <span class="c1"># Calc `rt_mean`.</span>
+        <span class="n">rt_mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+        <span class="c1"># Time vector for rtd.</span>
+        <span class="n">t_rtd</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">rt_mean</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span><span class="p">)</span>
+        <span class="c1"># Exponential decay probability function.</span>
+        <span class="n">p_rtd</span> <span class="o">=</span> <span class="n">_peak_shapes</span><span class="o">.</span><span class="n">tanks_in_series</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">t_rtd</span><span class="p">,</span>
+                                             <span class="n">rt_mean</span><span class="o">=</span><span class="n">rt_mean</span><span class="p">,</span>
+                                             <span class="n">n_tanks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                             <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+        <span class="c1"># Apply convolution.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">convolution</span><span class="o">.</span><span class="n">time_conv</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dt</span><span class="p">,</span>
+                                               <span class="n">c_in</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">,</span>
+                                               <span class="n">rtd</span><span class="o">=</span><span class="n">p_rtd</span><span class="p">,</span>
+                                               <span class="n">c_equilibration</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_c_init</span><span class="p">,</span>
+                                               <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+        <span class="c1"># Log data.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;rt_mean&quot;</span><span class="p">,</span> <span class="n">rt_mean</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">d_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;p_rtd&quot;</span><span class="p">,</span> <span class="n">p_rtd</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_sim_numerical</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Iterative numerical simulation.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_v_void&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_v_init&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_init</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_c_init&#39;</span><span class="p">)</span> \
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_init</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_species</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_f_out_target&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="c1"># Status in cstr.</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_init</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_init</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">*</span> <span class="n">v</span>
+        <span class="c1"># Do not turn off outlet once started.</span>
+        <span class="n">keep_outlet_on</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># When the flow starts.</span>
+        <span class="n">i_f_on</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">true_start</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Set c to zero when flow is off.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="p">:</span><span class="n">i_f_on</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i_f_on</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+            <span class="c1"># Fill in.</span>
+            <span class="n">dv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+            <span class="n">v</span> <span class="o">+=</span> <span class="n">dv</span>
+            <span class="n">m</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dv</span>
+
+            <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span><span class="p">:</span>  <span class="c1"># CSTR is empty</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">keep_outlet_on</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># CSTR dry during operation -&gt; shout it down.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CSTR ran dry during operation&quot;</span>
+                               <span class="sa">f</span><span class="s2">&quot; -&gt; shutting down&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">return</span>
+            <span class="k">elif</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">keep_outlet_on</span><span class="p">:</span>  <span class="c1"># wait until filled</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">keep_outlet_on</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="c1"># Calc current concentration.</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">m</span> <span class="o">/</span> <span class="n">v</span>
+                <span class="c1"># Get outlet.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+                <span class="c1"># Subtract outlet from cstr.</span>
+                <span class="n">v</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+                <span class="n">m</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">*</span> <span class="n">c</span>
+
+    <span class="k">def</span> <span class="nf">_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Prepare.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_f_out_target_and_t_cycle</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_v_void</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_v_init</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_c_init</span><span class="p">()</span>
+        <span class="c1"># Simulation.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_init</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_f_in_box_shaped</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sim_convolution</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sim_numerical</span><span class="p">()</span>
+        <span class="c1"># Log data.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;f_out_target&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;t_cycle&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;v_void&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_void</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;v_init&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_init</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;c_init&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_init</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TwoAlternatingCSTRs"><a class="viewcode-back" href="../../../bio_rtd/uo.surge_tank.html#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs">[docs]</a><span class="k">class</span> <span class="nc">TwoAlternatingCSTRs</span><span class="p">(</span><span class="n">_core</span><span class="o">.</span><span class="n">UnitOperation</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Simulation of Two alternating CSTRs with ideal mixing.</span>
+
+<span class="sd">    Accepts constant, box-shaped or periodic box-shaped flow rate</span>
+<span class="sd">    profiles.</span>
+
+<span class="sd">    Provides constant or box-shaped flow rate profile.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t</span>
+<span class="sd">        Simulation time vector.</span>
+<span class="sd">        Starts with 0 and has a constant time step.</span>
+<span class="sd">    uo_id</span>
+<span class="sd">        Unique identifier.</span>
+<span class="sd">    gui_title</span>
+<span class="sd">        Readable title for GUI. Default = &quot;TwoAlternatingCSTRs&quot;.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Define how many periods a CSTR collects in one cycle</span>
+<span class="sd">    (applies to periodic inlet only):</span>
+
+<span class="sd">    - :attr:`collect_n_periods` - default = 1</span>
+
+<span class="sd">    Define when the switch occurs for periodic inlet:</span>
+
+<span class="sd">    - :attr:`relative_role_switch_time` - default = 0.9</span>
+
+<span class="sd">    Define when the switch occurs for constant inlet</span>
+<span class="sd">    (one should be defined):</span>
+
+<span class="sd">    - :attr:`t_cycle`</span>
+<span class="sd">    - :attr:`v_cycle`</span>
+
+<span class="sd">    Define leftover volume after discharge (optional, max one):</span>
+
+<span class="sd">    - :attr:`v_leftover`</span>
+<span class="sd">    - :attr:`v_leftover_rel`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">uo_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">gui_title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;TwoAlternatingCSTRs&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">uo_id</span><span class="p">,</span> <span class="n">gui_title</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collect_n_periods</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;How many periods of a periodic inlet a surge tank collects.</span>
+<span class="sd">        </span>
+<span class="sd">        Default = 1.</span>
+<span class="sd">         </span>
+<span class="sd">        Only relevant for periodic inlet flow rate profile.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relative_role_switch_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.9</span>
+        <span class="sd">&quot;&quot;&quot;When CSTRs switch roles within the inlet flow rate off time.</span>
+<span class="sd">        </span>
+<span class="sd">        Default = 0.9.</span>
+<span class="sd">        </span>
+<span class="sd">        This is valid for the first cycle. In case of leftover material,</span>
+<span class="sd">        the first two cycles are shorter, thus the switch occurs earlier </span>
+<span class="sd">        in following cycles.</span>
+<span class="sd">        </span>
+<span class="sd">        In case of inlet periodic box-shaped flow rate profile,</span>
+<span class="sd">        the CSTRs can their switch role (providing or collecting)</span>
+<span class="sd">        at any time when the inlet flow rate if off.</span>
+<span class="sd">        </span>
+<span class="sd">        In terms of RTD it is desirable to start releasing material as</span>
+<span class="sd">        soon as collection phase ends. However additional safety margin</span>
+<span class="sd">        might be applied in order to allow some cycle-to-cycle</span>
+<span class="sd">        variability in a real process.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_cycle</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;The duration (time) of cycle after which CSTRs switch roles.</span>
+<span class="sd">        </span>
+<span class="sd">        In case of constant inlet profile, one of `t_cycle` and</span>
+<span class="sd">        :attr:`v_cycle` needs to be defined.</span>
+<span class="sd">        </span>
+<span class="sd">        In case of periodic inlet flow rate,</span>
+<span class="sd">        this value should not be defined.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_cycle</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;Collected volume after which CSTRs switch roles.</span>
+<span class="sd">        </span>
+<span class="sd">        In case of constant inlet profile, one of `v_cycle` and</span>
+<span class="sd">        :attr:`t_cycle` needs to be defined.</span>
+<span class="sd">        </span>
+<span class="sd">        In case of periodic inlet flow rate,</span>
+<span class="sd">        this value should not be defined.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_leftover</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;What amount of fluid stays in CSTR after discharge.</span>
+<span class="sd">        </span>
+<span class="sd">        Only one of `v_leftover` and</span>
+<span class="sd">        :attr:`v_leftover_rel` should be defined.</span>
+<span class="sd">        If none are defined, then the leftover is set to 0.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v_leftover_rel</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="sd">&quot;&quot;&quot;Relative amount of fluid that stays in CSTR after discharge.</span>
+<span class="sd">        </span>
+<span class="sd">        Relative to the amount of collected material in one cycle.</span>
+<span class="sd">        </span>
+<span class="sd">        Only one of `v_leftover_rel` and</span>
+<span class="sd">        :attr:`v_leftover` should be defined.</span>
+<span class="sd">        If none are defined, then the leftover is set to 0.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_calc_f_out_target_and_t_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Estimate target outlet flow rate and inlet cycle duration.</span>
+
+<span class="sd">        Target outlet flow rate (`self._f_out_target`).</span>
+
+<span class="sd">        Inlet cycle duration (`self._t_cycle`).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_flow_box_shaped</span><span class="p">():</span>
+            <span class="c1"># Constant inlet.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_cycle</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v_cycle</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> \
+                <span class="sa">f</span><span class="s2">&quot;Exactly one of `t_cycle` and `v_cycle` needs to be defined&quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot; for constant inlet flow rate.&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_cycle</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_cycle</span> <span class="o">&gt;</span> <span class="mi">0</span> \
+                <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_cycle</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Periodic inlet.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">_estimate_steady_state_mean_f</span><span class="p">()</span>
+            <span class="c1"># Apply multiple periods collection.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_n_periods</span>
+        <span class="c1"># Log.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;t_cycle&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;f_out_target&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_calc_t_leftover</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_t_cycle&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_f_out_target&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_leftover</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_leftover_rel</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> \
+            <span class="sa">f</span><span class="s2">&quot;Only one of the `v_leftover` and `v_leftover_rel`&quot;</span> \
+            <span class="sa">f</span><span class="s2">&quot; should be defined.&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_leftover</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_t_leftover</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_leftover</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_leftover_rel</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_t_leftover</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_leftover_rel</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_t_leftover</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">_calc_i_switch_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Determine when CSTRs switch roles (index on `t` vector).&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_t_cycle&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_f_out_target&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_t_leftover&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_flow_box_shaped</span><span class="p">():</span>
+            <span class="c1"># Constant inlet.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_i_switch_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># Get inlet flow rate start and end position.</span>
+            <span class="n">i_start</span><span class="p">,</span> <span class="n">i_end</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">true_start_and_end</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">i_cycle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+            <span class="n">i_leftover</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_leftover</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+            <span class="c1"># Manage first two cycles.</span>
+            <span class="k">if</span> <span class="n">i_leftover</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">i_start</span> <span class="o">+=</span> <span class="n">i_cycle</span> <span class="o">+</span> <span class="n">i_leftover</span> <span class="o">*</span> <span class="mi">2</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_i_switch_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_start</span><span class="p">)</span>
+                <span class="n">i_start</span> <span class="o">+=</span> <span class="n">i_cycle</span> <span class="o">+</span> <span class="n">i_leftover</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_i_switch_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_start</span><span class="p">)</span>
+            <span class="c1"># Add following cycles.</span>
+            <span class="n">i_start</span> <span class="o">+=</span> <span class="n">i_cycle</span>
+            <span class="k">while</span> <span class="n">i_start</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_i_switch_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_start</span><span class="p">)</span>
+                <span class="n">i_start</span> <span class="o">+=</span> <span class="n">i_cycle</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Periodic inlet.</span>
+            <span class="n">i_flow_start_list</span><span class="p">,</span> <span class="n">i_flow_on_duration</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">_assert_periodic_flow</span><span class="p">()</span>
+            <span class="k">assert</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relative_role_switch_time</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+            <span class="n">i_cycle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_cycle</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+            <span class="n">i_delay</span> <span class="o">=</span> <span class="p">(</span><span class="n">i_cycle</span> <span class="o">-</span> <span class="n">i_flow_on_duration</span><span class="p">)</span> \
+                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">relative_role_switch_time</span>
+            <span class="n">i_leftover</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_leftover</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+            <span class="n">i_switch</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i_flow_start_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">i_cycle</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">_np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="n">_np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
+                <span class="n">i_switch</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">i_flow_start_list</span><span class="p">)]</span> <span class="o">-</span> <span class="n">i_flow_start_list</span><span class="p">))</span>
+            <span class="c1"># Apply delay.</span>
+            <span class="n">i_switch</span> <span class="o">+=</span> <span class="n">i_flow_on_duration</span> <span class="o">+</span> <span class="n">i_delay</span>
+            <span class="c1"># Apply delay due to leftover material</span>
+            <span class="k">assert</span> <span class="n">i_delay</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i_leftover</span><span class="p">,</span> \
+                <span class="sa">f</span><span class="s2">&quot;Leftover volume is too large to manage cycles.&quot;</span>
+            <span class="n">i_switch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">i_leftover</span>
+            <span class="n">i_switch</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i_leftover</span>
+            <span class="c1"># Remove entries over the simulation time size.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_i_switch_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">i_switch</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+        <span class="c1"># Log.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;t_switch_list&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i_switch_list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_simulate_cycle_by_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cycle-by-cycle simulation.&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_t_cycle&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_f_out_target&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_i_switch_list&#39;</span><span class="p">)</span>
+        <span class="c1"># Prepare vectors.</span>
+        <span class="n">dv_in</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+        <span class="n">dm_in</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">*</span> <span class="n">dv_in</span><span class="p">[</span><span class="n">_np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">dv_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">*=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c</span> <span class="o">*=</span> <span class="mi">0</span>
+        <span class="c1"># Prepare log.</span>
+        <span class="n">log_data_cycles</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">set_branch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s2">&quot;cycles&quot;</span><span class="p">,</span> <span class="n">log_data_cycles</span><span class="p">)</span>
+        <span class="c1"># Leftover volume.</span>
+        <span class="n">v_leftover</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_leftover</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+        <span class="c1"># Prepare variables.</span>
+        <span class="n">v_st1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">m_st1</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">v_st2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">m_st2</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">i_prev_switch</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">i_current_switch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i_switch_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Iterate over cycles.</span>
+        <span class="k">for</span> <span class="n">i_switch_target</span> <span class="ow">in</span> <span class="p">[</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_i_switch_list</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">]:</span>
+            <span class="c1"># Prepare log.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+            <span class="n">log_data_cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">)</span>
+            <span class="c1"># Collect.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span> <span class="s2">&quot;v_start&quot;</span><span class="p">,</span> <span class="n">v_st1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span> <span class="s2">&quot;m_start&quot;</span><span class="p">,</span> <span class="n">m_st1</span><span class="p">)</span>
+            <span class="n">i_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">i_prev_switch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">i_d_start</span> <span class="o">=</span> <span class="n">i_start</span> <span class="o">-</span> <span class="n">i_prev_switch</span>  <span class="c1"># fraction of fist step</span>
+            <span class="n">i_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">i_current_switch</span><span class="p">))</span>
+            <span class="n">i_d_end</span> <span class="o">=</span> <span class="n">i_current_switch</span> <span class="o">-</span> <span class="n">i_end</span>  <span class="c1"># fraction of last step</span>
+            <span class="k">if</span> <span class="n">i_start</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+                <span class="n">v_st1</span> <span class="o">+=</span> <span class="n">dv_in</span><span class="p">[</span><span class="n">i_start</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">i_d_start</span>
+                <span class="n">m_st1</span> <span class="o">+=</span> <span class="n">dm_in</span><span class="p">[:,</span> <span class="n">i_start</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">i_d_start</span>
+            <span class="n">v_st1</span> <span class="o">+=</span> <span class="n">dv_in</span><span class="p">[</span><span class="n">i_start</span><span class="p">:</span><span class="n">i_end</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">m_st1</span> <span class="o">+=</span> <span class="n">dm_in</span><span class="p">[:,</span> <span class="n">i_start</span><span class="p">:</span><span class="n">i_end</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i_end</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+                <span class="n">v_st1</span> <span class="o">+=</span> <span class="n">dv_in</span><span class="p">[</span><span class="n">i_end</span><span class="p">]</span> <span class="o">*</span> <span class="n">i_d_end</span>
+                <span class="n">m_st1</span> <span class="o">+=</span> <span class="n">dm_in</span><span class="p">[:,</span> <span class="n">i_end</span><span class="p">]</span> <span class="o">*</span> <span class="n">i_d_end</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span> <span class="s2">&quot;v_after_collection&quot;</span><span class="p">,</span> <span class="n">v_st1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span> <span class="s2">&quot;m_after_collection&quot;</span><span class="p">,</span> <span class="n">m_st1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span>
+                            <span class="s2">&quot;c_discharge&quot;</span><span class="p">,</span>
+                            <span class="n">m_st1</span> <span class="o">/</span> <span class="n">v_st1</span> <span class="k">if</span> <span class="n">v_st1</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="c1"># Discharge duration.</span>
+            <span class="n">i_discharge_duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_st1</span> <span class="o">-</span> <span class="n">v_leftover</span><span class="p">)</span> <span class="o">/</span> <span class="n">dv_out</span>
+            <span class="n">i_next_switch</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">i_current_switch</span> <span class="o">+</span> <span class="n">i_discharge_duration</span><span class="p">,</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+            <span class="n">i_discharge_duration</span> <span class="o">=</span> <span class="n">i_next_switch</span> <span class="o">-</span> <span class="n">i_current_switch</span>
+            <span class="c1"># Discharge.</span>
+            <span class="n">i_start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">i_current_switch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">i_d_start</span> <span class="o">=</span> <span class="n">i_start</span> <span class="o">-</span> <span class="n">i_current_switch</span>  <span class="c1"># fraction of fist step</span>
+            <span class="n">i_end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">_np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">i_next_switch</span><span class="p">))</span>
+            <span class="n">i_d_end</span> <span class="o">=</span> <span class="n">i_next_switch</span> <span class="o">-</span> <span class="n">i_end</span>  <span class="c1"># fraction of last step</span>
+            <span class="k">if</span> <span class="n">i_discharge_duration</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">i_start</span> <span class="o">&lt;=</span> <span class="n">i_end</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i_start</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span> <span class="ow">and</span> <span class="n">i_d_start</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">f0</span><span class="p">,</span> <span class="n">c0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i_start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                    <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">*</span> <span class="n">i_d_start</span>
+                    <span class="n">c_df</span> <span class="o">=</span> <span class="n">m_st1</span> <span class="o">/</span> <span class="n">v_st1</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">df</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i_start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">c_df</span> <span class="o">*</span> <span class="n">df</span> <span class="o">+</span> <span class="n">c0</span> <span class="o">*</span> <span class="n">f0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span> <span class="o">+</span> <span class="n">f0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i_start</span><span class="p">:</span><span class="n">i_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_st1</span><span class="p">[:,</span> <span class="n">_np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">/</span> <span class="n">v_st1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span><span class="p">:</span><span class="n">i_end</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span>
+                <span class="k">if</span> <span class="n">i_end</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_st1</span> <span class="o">/</span> <span class="n">v_st1</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_end</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">*</span> <span class="n">i_d_end</span>
+            <span class="k">elif</span> <span class="n">i_discharge_duration</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">i_start</span> <span class="o">==</span> <span class="n">i_end</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">i_d_mid</span> <span class="o">=</span> <span class="n">i_d_start</span> <span class="o">+</span> <span class="n">i_d_end</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="n">f0</span><span class="p">,</span> <span class="n">c0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_end</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i_end</span><span class="p">]</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f_out_target</span> <span class="o">*</span> <span class="n">i_d_mid</span>
+                <span class="n">c_df</span> <span class="o">=</span> <span class="n">m_st1</span> <span class="o">/</span> <span class="n">v_st1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_end</span><span class="p">]</span> <span class="o">+=</span> <span class="n">df</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:,</span> <span class="n">i_end</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">c_df</span> <span class="o">*</span> <span class="n">df</span> <span class="o">+</span> <span class="n">c0</span> <span class="o">*</span> <span class="n">f0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span> <span class="o">+</span> <span class="n">f0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">v_st1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">v_cycle_filled</span> <span class="o">=</span> <span class="n">v_st1</span>
+                <span class="n">v_st1</span> <span class="o">-=</span> <span class="n">dv_out</span> <span class="o">*</span> <span class="n">i_discharge_duration</span>
+                <span class="n">m_st1</span> <span class="o">*=</span> <span class="n">v_st1</span> <span class="o">/</span> <span class="n">v_cycle_filled</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span> <span class="s2">&quot;v_after_discharge&quot;</span><span class="p">,</span> <span class="n">v_st1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span> <span class="s2">&quot;m_after_discharge&quot;</span><span class="p">,</span> <span class="n">m_st1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span>
+                            <span class="s2">&quot;i_start_discharge&quot;</span><span class="p">,</span>
+                            <span class="n">i_current_switch</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_tree</span><span class="p">,</span>
+                            <span class="s2">&quot;i_end_discharge&quot;</span><span class="p">,</span>
+                            <span class="n">i_next_switch</span><span class="p">)</span>
+            <span class="c1"># Prepare for next cycle.</span>
+            <span class="n">i_prev_switch</span> <span class="o">=</span> <span class="n">i_current_switch</span>
+            <span class="n">i_current_switch</span> <span class="o">=</span> <span class="n">i_next_switch</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i_discharge_duration</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-09</span><span class="p">:</span>
+                <span class="c1"># End of inlet flow. The surge tank ran dry.</span>
+                <span class="k">break</span>
+            <span class="c1"># Ensure that the switch time does not deviate too much.</span>
+            <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i_prev_switch</span> <span class="o">-</span> <span class="n">i_switch_target</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span>
+            <span class="c1"># Switch roles.</span>
+            <span class="n">v_st2</span><span class="p">,</span> <span class="n">m_st2</span><span class="p">,</span> <span class="n">v_st1</span><span class="p">,</span> <span class="n">m_st1</span> <span class="o">=</span> <span class="n">v_st1</span><span class="p">,</span> <span class="n">m_st1</span><span class="p">,</span> <span class="n">v_st2</span><span class="p">,</span> <span class="n">m_st2</span>
+
+    <span class="k">def</span> <span class="nf">_ensure_box_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ensures clean box-shaped profile.</span>
+
+<span class="sd">        It trims start and end positive flow rate value if it is &lt; 99 %</span>
+<span class="sd">        of median positive flow value.</span>
+
+<span class="sd">        Asserts that flow rate variations are &lt; 0.01 % and sets all</span>
+<span class="sd">        positive values to median flow value.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">i_start</span><span class="p">,</span> <span class="n">i_end</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">true_start_and_end</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">f_on</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">i_end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.99</span> <span class="o">*</span> <span class="n">f_on</span> <span class="k">else</span> <span class="n">f_on</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.9999</span> <span class="o">*</span> <span class="n">f_on</span> <span class="k">else</span> <span class="n">f_on</span>
+        <span class="k">assert</span> <span class="n">_np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">i_end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.9999</span> <span class="o">*</span> <span class="n">f_on</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">_np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">i_end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">1.0001</span> <span class="o">*</span> <span class="n">f_on</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[</span><span class="n">i_start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span><span class="n">i_end</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_on</span>
+
+    <span class="k">def</span> <span class="nf">_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Prepare.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_f_out_target_and_t_cycle</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_t_leftover</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_i_switch_list</span><span class="p">()</span>
+        <span class="c1"># Simulation.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_simulate_cycle_by_cycle</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_box_shape</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
