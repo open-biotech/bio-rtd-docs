@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -89,7 +89,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul class="current">
@@ -130,7 +134,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -159,7 +163,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -184,9 +188,9 @@
 unit operation train.</p>
 <div class="section" id="constantinlet">
 <h2>ConstantInlet<a class="headerlink" href="#constantinlet" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.inlet.ConstantInlet">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.inlet.</code><code class="sig-name descname">ConstantInlet</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">f</em>, <em class="sig-param">c</em>, <em class="sig-param">species_list</em>, <em class="sig-param">inlet_id</em>, <em class="sig-param">gui_title='ConstantInlet'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#ConstantInlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.inlet.</code><code class="sig-name descname">ConstantInlet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">c</span></em>, <em class="sig-param"><span class="n">species_list</span></em>, <em class="sig-param"><span class="n">inlet_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'ConstantInlet'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#ConstantInlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.Inlet" title="bio_rtd.core.Inlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.Inlet</span></code></a></p>
 <p>Constant flow rate and constant process fluid composition</p>
 <dl class="field-list simple">
@@ -203,25 +207,25 @@ For single specie use <cite>np.array([c_value])</cite>.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.ConstantInlet.f">
 <code class="sig-name descname">f</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.f" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constant flow rate.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.ConstantInlet.c">
 <code class="sig-name descname">c</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.c" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constant concentration value for each specie.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.ConstantInlet.refresh">
 <code class="sig-name descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#ConstantInlet.refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.refresh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recalculate profiles based on attributes.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.ConstantInlet.get_n_species">
 <code class="sig-name descname">get_n_species</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.get_n_species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get number of process fluid species.</p>
@@ -232,7 +236,7 @@ For single specie use <cite>np.array([c_value])</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.ConstantInlet.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get flow rate and concentration profiles.</p>
@@ -250,7 +254,7 @@ For single specie use <cite>np.array([c_value])</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.ConstantInlet.get_t">
 <code class="sig-name descname">get_t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.get_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get simulation time vector.</p>
@@ -261,7 +265,7 @@ For single specie use <cite>np.array([c_value])</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.ConstantInlet.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -275,9 +279,9 @@ For single specie use <cite>np.array([c_value])</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.ConstantInlet.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.ConstantInlet.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -294,9 +298,9 @@ For single specie use <cite>np.array([c_value])</cite>.</p></li>
 </div>
 <div class="section" id="intervalinlet">
 <h2>IntervalInlet<a class="headerlink" href="#intervalinlet" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.inlet.IntervalInlet">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.inlet.</code><code class="sig-name descname">IntervalInlet</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">f</em>, <em class="sig-param">c_inner</em>, <em class="sig-param">c_outer</em>, <em class="sig-param">species_list</em>, <em class="sig-param">inlet_id</em>, <em class="sig-param">gui_title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#IntervalInlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.inlet.</code><code class="sig-name descname">IntervalInlet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">c_inner</span></em>, <em class="sig-param"><span class="n">c_outer</span></em>, <em class="sig-param"><span class="n">species_list</span></em>, <em class="sig-param"><span class="n">inlet_id</span></em>, <em class="sig-param"><span class="n">gui_title</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#IntervalInlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.Inlet" title="bio_rtd.core.Inlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.Inlet</span></code></a></p>
 <p>Constant flow rate and box shaped concentration profile.</p>
 <dl class="field-list simple">
@@ -325,31 +329,31 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.IntervalInlet.f">
 <code class="sig-name descname">f</code><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.f" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constant flow rate.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.IntervalInlet.c_inner">
 <code class="sig-name descname">c_inner</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.c_inner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Concentration value for each specie inside the interval.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.IntervalInlet.c_outer">
 <code class="sig-name descname">c_outer</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.c_outer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Concentration value for each specie outside the interval.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.IntervalInlet.t_start">
 <code class="sig-name descname">t_start</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.t_start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start of interval, inclusive ( &gt;= ). Default = 0.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.IntervalInlet.get_n_species">
 <code class="sig-name descname">get_n_species</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.get_n_species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get number of process fluid species.</p>
@@ -360,7 +364,7 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.IntervalInlet.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get flow rate and concentration profiles.</p>
@@ -378,7 +382,7 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.IntervalInlet.get_t">
 <code class="sig-name descname">get_t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.get_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get simulation time vector.</p>
@@ -389,7 +393,7 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.IntervalInlet.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -403,9 +407,9 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.IntervalInlet.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -417,14 +421,14 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.IntervalInlet.t_end">
 <code class="sig-name descname">t_end</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.t_end" title="Permalink to this definition">¶</a></dt>
 <dd><p>End of interval, excluding ( &lt; ).</p>
 <p>Default = t[-1] + <cite>time step</cite>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.IntervalInlet.refresh">
 <code class="sig-name descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#IntervalInlet.refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.IntervalInlet.refresh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recalculate profiles based on attributes.</p>
@@ -435,9 +439,9 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </div>
 <div class="section" id="custominlet">
 <h2>CustomInlet<a class="headerlink" href="#custominlet" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.inlet.CustomInlet">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.inlet.</code><code class="sig-name descname">CustomInlet</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">f</em>, <em class="sig-param">c</em>, <em class="sig-param">species_list</em>, <em class="sig-param">inlet_id</em>, <em class="sig-param">gui_title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#CustomInlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.CustomInlet" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.inlet.</code><code class="sig-name descname">CustomInlet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">c</span></em>, <em class="sig-param"><span class="n">species_list</span></em>, <em class="sig-param"><span class="n">inlet_id</span></em>, <em class="sig-param"><span class="n">gui_title</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#CustomInlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.CustomInlet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.Inlet" title="bio_rtd.core.Inlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.Inlet</span></code></a></p>
 <p>Custom flow rate profile and custom concentration profile.</p>
 <dl class="field-list simple">
@@ -453,7 +457,7 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.CustomInlet.get_n_species">
 <code class="sig-name descname">get_n_species</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.get_n_species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get number of process fluid species.</p>
@@ -464,7 +468,7 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.CustomInlet.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get flow rate and concentration profiles.</p>
@@ -482,7 +486,7 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.CustomInlet.get_t">
 <code class="sig-name descname">get_t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.get_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get simulation time vector.</p>
@@ -493,7 +497,7 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.CustomInlet.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -507,9 +511,9 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.CustomInlet.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -521,20 +525,20 @@ Default = t[-1] + <cite>time step</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.CustomInlet.f">
 <code class="sig-name descname">f</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.f" title="Permalink to this definition">¶</a></dt>
 <dd><p>Custom flow rate profile. Should be the same size as <cite>t</cite>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.inlet.CustomInlet.c">
 <code class="sig-name descname">c</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.c" title="Permalink to this definition">¶</a></dt>
 <dd><p>Custom concentration profiles.</p>
 <p><cite>c</cite>.shape == (len(<code class="xref py py-attr docutils literal notranslate"><span class="pre">species_list</span></code>), <cite>t</cite>.size)</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.inlet.CustomInlet.refresh">
 <code class="sig-name descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/inlet.html#CustomInlet.refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.inlet.CustomInlet.refresh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recalculate profiles based on attributes.</p>

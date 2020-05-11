@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -89,7 +89,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul class="current">
@@ -128,7 +132,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -157,7 +161,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -184,9 +188,9 @@ column.</p>
 </div>
 <div class="section" id="constantpatternsolution">
 <h2>ConstantPatternSolution<a class="headerlink" href="#constantpatternsolution" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.chromatography.bt_load.</code><code class="sig-name descname">ConstantPatternSolution</code><span class="sig-paren">(</span><em class="sig-param">dt</em>, <em class="sig-param">dbc_100</em>, <em class="sig-param">k</em>, <em class="sig-param">bt_profile_id='ConstantPatternSolution'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/chromatography/bt_load.html#ConstantPatternSolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.chromatography.bt_load.</code><code class="sig-name descname">ConstantPatternSolution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dt</span></em>, <em class="sig-param"><span class="n">dbc_100</span></em>, <em class="sig-param"><span class="n">k</span></em>, <em class="sig-param"><span class="n">bt_profile_id</span><span class="o">=</span><span class="default_value">'ConstantPatternSolution'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/chromatography/bt_load.html#ConstantPatternSolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.ChromatographyLoadBreakthrough" title="bio_rtd.core.ChromatographyLoadBreakthrough"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.ChromatographyLoadBreakthrough</span></code></a></p>
 <p>Breakthrough profile - Constant Pattern Solution.</p>
 <p>r = 1 / (1 + exp(<cite>k</cite> * (<cite>dbc_100</cite> - <cite>m_load</cite> / <cite>cv</cite>)))</p>
@@ -220,31 +224,31 @@ column.</p>
 <span class="go">1739.0</span>
 </pre></div>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS">
 <code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><em class="property"> = [['cv']]</em><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.OPTIONAL_KEYS">
 <code class="sig-name descname">OPTIONAL_KEYS</code><em class="property"> = []</em><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.dbc_100">
 <code class="sig-name descname">dbc_100</code><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.dbc_100" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dynamic binding capacity at 100 % load breakthrough.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.k">
 <code class="sig-name descname">k</code><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.k" title="Permalink to this definition">¶</a></dt>
 <dd><p>Steepness of the breakthrough profile.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -264,9 +268,9 @@ optional keys from <a class="reference internal" href="#bio_rtd.chromatography.b
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.calc_c_bound">
-<code class="sig-name descname">calc_c_bound</code><span class="sig-paren">(</span><em class="sig-param">f_load</em>, <em class="sig-param">c_load</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.calc_c_bound" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calc_c_bound</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_load</span></em>, <em class="sig-param"><span class="n">c_load</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.calc_c_bound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates what parts of load bind to the column.</p>
 <p>The default implementation calculates cumulative mass of the
 load material and passes it to <code class="xref py py-func docutils literal notranslate"><span class="pre">_update_btc_parameters()</span></code>
@@ -294,7 +298,7 @@ load step.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -308,9 +312,9 @@ load step.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -322,9 +326,9 @@ load step.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.update_btc_parameters">
-<code class="sig-name descname">update_btc_parameters</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.update_btc_parameters" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update_btc_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.update_btc_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update binding dynamics for a given set of parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -335,7 +339,7 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.chromatography.bt_load.ConstantPatternSolution.get_total_bc">
 <code class="sig-name descname">get_total_bc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/chromatography/bt_load.html#ConstantPatternSolution.get_total_bc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.chromatography.bt_load.ConstantPatternSolution.get_total_bc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total binding capacity.</p>

@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -87,8 +87,10 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 </ul>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../user_guide.html">User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="features.html">Features</a></li>
@@ -96,6 +98,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Development</a></li>
 </ul>
 </li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul>
@@ -114,7 +118,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -143,7 +147,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../user_guide.html">User Guide</a> &raquo;</li>
         
@@ -187,6 +191,7 @@ code coverage. If needed, also update the documentation.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx
 sphinx_autodoc_typehints
 sphinx_rtd_theme
+rst2pdf
 </pre></div>
 </div>
 <p>To generate the documentation from script, run:</p>
@@ -194,15 +199,23 @@ sphinx_rtd_theme
 </pre></div>
 </div>
 <p>and open <code class="docutils literal notranslate"><span class="pre">docs/build/html/index.html</span></code>.</p>
+<p>To generate the documentation in form of PDF, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build -b pdf docs/source docs/build
+</pre></div>
+</div>
+<p>To clean the build directory, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean
+</pre></div>
+</div>
 </div>
 <div class="section" id="pull-requests">
 <h2>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
 <p>To contribute to the library, please <a class="reference external" href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">create a pull request</a> on <a class="reference external" href="https://github.com/open-biotech/bio-rtd.git">GitHub</a>.</p>
 <p>Checklist before making a pull request:</p>
 <ul class="simple">
-<li><p>all unit tests need to succeed</p></li>
-<li><p>ensure 100 % code coverage with unit tests</p></li>
-<li><p>update docstrings and documentation</p></li>
+<li><p>All unit tests need to succeed.</p></li>
+<li><p>Ensure 100 % code coverage with unit tests.</p></li>
+<li><p>Update docstrings and documentation.</p></li>
 </ul>
 </div>
 </div>

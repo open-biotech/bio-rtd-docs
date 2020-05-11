@@ -50,7 +50,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> bio_rtd
+            <a href="../../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -87,9 +87,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 </ul>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../examples.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../models.html">Models</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../templates.html">Templates</a><ul class="current">
@@ -124,7 +128,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">bio_rtd</a>
+          <a href="../../content.html">bio_rtd</a>
         
       </nav>
 
@@ -153,7 +157,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../../examples.html">Examples</a> &raquo;</li>
         
@@ -212,7 +216,7 @@
     <span class="c1"># Optional. One of the following two. It determines initial fill volume.</span>
     <span class="c1"># If none are defined, the initial fill volume is the same as void volume.</span>
     <span class="s2">&quot;v_init&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="s2">&quot;v_ratio&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>  <span class="c1"># 20 % of the total (== void) volume</span>
+    <span class="s2">&quot;v_init_ratio&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>  <span class="c1"># 20 % of the total (== void) volume</span>
 
     <span class="c1"># Optional. Default = False.</span>
     <span class="c1"># If True, then `v_init` and `v_init_ratio` are ignored.</span>
@@ -220,7 +224,7 @@
 
     <span class="c1"># Optional. Initial buffer composition.</span>
     <span class="c1"># Default is empty array (equivalent to 0).</span>
-    <span class="s2">&quot;c_add_buffer&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="s2">&quot;c_init&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 
     <span class="c1"># Additional attributes are inherited from `UnitOperation`.</span>
     <span class="c1"># See `examples/templates/add_on_attributes.py`.</span>
@@ -262,7 +266,7 @@ for each <a class="reference internal" href="../../bio_rtd/core.html#bio_rtd.cor
     <span class="c1"># Optional. One of the following two. It determines initial fill volume.</span>
     <span class="c1"># If none are defined, the initial fill volume is the same as void volume.</span>
     <span class="c1"># &quot;v_init&quot;: float,</span>
-    <span class="c1"># &quot;v_ratio&quot;: float,  # 20 % of the total (== void) volume</span>
+    <span class="c1"># &quot;v_init_ratio&quot;: float,  # 20 % of the total (== void) volume</span>
 
     <span class="c1"># Optional. Default = False.</span>
     <span class="c1"># If True, then `v_init` and `v_init_ratio` are ignored.</span>
@@ -270,7 +274,7 @@ for each <a class="reference internal" href="../../bio_rtd/core.html#bio_rtd.cor
 
     <span class="c1"># Optional. Initial buffer composition.</span>
     <span class="c1"># Default is empty array (equivalent to 0).</span>
-    <span class="c1"># &quot;c_add_buffer&quot;: np.ndarray,</span>
+    <span class="c1"># &quot;c_init&quot;: np.ndarray,</span>
 
     <span class="c1"># Additional attributes are inherited from `UnitOperation`.</span>
     <span class="c1"># See `examples/templates/add_on_attributes.py`.</span>

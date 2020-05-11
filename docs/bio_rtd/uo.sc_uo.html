@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -89,7 +89,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul class="current">
@@ -131,7 +135,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -160,7 +164,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -183,9 +187,9 @@
 and provide periodic flow rate profile.</p>
 <div class="section" id="acc">
 <h2>ACC<a class="headerlink" href="#acc" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.uo.sc_uo.ACC">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.sc_uo.</code><code class="sig-name descname">ACC</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">load_bt</em>, <em class="sig-param">peak_shape_pdf</em>, <em class="sig-param">gui_title='ACC'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/sc_uo.html#ACC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.sc_uo.ACC" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.sc_uo.</code><code class="sig-name descname">ACC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">load_bt</span></em>, <em class="sig-param"><span class="n">peak_shape_pdf</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'ACC'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/sc_uo.html#ACC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.sc_uo.ACC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography" title="bio_rtd.uo.sc_uo.AlternatingChromatography"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.uo.sc_uo.AlternatingChromatography</span></code></a></p>
 <p>Alternating column chromatography without recycling.</p>
 <p>Alternating load-bind-elution twin-column chromatography without
@@ -245,9 +249,9 @@ Starts with 0 and has a constant time step.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f_out</span><span class="p">,</span> <span class="n">c_out</span> <span class="o">=</span> <span class="n">acc_pro_a</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">f_in</span><span class="p">,</span> <span class="n">c_in</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.ACC.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.ACC.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.ACC.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -270,7 +274,7 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.ACC.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.ACC.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
@@ -288,7 +292,7 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.ACC.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.ACC.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -302,9 +306,9 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.ACC.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.ACC.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.ACC.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -321,9 +325,9 @@ Starts with 0 and has a constant time step.</p></li>
 </div>
 <div class="section" id="pcc">
 <h2>PCC<a class="headerlink" href="#pcc" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.uo.sc_uo.PCC">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.sc_uo.</code><code class="sig-name descname">PCC</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">load_bt</em>, <em class="sig-param">load_recycle_pdf</em>, <em class="sig-param">column_porosity_retentate</em>, <em class="sig-param">peak_shape_pdf</em>, <em class="sig-param">gui_title='PCC'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/sc_uo.html#PCC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.sc_uo.</code><code class="sig-name descname">PCC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">load_bt</span></em>, <em class="sig-param"><span class="n">load_recycle_pdf</span></em>, <em class="sig-param"><span class="n">column_porosity_retentate</span></em>, <em class="sig-param"><span class="n">peak_shape_pdf</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'PCC'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/sc_uo.html#PCC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography" title="bio_rtd.uo.sc_uo.AlternatingChromatography"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.uo.sc_uo.AlternatingChromatography</span></code></a></p>
 <p>Alternating column chromatography with recycling of load.</p>
 <p>Alternating load-bind-elution twin-column chromatography with
@@ -403,9 +407,9 @@ through the column.</p></li>
 <span class="go">pro_a_pcc: Steady-state concentration is being estimated ...</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.PCC.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -428,7 +432,7 @@ through the column.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.PCC.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
@@ -446,7 +450,7 @@ through the column.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.PCC.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -460,9 +464,9 @@ through the column.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.PCC.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -474,19 +478,19 @@ through the column.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCC.load_recycle">
 <code class="sig-name descname">load_recycle</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.load_recycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recycle load breakthrough. Default = <cite>True</cite>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCC.wash_recycle">
 <code class="sig-name descname">wash_recycle</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.wash_recycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recycle wash. Default = False.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCC.column_porosity_retentate">
 <code class="sig-name descname">column_porosity_retentate</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.column_porosity_retentate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Column porosity for binding species.</p>
@@ -500,7 +504,7 @@ product (protein) traveling through the column during
 non-binding conditions (in CVs).</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCC.load_recycle_pdf">
 <code class="sig-name descname">load_recycle_pdf</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCC.load_recycle_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>PDF of wash and/or unbound load traveling through the column.</p>
@@ -515,9 +519,9 @@ non-binding conditions (in CVs).</p>
 </div>
 <div class="section" id="pccwithwashdesorption">
 <h2>PCCWithWashDesorption<a class="headerlink" href="#pccwithwashdesorption" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.sc_uo.</code><code class="sig-name descname">PCCWithWashDesorption</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">load_bt</em>, <em class="sig-param">load_recycle_pdf</em>, <em class="sig-param">column_porosity_retentate</em>, <em class="sig-param">peak_shape_pdf</em>, <em class="sig-param">gui_title='PCCWithWashDesorption'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/sc_uo.html#PCCWithWashDesorption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.sc_uo.</code><code class="sig-name descname">PCCWithWashDesorption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">load_bt</span></em>, <em class="sig-param"><span class="n">load_recycle_pdf</span></em>, <em class="sig-param"><span class="n">column_porosity_retentate</span></em>, <em class="sig-param"><span class="n">peak_shape_pdf</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'PCCWithWashDesorption'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/sc_uo.html#PCCWithWashDesorption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.uo.sc_uo.PCC" title="bio_rtd.uo.sc_uo.PCC"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.uo.sc_uo.PCC</span></code></a></p>
 <p>Alternating column chromatography with recycling of load.</p>
 <p>Alternating load-bind-elution twin-column chromatography with
@@ -567,9 +571,9 @@ many cycles.</p>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#bio_rtd.uo.sc_uo.PCC" title="bio_rtd.uo.sc_uo.PCC"><code class="xref py py-class docutils literal notranslate"><span class="pre">PCC</span></code></a>, <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography" title="bio_rtd.uo.sc_uo.AlternatingChromatography"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlternatingChromatography</span></code></a></p>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -592,7 +596,7 @@ many cycles.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
@@ -610,7 +614,7 @@ many cycles.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -624,9 +628,9 @@ many cycles.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -638,25 +642,25 @@ many cycles.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.load_recycle">
 <code class="sig-name descname">load_recycle</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.load_recycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recycle load breakthrough. Default = <cite>True</cite>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_recycle">
 <code class="sig-name descname">wash_recycle</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_recycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recycle wash. Default = <cite>True</cite>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption">
 <code class="sig-name descname">wash_desorption</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate desorption during wash step. Default = <cite>True</cite>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption_tail_half_time_cv">
 <code class="sig-name descname">wash_desorption_tail_half_time_cv</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption_tail_half_time_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wash desorption rate.</p>
@@ -665,7 +669,7 @@ many cycles.</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption_tail_half_time_cv" title="bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption_tail_half_time_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">wash_desorption_tail_half_time_cv</span></code></a>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption_desorbable_material_share">
 <code class="sig-name descname">wash_desorption_desorbable_material_share</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption_desorbable_material_share" title="Permalink to this definition">¶</a></dt>
 <dd><p>Share of material that can be desorbed during wash step.</p>
@@ -679,7 +683,7 @@ or</p></li>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption_desorbable_above_dbc">
 <code class="sig-name descname">wash_desorption_desorbable_above_dbc</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.PCCWithWashDesorption.wash_desorption_desorbable_above_dbc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Share of material that can be desorbed during wash step.</p>
@@ -701,9 +705,9 @@ or</p></li>
 </div>
 <div class="section" id="alternatingchromatography">
 <h2>AlternatingChromatography<a class="headerlink" href="#alternatingchromatography" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.sc_uo.</code><code class="sig-name descname">AlternatingChromatography</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">load_bt</em>, <em class="sig-param">peak_shape_pdf</em>, <em class="sig-param">gui_title='AC'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/sc_uo.html#AlternatingChromatography"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.sc_uo.</code><code class="sig-name descname">AlternatingChromatography</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">load_bt</span></em>, <em class="sig-param"><span class="n">peak_shape_pdf</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'AC'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/sc_uo.html#AlternatingChromatography"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Simulation of alternating chromatography.</p>
 <p>This class implements logic common to various types of alternating
@@ -866,26 +870,26 @@ or <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatograp
 </ul>
 <p>Please note that subclasses might introduce new attributes or change
 the default values of existing attributes.</p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_bt">
 <code class="sig-name descname">load_bt</code><em class="property">: _core.ChromatographyLoadBreakthrough</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_bt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines what part of load material binds to the column.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_shape">
 <code class="sig-name descname">elution_peak_shape</code><em class="property">: _core.PDF</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak shape.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.non_binding_species">
 <code class="sig-name descname">non_binding_species</code><em class="property">: Sequence[int]</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.non_binding_species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process buffer species that are NOT binding to the column.</p>
 <p>Indexing starts with 0.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.cv">
 <code class="sig-name descname">cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Column volume.</p>
@@ -898,7 +902,7 @@ and <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatogra
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.ft_mean_retentate">
 <code class="sig-name descname">ft_mean_retentate</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.ft_mean_retentate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flow-through time of retentate under non-binding conditions.</p>
@@ -912,7 +916,7 @@ attribute groups:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.column_porosity_retentate">
 <code class="sig-name descname">column_porosity_retentate</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.column_porosity_retentate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Column porosity for retentate under non-binding conditions.</p>
@@ -924,7 +928,7 @@ load step duration.</p>
 <p>Required in case of load or wash recycling.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_cv">
 <code class="sig-name descname">equilibration_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of equilibration step.</p>
@@ -932,7 +936,7 @@ load step duration.</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">equilibration_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_t">
 <code class="sig-name descname">equilibration_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of equilibration step.</p>
@@ -940,7 +944,7 @@ load step duration.</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">equilibration_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_f">
 <code class="sig-name descname">equilibration_f</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_f" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equilibration step flow rate.</p>
@@ -952,7 +956,7 @@ exactly one of the following attributes:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_f_rel">
 <code class="sig-name descname">equilibration_f_rel</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.equilibration_f_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equilibration step flow rate relative to load flow rate.</p>
@@ -967,7 +971,7 @@ exactly one of the following attributes:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_cv">
 <code class="sig-name descname">load_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load phase duration in CV.</p>
@@ -987,7 +991,7 @@ the following attribute groups:</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_t" title="bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_t"><code class="xref py py-attr docutils literal notranslate"><span class="pre">load_extend_first_cycle_t</span></code></a>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_ss">
 <code class="sig-name descname">load_c_end_ss</code><em class="property">: Optional[ndarray]</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_ss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load phase switch based on target product breakthrough conc.</p>
@@ -1011,7 +1015,7 @@ the following attribute groups:</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_t" title="bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_t"><code class="xref py py-attr docutils literal notranslate"><span class="pre">load_extend_first_cycle_t</span></code></a>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_relative_ss">
 <code class="sig-name descname">load_c_end_relative_ss</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_relative_ss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load phase switch based on relative breakthrough conc.</p>
@@ -1036,7 +1040,7 @@ the following attribute groups:</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_t" title="bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_t"><code class="xref py py-attr docutils literal notranslate"><span class="pre">load_extend_first_cycle_t</span></code></a>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_estimate_with_iterative_solver">
 <code class="sig-name descname">load_c_end_estimate_with_iterative_solver</code><em class="property">: bool</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_estimate_with_iterative_solver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finer optimization of cycle length estimation.</p>
@@ -1052,7 +1056,7 @@ precise estimation but might slow down the simulation.</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_estimate_with_iter_solver_max_iter" title="bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_estimate_with_iter_solver_max_iter"><code class="xref py py-attr docutils literal notranslate"><span class="pre">load_c_end_estimate_with_iter_solver_max_iter</span></code></a>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_estimate_with_iter_solver_max_iter">
 <code class="sig-name descname">load_c_end_estimate_with_iter_solver_max_iter</code><em class="property">: int</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_c_end_estimate_with_iter_solver_max_iter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Max steps for optimization of cycle length estimation.</p>
@@ -1063,7 +1067,7 @@ precise estimation but might slow down the simulation.</p>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle">
 <code class="sig-name descname">load_extend_first_cycle</code><em class="property">: bool</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extend first load phase to achieve a faster steady-state.</p>
@@ -1076,7 +1080,7 @@ precise estimation but might slow down the simulation.</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_cv">
 <code class="sig-name descname">load_extend_first_cycle_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of first load phase extension in column volumes.</p>
@@ -1087,7 +1091,7 @@ precise estimation but might slow down the simulation.</p>
 then the values are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_t">
 <code class="sig-name descname">load_extend_first_cycle_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_extend_first_cycle_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of first load phase extension (time).</p>
@@ -1098,7 +1102,7 @@ then the values are added together.</p>
 then the values are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_target_lin_velocity">
 <code class="sig-name descname">load_target_lin_velocity</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_target_lin_velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Target load linear velocity.</p>
@@ -1107,7 +1111,7 @@ then the values are added together.</p>
 <p>Units need to match other units in the model.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_cv">
 <code class="sig-name descname">wash_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of wash step.</p>
@@ -1115,7 +1119,7 @@ then the values are added together.</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">wash_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_t">
 <code class="sig-name descname">wash_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of wash step.</p>
@@ -1123,7 +1127,7 @@ then the values are added together.</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">wash_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_f">
 <code class="sig-name descname">wash_f</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_f" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wash step flow rate.</p>
@@ -1135,7 +1139,7 @@ exactly one of the following attributes:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_f_rel">
 <code class="sig-name descname">wash_f_rel</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_f_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wash step flow rate relative to load flow rate. Default = 1.</p>
@@ -1149,7 +1153,7 @@ exactly one of the following attributes:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.unaccounted_losses_rel">
 <code class="sig-name descname">unaccounted_losses_rel</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.unaccounted_losses_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unaccounted losses as a share of bound material.</p>
@@ -1157,7 +1161,7 @@ exactly one of the following attributes:</p>
 before applying peak cut criteria.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_cv">
 <code class="sig-name descname">elution_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of elution step.</p>
@@ -1165,7 +1169,7 @@ before applying peak cut criteria.</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">elution_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_t">
 <code class="sig-name descname">elution_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of elution step.</p>
@@ -1173,7 +1177,7 @@ before applying peak cut criteria.</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">elution_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_f">
 <code class="sig-name descname">elution_f</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_f" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution step flow rate.</p>
@@ -1185,7 +1189,7 @@ exactly one of the following attributes:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_f_rel">
 <code class="sig-name descname">elution_f_rel</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_f_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution step flow rate relative to load flow rate.</p>
@@ -1200,7 +1204,7 @@ exactly one of the following attributes:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_buffer_c">
 <code class="sig-name descname">elution_buffer_c</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_buffer_c" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution buffer composition.</p>
@@ -1208,7 +1212,7 @@ exactly one of the following attributes:</p>
 <p>If defined it must have a value for each specie.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_position_cv">
 <code class="sig-name descname">elution_peak_position_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_position_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Position (cv) of elution peak in the elution step.</p>
@@ -1218,7 +1222,7 @@ necessarily peak max position).</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_position_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_position_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">elution_peak_position_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_position_t">
 <code class="sig-name descname">elution_peak_position_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_position_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Position (time) of elution peak in the elution step.</p>
@@ -1228,63 +1232,63 @@ necessarily peak max position).</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_position_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_position_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">elution_peak_position_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_start_t">
 <code class="sig-name descname">elution_peak_cut_start_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_start_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak cut start (time).</p>
 <p>Exactly one peak cut start criteria should be defined.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_start_cv">
 <code class="sig-name descname">elution_peak_cut_start_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_start_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak cut start (cv).</p>
 <p>Exactly one peak cut start criteria should be defined.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_start_c_rel_to_peak_max">
 <code class="sig-name descname">elution_peak_cut_start_c_rel_to_peak_max</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_start_c_rel_to_peak_max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak cut start (signal relative to peak max).</p>
 <p>Exactly one peak cut start criteria should be defined.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_start_peak_area_share">
 <code class="sig-name descname">elution_peak_cut_start_peak_area_share</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_start_peak_area_share" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak cut start (share of total peak area).</p>
 <p>Exactly one peak cut start criteria should be defined.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_end_t">
 <code class="sig-name descname">elution_peak_cut_end_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_end_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak cut end (time).</p>
 <p>Exactly one peak cut end criteria should be defined.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_end_cv">
 <code class="sig-name descname">elution_peak_cut_end_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_end_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak cut end (cv).</p>
 <p>Exactly one peak cut end criteria should be defined.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_end_c_rel_to_peak_max">
 <code class="sig-name descname">elution_peak_cut_end_c_rel_to_peak_max</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_end_c_rel_to_peak_max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak cut end (signal relative to peak max).</p>
 <p>Exactly one peak cut end criteria should be defined.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_end_peak_area_share">
 <code class="sig-name descname">elution_peak_cut_end_peak_area_share</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.elution_peak_cut_end_peak_area_share" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elution peak cut end (share of total peak area).</p>
 <p>Exactly one peak cut end criteria should be defined.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_cv">
 <code class="sig-name descname">regeneration_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of regeneration step.</p>
@@ -1292,7 +1296,7 @@ necessarily peak max position).</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">regeneration_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_t">
 <code class="sig-name descname">regeneration_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of regeneration step.</p>
@@ -1300,7 +1304,7 @@ necessarily peak max position).</p>
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_cv" title="bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_cv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">regeneration_cv</span></code></a> are added together.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_f">
 <code class="sig-name descname">regeneration_f</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_f" title="Permalink to this definition">¶</a></dt>
 <dd><p>Regeneration step flow rate.</p>
@@ -1312,7 +1316,7 @@ exactly one of the following attributes:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_f_rel">
 <code class="sig-name descname">regeneration_f_rel</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.regeneration_f_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Regeneration step flow rate relative to load flow rate.</p>
@@ -1327,20 +1331,20 @@ exactly one of the following attributes:</p>
 </ul>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_desorption">
 <code class="sig-name descname">wash_desorption</code><em class="property">: bool</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_desorption" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enable wash desorption.</p>
 <p>Make sure the class implements the desorption dynamics.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_recycle">
 <code class="sig-name descname">load_recycle</code><em class="property">: bool</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_recycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recycle load breakthrough. Default = False.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.load_recycle_pdf">
 <code class="sig-name descname">load_recycle_pdf</code><em class="property">: Optional[_core.PDF]</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.load_recycle_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>PDF of wash and/or unbound load traveling through the column.</p>
@@ -1350,7 +1354,7 @@ through the column by <a class="reference internal" href="#bio_rtd.uo.sc_uo.Alte
 <a class="reference internal" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.column_porosity_retentate" title="bio_rtd.uo.sc_uo.AlternatingChromatography.column_porosity_retentate"><code class="xref py py-attr docutils literal notranslate"><span class="pre">column_porosity_retentate</span></code></a> * <cite>column volume</cite>.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_recycle">
 <code class="sig-name descname">wash_recycle</code><em class="property">: bool</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_recycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recycle wash. Default = False.</p>
@@ -1359,7 +1363,7 @@ After the wash recycle, the 3rd column is connected to 2nd
 column to recycle load breakthrough material.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_recycle_duration_cv">
 <code class="sig-name descname">wash_recycle_duration_cv</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_recycle_duration_cv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of wash recycle (cv).</p>
@@ -1370,7 +1374,7 @@ are added together. If none of those is defined, then the
 entire wash step is recycled.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.wash_recycle_duration_t">
 <code class="sig-name descname">wash_recycle_duration_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.wash_recycle_duration_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration of wash recycle (time).</p>
@@ -1381,7 +1385,7 @@ are added together. If none of those is defined, then the
 entire wash step is recycled.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -1395,9 +1399,9 @@ entire wash step is recycled.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1420,7 +1424,7 @@ entire wash step is recycled.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
@@ -1438,9 +1442,9 @@ entire wash step is recycled.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.sc_uo.AlternatingChromatography.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.sc_uo.AlternatingChromatography.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

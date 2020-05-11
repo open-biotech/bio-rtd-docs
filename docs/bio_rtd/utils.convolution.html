@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -89,7 +89,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul class="current">
@@ -129,7 +133,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -158,7 +162,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -179,9 +183,9 @@
 <p>Helper functions for performing convolution on time axis.</p>
 <div class="section" id="time-conv">
 <h2>time_conv<a class="headerlink" href="#time-conv" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="bio_rtd.utils.convolution.time_conv">
-<code class="sig-prename descclassname">bio_rtd.utils.convolution.</code><code class="sig-name descname">time_conv</code><span class="sig-paren">(</span><em class="sig-param">dt</em>, <em class="sig-param">c_in</em>, <em class="sig-param">rtd</em>, <em class="sig-param">c_equilibration=None</em>, <em class="sig-param">logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/convolution.html#time_conv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.utils.convolution.time_conv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bio_rtd.utils.convolution.</code><code class="sig-name descname">time_conv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dt</span></em>, <em class="sig-param"><span class="n">c_in</span></em>, <em class="sig-param"><span class="n">rtd</span></em>, <em class="sig-param"><span class="n">c_equilibration</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/convolution.html#time_conv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.utils.convolution.time_conv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform convolution on time axis.</p>
 <p>First time-point of <cite>c_in</cite> and <cite>c_rtd</cite> is at t == 0 (and not <cite>dt</cite>).</p>
 <p>Convolution is applied to all species of <cite>c_in</cite>.</p>
@@ -214,9 +218,9 @@ chromatography.</p>
 </div>
 <div class="section" id="piece-wise-time-conv">
 <h2>piece_wise_time_conv<a class="headerlink" href="#piece-wise-time-conv" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="bio_rtd.utils.convolution.piece_wise_time_conv">
-<code class="sig-prename descclassname">bio_rtd.utils.convolution.</code><code class="sig-name descname">piece_wise_time_conv</code><span class="sig-paren">(</span><em class="sig-param">dt</em>, <em class="sig-param">f_in</em>, <em class="sig-param">c_in</em>, <em class="sig-param">t_cycle</em>, <em class="sig-param">rt_mean</em>, <em class="sig-param">rtd</em>, <em class="sig-param">c_equilibration=None</em>, <em class="sig-param">c_wash=None</em>, <em class="sig-param">logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/convolution.html#piece_wise_time_conv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.utils.convolution.piece_wise_time_conv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bio_rtd.utils.convolution.</code><code class="sig-name descname">piece_wise_time_conv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dt</span></em>, <em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em>, <em class="sig-param"><span class="n">t_cycle</span></em>, <em class="sig-param"><span class="n">rt_mean</span></em>, <em class="sig-param"><span class="n">rtd</span></em>, <em class="sig-param"><span class="n">c_equilibration</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">c_wash</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/convolution.html#piece_wise_time_conv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.utils.convolution.piece_wise_time_conv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform convolution on time axis with periodic switching.</p>
 <p>First time-point of <cite>c_in</cite> and <cite>c_rtd</cite> is at t == 0 (and not <cite>dt</cite>).</p>
 <p>Convolution is applied to all species of <cite>c_in</cite>.</p>

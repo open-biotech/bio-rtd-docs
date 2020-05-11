@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -89,7 +89,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul class="current">
@@ -128,7 +132,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -157,7 +161,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -181,9 +185,9 @@ bind to the column after certain amount of material was already loaded
 (not all of loaded material is bound) onto the column.</p>
 <div class="section" id="btc-constant-pattern-solution">
 <h2>btc_constant_pattern_solution<a class="headerlink" href="#btc-constant-pattern-solution" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="bio_rtd.chromatography.bt_curve.btc_constant_pattern_solution">
-<code class="sig-prename descclassname">bio_rtd.chromatography.bt_curve.</code><code class="sig-name descname">btc_constant_pattern_solution</code><span class="sig-paren">(</span><em class="sig-param">m_load</em>, <em class="sig-param">dbc_100</em>, <em class="sig-param">k</em>, <em class="sig-param">cv</em>, <em class="sig-param">logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/chromatography/bt_curve.html#btc_constant_pattern_solution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.chromatography.bt_curve.btc_constant_pattern_solution" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bio_rtd.chromatography.bt_curve.</code><code class="sig-name descname">btc_constant_pattern_solution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">m_load</span></em>, <em class="sig-param"><span class="n">dbc_100</span></em>, <em class="sig-param"><span class="n">k</span></em>, <em class="sig-param"><span class="n">cv</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/chromatography/bt_curve.html#btc_constant_pattern_solution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.chromatography.bt_curve.btc_constant_pattern_solution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Breakthrough curve - Constant Pattern Solution.</p>
 <p>r = 1 / (1 + exp(<cite>k</cite> * (<cite>dbc_100</cite> - <cite>m_load</cite> / <cite>cv</cite>)))</p>
 <dl class="field-list simple">

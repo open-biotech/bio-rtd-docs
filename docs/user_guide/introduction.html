@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -87,8 +87,10 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 </ul>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../user_guide.html">User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="features.html">Features</a></li>
@@ -96,6 +98,8 @@
 <li class="toctree-l2"><a class="reference internal" href="development.html">Development</a></li>
 </ul>
 </li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul>
@@ -114,7 +118,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -143,7 +147,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../user_guide.html">User Guide</a> &raquo;</li>
         
@@ -165,7 +169,7 @@
 <h2>Residence time distribution (RTD)<a class="headerlink" href="#residence-time-distribution-rtd" title="Permalink to this headline">¶</a></h2>
 <p>Let’s simulate a protein pulse response measurement on a small flow-through column:</p>
 
-<script src="bokeh-plot-047d257baff342778adace815b4a4138-external-user_guide-introduction.js" id="216caa9a-5191-4c25-9018-dcefe44a310f"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<script src="bokeh-plot-4ec135ba1cef42d09f7011d7e3eaa0df-external-user_guide-introduction.js" id="c95140fa-d091-4b2e-8fc8-2e8dba9856f6"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
 <span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">peak_shapes</span><span class="p">,</span> <span class="n">utils</span>
 
@@ -200,7 +204,7 @@ allow the probability distribution functions (pdf)
 to be dependent on process parameters and inlet flow rate.</p>
 </div></blockquote>
 
-<script src="bokeh-plot-1f93fa8fdb064fdeba44a3b15fd3e718-external-user_guide-introduction.js" id="fb06aaea-2c6e-475f-bba7-80e47d2e0ab6"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<script src="bokeh-plot-6cdd279813694a5199e78d5b819e4477-external-user_guide-introduction.js" id="102767b6-b2b5-44ef-bc05-61464b76ed99"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
 
 <span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">peak_shapes</span><span class="p">,</span> <span class="n">peak_fitting</span>
@@ -235,7 +239,7 @@ to be dependent on process parameters and inlet flow rate.</p>
 <p>Let’s expand the example by introducing flow-through unit operation
 which uses pdf:</p>
 
-<script src="bokeh-plot-ce82c70944f743d8928941dd3d91153f-external-user_guide-introduction.js" id="1282bf47-8ee7-4afd-bdef-544ee5c1b71c"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<script src="bokeh-plot-8f174b6eba254670a31c53892fa78f2e-external-user_guide-introduction.js" id="72c463b1-918b-4c7c-879d-24c8044186e9"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
 <span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">uo</span><span class="p">,</span> <span class="n">peak_shapes</span><span class="p">,</span> <span class="n">peak_fitting</span>
 
@@ -280,7 +284,7 @@ which uses pdf:</p>
 </div>
 <p>Simulating breakthrough profile with the same unit operation:</p>
 
-<script src="bokeh-plot-00dee95eb0464676a1c5e2e52267a1f6-external-user_guide-introduction.js" id="cb15827e-19b2-4b7e-ae59-c94fc0c931a6"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<script src="bokeh-plot-8808576cde0a4bb8aa8db172d6f3f68c-external-user_guide-introduction.js" id="3b8bf483-b146-4588-93f6-2abf21f3176b"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
 <span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">uo</span>
 
@@ -309,7 +313,7 @@ which uses pdf:</p>
 </div>
 <p>Simulating breakthrough profile with  <a class="reference internal" href="../bio_rtd/core.html#bio_rtd.core.RtdModel" title="bio_rtd.core.RtdModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.RtdModel</span></code></a> with inlet and two unit operations.</p>
 
-<script src="bokeh-plot-dbde3016a1e641a98e25d50a9ef7a3bd-external-user_guide-introduction.js" id="d0dca282-7b6e-4a55-8750-30e97373782b"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<script src="bokeh-plot-0f0690d579c34727bded88a05a04af48-external-user_guide-introduction.js" id="0dea7417-9330-4377-b08d-f4e1fa2a8900"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
 <span class="kn">from</span> <span class="nn">bio_rtd</span> <span class="kn">import</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">uo</span>
 <span class="kn">from</span> <span class="nn">bio_rtd.core</span> <span class="kn">import</span> <span class="n">RtdModel</span>

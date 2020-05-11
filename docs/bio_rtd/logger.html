@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -89,7 +89,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul class="current">
@@ -131,7 +135,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -160,7 +164,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -223,9 +227,9 @@ series).</p></li>
 </div>
 <div class="section" id="defaultlogger">
 <h2>DefaultLogger<a class="headerlink" href="#defaultlogger" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.logger.DefaultLogger">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">DefaultLogger</code><span class="sig-paren">(</span><em class="sig-param">log_level=30</em>, <em class="sig-param">log_data=False</em>, <em class="sig-param">log_level_data=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DefaultLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DefaultLogger" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">DefaultLogger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">30</span></em>, <em class="sig-param"><span class="n">log_data</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">log_level_data</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DefaultLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DefaultLogger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
 <p>Prints warnings to terminal and raises errors.</p>
 <p>Does not store data.</p>
@@ -258,9 +262,9 @@ series).</p></li>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.DefaultLogger.log">
-<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DefaultLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DefaultLogger.log" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span></em>, <em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DefaultLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DefaultLogger.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log messages.</p>
 <p>Prints warnings (and infos)
 to terminal and raises errors as <cite>RuntimeError</cite>.</p>
@@ -271,9 +275,9 @@ to terminal and raises errors as <cite>RuntimeError</cite>.</p>
 </div>
 <div class="section" id="datastoringlogger">
 <h2>DataStoringLogger<a class="headerlink" href="#datastoringlogger" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.logger.DataStoringLogger">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">DataStoringLogger</code><span class="sig-paren">(</span><em class="sig-param">log_level=30</em>, <em class="sig-param">log_data=True</em>, <em class="sig-param">log_level_data=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DataStoringLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DataStoringLogger" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">DataStoringLogger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">30</span></em>, <em class="sig-param"><span class="n">log_data</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">log_level_data</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DataStoringLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DataStoringLogger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
 <p>Prints messages to terminal. Stores all data.</p>
 <dl class="field-list simple">
@@ -313,9 +317,9 @@ to terminal and raises errors as <cite>RuntimeError</cite>.</p>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.DataStoringLogger.log">
-<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DataStoringLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DataStoringLogger.log" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span></em>, <em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#DataStoringLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.DataStoringLogger.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints to terminal everything above <cite>log_level</cite>.</p>
 </dd></dl>
 
@@ -324,7 +328,7 @@ to terminal and raises errors as <cite>RuntimeError</cite>.</p>
 </div>
 <div class="section" id="strictlogger">
 <h2>StrictLogger<a class="headerlink" href="#strictlogger" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.logger.StrictLogger">
 <em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">StrictLogger</code><a class="reference internal" href="../_modules/bio_rtd/logger.html#StrictLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.StrictLogger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
@@ -346,9 +350,9 @@ to terminal and raises errors as <cite>RuntimeError</cite>.</p>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.StrictLogger.log">
-<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#StrictLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.StrictLogger.log" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span></em>, <em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#StrictLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.StrictLogger.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises RuntimeError if <cite>level</cite> &gt;= WARNING.</p>
 </dd></dl>
 
@@ -357,9 +361,9 @@ to terminal and raises errors as <cite>RuntimeError</cite>.</p>
 </div>
 <div class="section" id="rtdlogger">
 <h2>RtdLogger<a class="headerlink" href="#rtdlogger" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.logger.RtdLogger">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">RtdLogger</code><span class="sig-paren">(</span><em class="sig-param">log_level=30</em>, <em class="sig-param">log_data=False</em>, <em class="sig-param">log_level_data=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.logger.</code><code class="sig-name descname">RtdLogger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">30</span></em>, <em class="sig-param"><span class="n">log_data</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">log_level_data</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Abstract class for log and log data in rtd models.</p>
 <p>Logger has different levels: DEBUG, INFO, WARNING, ERROR.
@@ -375,7 +379,7 @@ Default = <cite>DEBUG</cite>. Ignored if <cite>log_data</cite> is False.</p></li
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.logger.RtdLogger.ERROR">
 <code class="sig-name descname">ERROR</code><em class="property"> = 40</em><a class="headerlink" href="#bio_rtd.logger.RtdLogger.ERROR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log level ERROR.</p>
@@ -383,7 +387,7 @@ Default = <cite>DEBUG</cite>. Ignored if <cite>log_data</cite> is False.</p></li
 likely impact the accuracy of the model.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.logger.RtdLogger.WARNING">
 <code class="sig-name descname">WARNING</code><em class="property"> = 30</em><a class="headerlink" href="#bio_rtd.logger.RtdLogger.WARNING" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log level WARNING.</p>
@@ -391,7 +395,7 @@ likely impact the accuracy of the model.</p>
 might be the source of inaccuracies in the model.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.logger.RtdLogger.INFO">
 <code class="sig-name descname">INFO</code><em class="property"> = 20</em><a class="headerlink" href="#bio_rtd.logger.RtdLogger.INFO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log level INFO.</p>
@@ -403,7 +407,7 @@ be a normal occurrence during the shut-down phase.</p>
 (no time series) in logger.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.logger.RtdLogger.DEBUG">
 <code class="sig-name descname">DEBUG</code><em class="property"> = 10</em><a class="headerlink" href="#bio_rtd.logger.RtdLogger.DEBUG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log level DEBUG.</p>
@@ -411,9 +415,9 @@ be a normal occurrence during the shut-down phase.</p>
 (time series) in logger.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.i">
-<code class="sig-name descname">i</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.i"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.i" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">i</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.i"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.i" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log message at INFO level</p>
 <p>INFO level is meant for events that might indicate potential
 mishaps the model, but can also occur normally.</p>
@@ -425,9 +429,9 @@ as well be a normal occurrence during the shut-down phase.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.w">
-<code class="sig-name descname">w</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.w"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.w" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">w</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.w"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.w" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log message at WARNING level</p>
 <p>WARNING level is meant for signaling events that might be the
 source of inaccuracies in the model.</p>
@@ -438,9 +442,9 @@ Assumptions that might impact the results, such as assumptions
 during steady-state estimation.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.e">
-<code class="sig-name descname">e</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.e"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.e" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">e</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.e"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.e" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log message at ERROR level</p>
 <p>ERROR level is meant for signaling events that are very likely
 the source of or the sign of inaccuracies in the model, but not
@@ -454,9 +458,9 @@ Probability distribution with a high cut-off at time 0.
 Load phase of PCC being shorter than the rest of the process.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.set_data_tree">
-<code class="sig-name descname">set_data_tree</code><span class="sig-paren">(</span><em class="sig-param">data_tree_id</em>, <em class="sig-param">data_tree</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.set_data_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.set_data_tree" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_data_tree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_tree_id</span></em>, <em class="sig-param"><span class="n">data_tree</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.set_data_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.set_data_tree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seeds data tree in root dictionary.</p>
 <p>Typically <cite>tree_id = uo.id</cite> and <cite>tree_root = dict()</cite>.</p>
 <p>Unit operation needs to save a reference to the <cite>tree_root</cite>
@@ -480,9 +484,9 @@ in order to store data in this logger.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.set_branch">
-<code class="sig-name descname">set_branch</code><span class="sig-paren">(</span><em class="sig-param">data_tree</em>, <em class="sig-param">branch_name</em>, <em class="sig-param">branch</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.set_branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.set_branch" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_branch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_tree</span></em>, <em class="sig-param"><span class="n">branch_name</span></em>, <em class="sig-param"><span class="n">branch</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.set_branch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.set_branch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seeds branch into data tree.</p>
 <p>Typically used to store data from nested unit operations or
 parts of unit operations (evaluation data of probability
@@ -511,9 +515,9 @@ distributions, breakthrough profiles, etc.).</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.i_data">
-<code class="sig-name descname">i_data</code><span class="sig-paren">(</span><em class="sig-param">tree</em>, <em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.i_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.i_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">i_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tree</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.i_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.i_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log smaller data (no time series).</p>
 <p>Populates (key, value.copy()) pair into <cite>tree</cite>
 if <cite>log_level_data</cite> &gt;= <cite>INFO</cite> and <cite>log_data</cite> is True.</p>
@@ -521,9 +525,9 @@ if <cite>log_level_data</cite> &gt;= <cite>INFO</cite> and <cite>log_data</cite>
 <cite>self._on_data_stored</cite> function is called.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.d_data">
-<code class="sig-name descname">d_data</code><span class="sig-paren">(</span><em class="sig-param">tree</em>, <em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.d_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.d_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">d_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tree</span></em>, <em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.d_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.d_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log larger intermediate data (time series).</p>
 <p>Populates (key, value.copy()) pair into <cite>tree</cite>
 if <cite>log_level_data</cite> &gt;= <cite>DEBUG</cite> and <cite>log_data</cite> is True.</p>
@@ -531,9 +535,9 @@ if <cite>log_level_data</cite> &gt;= <cite>DEBUG</cite> and <cite>log_data</cite
 <cite>self._on_data_stored</cite> function is called.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.get_data_tree">
-<code class="sig-name descname">get_data_tree</code><span class="sig-paren">(</span><em class="sig-param">data_tree_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.get_data_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.get_data_tree" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_data_tree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_tree_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.get_data_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.get_data_tree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns reference to the registered data tree.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -542,15 +546,15 @@ if <cite>log_level_data</cite> &gt;= <cite>DEBUG</cite> and <cite>log_data</cite
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.get_entire_data_tree">
 <code class="sig-name descname">get_entire_data_tree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.get_entire_data_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.get_entire_data_tree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns reference to the dict with all logged data.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.logger.RtdLogger.log">
-<em class="property">abstract </em><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">level</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.log" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span></em>, <em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/logger.html#RtdLogger.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.logger.RtdLogger.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Log messages at specific log level.</p>
 <p>See documentation of <cite>self.e()</cite>, <cite>self.w()</cite> and <cite>self.i()</cite> on
 info about what belongs under which log level.</p>

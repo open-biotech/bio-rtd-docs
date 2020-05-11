@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -89,7 +89,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul class="current">
@@ -128,7 +132,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -157,7 +161,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -185,9 +189,9 @@ the following groups:</p>
 </ul>
 <div class="section" id="combouo">
 <h2>ComboUO<a class="headerlink" href="#combouo" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.uo.special_uo.ComboUO">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.special_uo.</code><code class="sig-name descname">ComboUO</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">sub_uo_list</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">gui_title='ComboUO'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.special_uo.</code><code class="sig-name descname">ComboUO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">sub_uo_list</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'ComboUO'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Combines multiple unit operations into one.</p>
 <dl class="field-list simple">
@@ -202,15 +206,15 @@ the following groups:</p>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.uo.special_uo.ComboUO.sub_uo_list">
 <code class="sig-name descname">sub_uo_list</code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.sub_uo_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of unit operations that are merged into <cite>ComboUO</cite>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.special_uo.ComboUO.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates all child unit operations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -232,7 +236,7 @@ the following groups:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.special_uo.ComboUO.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
@@ -250,7 +254,7 @@ the following groups:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.special_uo.ComboUO.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -264,9 +268,9 @@ the following groups:</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.uo.special_uo.ComboUO.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

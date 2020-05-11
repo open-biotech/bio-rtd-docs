@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> bio_rtd
+            <a href="../content.html" class="icon icon-home"> bio_rtd
           
 
           
@@ -88,7 +88,11 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 <ul class="current">
@@ -134,7 +138,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">bio_rtd</a>
+          <a href="../content.html">bio_rtd</a>
         
       </nav>
 
@@ -163,7 +167,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html">Docs</a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -184,9 +188,9 @@
 <p>Module with abstract classes.</p>
 <div class="section" id="inlet">
 <h2>Inlet<a class="headerlink" href="#inlet" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.core.Inlet">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">Inlet</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">species_list</em>, <em class="sig-param">inlet_id</em>, <em class="sig-param">gui_title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#Inlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.Inlet" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">Inlet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">species_list</span></em>, <em class="sig-param"><span class="n">inlet_id</span></em>, <em class="sig-param"><span class="n">gui_title</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#Inlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.Inlet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.core.DefaultLoggerLogic" title="bio_rtd.core.DefaultLoggerLogic"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.DefaultLoggerLogic</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Generates starting flow rate and concentration profiles.</p>
 <dl class="field-list simple">
@@ -200,31 +204,31 @@ Starts with 0 and has a constant time step.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.Inlet.species_list">
 <code class="sig-name descname">species_list</code><em class="property">: list of str</em><a class="headerlink" href="#bio_rtd.core.Inlet.species_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>List with names of simulating process fluid species.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.Inlet.uo_id">
 <code class="sig-name descname">uo_id</code><em class="property">: str</em><a class="headerlink" href="#bio_rtd.core.Inlet.uo_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique identifier of the instance.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.Inlet.gui_title">
 <code class="sig-name descname">gui_title</code><em class="property">: str</em><a class="headerlink" href="#bio_rtd.core.Inlet.gui_title" title="Permalink to this definition">¶</a></dt>
 <dd><p>Human readable title (for plots).</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.Inlet.adj_par_list">
 <code class="sig-name descname">adj_par_list</code><em class="property">: Sequence[_adj_par.AdjustableParameter]</em><a class="headerlink" href="#bio_rtd.core.Inlet.adj_par_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of adjustable parameters exposed to the GUI.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.Inlet.get_t">
 <code class="sig-name descname">get_t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#Inlet.get_t"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.Inlet.get_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get simulation time vector.</p>
@@ -235,7 +239,7 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.Inlet.get_n_species">
 <code class="sig-name descname">get_n_species</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#Inlet.get_n_species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.Inlet.get_n_species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get number of process fluid species.</p>
@@ -246,7 +250,7 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.Inlet.refresh">
 <em class="property">abstract </em><code class="sig-name descname">refresh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#Inlet.refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.Inlet.refresh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates output profiles.</p>
@@ -254,7 +258,7 @@ Starts with 0 and has a constant time step.</p></li>
 instance attribute values.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.Inlet.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#Inlet.get_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.Inlet.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get flow rate and concentration profiles.</p>
@@ -272,7 +276,7 @@ instance attribute values.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.Inlet.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.core.Inlet.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -286,9 +290,9 @@ instance attribute values.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.Inlet.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.Inlet.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.Inlet.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -305,9 +309,9 @@ instance attribute values.</p>
 </div>
 <div class="section" id="unitoperation">
 <h2>UnitOperation<a class="headerlink" href="#unitoperation" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.core.UnitOperation">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">UnitOperation</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">uo_id</em>, <em class="sig-param">gui_title=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UnitOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UnitOperation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">UnitOperation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UnitOperation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UnitOperation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.core.DefaultLoggerLogic" title="bio_rtd.core.DefaultLoggerLogic"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.DefaultLoggerLogic</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Processes flow rate and concentration profiles.</p>
 <dl class="field-list simple">
@@ -320,19 +324,19 @@ Starts with 0 and has a constant time step.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.uo_id">
 <code class="sig-name descname">uo_id</code><em class="property">: str</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.uo_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unique identifier of the instance</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.gui_title">
 <code class="sig-name descname">gui_title</code><em class="property">: str</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.gui_title" title="Permalink to this definition">¶</a></dt>
 <dd><p>Readable title for GUI</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.adj_par_list">
 <code class="sig-name descname">adj_par_list</code><a class="headerlink" href="#bio_rtd.core.UnitOperation.adj_par_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>List
@@ -344,65 +348,65 @@ of adjustable parameters exposed to the GUI.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.gui_hidden">
 <code class="sig-name descname">gui_hidden</code><em class="property">: bool</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.gui_hidden" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hide the of the unit operation (default False).</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.discard_inlet_until_t">
 <code class="sig-name descname">discard_inlet_until_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discard inlet until given time.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.discard_inlet_until_min_c">
 <code class="sig-name descname">discard_inlet_until_min_c</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discard inlet until given concentration is reached.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.discard_inlet_until_min_c_rel">
 <code class="sig-name descname">discard_inlet_until_min_c_rel</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discard inlet until given concentration relative to is reached.</p>
 <p>Specified concentration is relative to the max concentration.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.discard_inlet_n_cycles">
 <code class="sig-name descname">discard_inlet_n_cycles</code><em class="property">: int</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.discard_outlet_until_t">
 <code class="sig-name descname">discard_outlet_until_t</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discard outlet until given time.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.discard_outlet_until_min_c">
 <code class="sig-name descname">discard_outlet_until_min_c</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discard outlet until given concentration is reached.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.discard_outlet_until_min_c_rel">
 <code class="sig-name descname">discard_outlet_until_min_c_rel</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discard outlet until given concentration relative to is reached.</p>
 <p>Specified concentration is relative to the max concentration.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UnitOperation.discard_outlet_n_cycles">
 <code class="sig-name descname">discard_outlet_n_cycles</code><em class="property">: int</em><a class="headerlink" href="#bio_rtd.core.UnitOperation.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.UnitOperation.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param">f_in</em>, <em class="sig-param">c_in</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UnitOperation.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UnitOperation.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UnitOperation.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UnitOperation.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -425,7 +429,7 @@ of adjustable parameters exposed to the GUI.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.UnitOperation.get_result">
 <code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UnitOperation.get_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UnitOperation.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
@@ -443,7 +447,7 @@ of adjustable parameters exposed to the GUI.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.UnitOperation.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.core.UnitOperation.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -457,9 +461,9 @@ of adjustable parameters exposed to the GUI.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.UnitOperation.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.UnitOperation.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.UnitOperation.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -476,9 +480,9 @@ of adjustable parameters exposed to the GUI.</p>
 </div>
 <div class="section" id="rtdmodel">
 <h2>RtdModel<a class="headerlink" href="#rtdmodel" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.core.RtdModel">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">RtdModel</code><span class="sig-paren">(</span><em class="sig-param">inlet</em>, <em class="sig-param">dsp_uo_chain</em>, <em class="sig-param">logger=None</em>, <em class="sig-param">title='RtdModel'</em>, <em class="sig-param">desc=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#RtdModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.RtdModel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">RtdModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inlet</span></em>, <em class="sig-param"><span class="n">dsp_uo_chain</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">'RtdModel'</span></em>, <em class="sig-param"><span class="n">desc</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#RtdModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.RtdModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.core.DefaultLoggerLogic" title="bio_rtd.core.DefaultLoggerLogic"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.DefaultLoggerLogic</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Combines <cite>Inlet</cite> and a train of <cite>UnitOperation</cite>-s into a model.</p>
 <p>The logger assigned to the instance of RtdModel is passed on to
@@ -500,7 +504,7 @@ data.</p></li>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#bio_rtd.core.Inlet" title="bio_rtd.core.Inlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.Inlet</span></code></a>, <a class="reference internal" href="#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a>, <a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a></p>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.RtdModel.inlet">
 <code class="sig-name descname">inlet</code><a class="headerlink" href="#bio_rtd.core.RtdModel.inlet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inlet for <cite>self.dsp_uo_chain</cite></p>
@@ -511,7 +515,7 @@ data.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.RtdModel.dsp_uo_chain">
 <code class="sig-name descname">dsp_uo_chain</code><a class="headerlink" href="#bio_rtd.core.RtdModel.dsp_uo_chain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chain of
@@ -526,21 +530,21 @@ this model.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.RtdModel.title">
 <code class="sig-name descname">title</code><a class="headerlink" href="#bio_rtd.core.RtdModel.title" title="Permalink to this definition">¶</a></dt>
 <dd><p>Human readable title (mostly for plots)</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.RtdModel.desc">
 <code class="sig-name descname">desc</code><a class="headerlink" href="#bio_rtd.core.RtdModel.desc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Human readable description (also mostly for plots)</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.RtdModel.get_dsp_uo">
-<code class="sig-name descname">get_dsp_uo</code><span class="sig-paren">(</span><em class="sig-param">uo_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#RtdModel.get_dsp_uo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.RtdModel.get_dsp_uo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_dsp_uo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">uo_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#RtdModel.get_dsp_uo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.RtdModel.get_dsp_uo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get reference to a <cite>UnitOperation</cite> with specified <cite>uo_id</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -549,9 +553,9 @@ this model.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.RtdModel.recalculate">
-<code class="sig-name descname">recalculate</code><span class="sig-paren">(</span><em class="sig-param">start_at=-1</em>, <em class="sig-param">on_update_callback=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#RtdModel.recalculate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.RtdModel.recalculate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">recalculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_at</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">on_update_callback</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#RtdModel.recalculate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.RtdModel.recalculate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recalculate process fluid propagation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -570,7 +574,7 @@ post-processing after re-evaluation of unit operations.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.RtdModel.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.core.RtdModel.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -584,9 +588,9 @@ post-processing after re-evaluation of unit operations.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.RtdModel.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#RtdModel.set_logger_from_parent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.RtdModel.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#RtdModel.set_logger_from_parent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.RtdModel.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -603,9 +607,9 @@ post-processing after re-evaluation of unit operations.</p>
 </div>
 <div class="section" id="userinterface">
 <h2>UserInterface<a class="headerlink" href="#userinterface" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.core.UserInterface">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">UserInterface</code><span class="sig-paren">(</span><em class="sig-param">rtd_model</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UserInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UserInterface" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">UserInterface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rtd_model</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UserInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UserInterface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Wrapper around RtdModel suitable for building GUI on top of it.</p>
 <dl class="field-list simple">
@@ -617,41 +621,41 @@ post-processing after re-evaluation of unit operations.</p>
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#bio_rtd.core.RtdModel" title="bio_rtd.core.RtdModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.RtdModel</span></code></a></p>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UserInterface.start_at">
 <code class="sig-name descname">start_at</code><em class="property">: int</em><a class="headerlink" href="#bio_rtd.core.UserInterface.start_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>Index of first unit operation for re-evaluation.</p>
 <p>Indexing starts at 0 (-1 for the inlet). Default = -1.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UserInterface.species_label">
 <code class="sig-name descname">species_label</code><em class="property">: list of str</em><a class="headerlink" href="#bio_rtd.core.UserInterface.species_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Labels of the species in concentration array.</p>
 <p>Initially inherited from <a class="reference internal" href="#bio_rtd.core.Inlet" title="bio_rtd.core.Inlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.Inlet</span></code></a> instance.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UserInterface.x_label">
 <code class="sig-name descname">x_label</code><em class="property">: str</em><a class="headerlink" href="#bio_rtd.core.UserInterface.x_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Label of x axis (time). Default = ‘t’</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UserInterface.y_label_c">
 <code class="sig-name descname">y_label_c</code><em class="property">: str</em><a class="headerlink" href="#bio_rtd.core.UserInterface.y_label_c" title="Permalink to this definition">¶</a></dt>
 <dd><p>Label of y axis (concentration). Default = ‘c’</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.UserInterface.y_label_f">
 <code class="sig-name descname">y_label_f</code><em class="property">: str</em><a class="headerlink" href="#bio_rtd.core.UserInterface.y_label_f" title="Permalink to this definition">¶</a></dt>
 <dd><p>Label of y axis (flow rate). Default = ‘f’</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.UserInterface.recalculate">
-<code class="sig-name descname">recalculate</code><span class="sig-paren">(</span><em class="sig-param">forced=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UserInterface.recalculate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UserInterface.recalculate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">recalculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">forced</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UserInterface.recalculate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UserInterface.recalculate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-evaluates the model from the <cite>start_at</cite> index onwards.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -662,7 +666,7 @@ re-evaluated. The same can be achieved by setting
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.UserInterface.build_ui">
 <em class="property">abstract </em><code class="sig-name descname">build_ui</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#UserInterface.build_ui"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.UserInterface.build_ui" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the UI from scratch.</p>
@@ -673,9 +677,9 @@ re-evaluated. The same can be achieved by setting
 </div>
 <div class="section" id="pdf">
 <h2>PDF<a class="headerlink" href="#pdf" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.core.PDF">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">PDF</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">pdf_id=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#PDF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.PDF" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">PDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">pdf_id</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#PDF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.PDF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.core.ParameterSetList" title="bio_rtd.core.ParameterSetList"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.ParameterSetList</span></code></a>, <a class="reference internal" href="#bio_rtd.core.DefaultLoggerLogic" title="bio_rtd.core.DefaultLoggerLogic"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.DefaultLoggerLogic</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Abstract class for defining probability distribution functions.</p>
 <dl class="field-list simple">
@@ -686,7 +690,7 @@ re-evaluated. The same can be achieved by setting
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.PDF.trim_and_normalize">
 <code class="sig-name descname">trim_and_normalize</code><a class="headerlink" href="#bio_rtd.core.PDF.trim_and_normalize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trim edges of the pdf and normalize it afterwards.</p>
@@ -697,7 +701,7 @@ re-evaluated. The same can be achieved by setting
 The area of pd == 1.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="bio_rtd.core.PDF.cutoff_relative_to_max">
 <code class="sig-name descname">cutoff_relative_to_max</code><a class="headerlink" href="#bio_rtd.core.PDF.cutoff_relative_to_max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cutoff as a share of max value of the pdf (default 0.0001).</p>
@@ -705,9 +709,9 @@ The area of pd == 1.</p>
 <p>Cutoff is enabled if <a class="reference internal" href="#bio_rtd.core.PDF.trim_and_normalize" title="bio_rtd.core.PDF.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == True.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.PDF.update_pdf">
-<code class="sig-name descname">update_pdf</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#PDF.update_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.PDF.update_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#PDF.update_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.PDF.update_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-calculate PDF based on specified parameters.</p>
 <p>The calculated probability distribution can be obtained by
 <a class="reference internal" href="#bio_rtd.core.PDF.get_p" title="bio_rtd.core.PDF.get_p"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_p()</span></code></a></p>
@@ -720,7 +724,7 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.PDF.get_p">
 <code class="sig-name descname">get_p</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#PDF.get_p"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.PDF.get_p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get probability distribution.</p>
@@ -738,7 +742,7 @@ size (<cite>_dt</cite>).</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.PDF.OPTIONAL_KEYS">
 <em class="property">abstract property </em><code class="sig-name descname">OPTIONAL_KEYS</code><a class="headerlink" href="#bio_rtd.core.PDF.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optional additional keys.</p>
@@ -751,7 +755,7 @@ size (<cite>_dt</cite>).</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.PDF.POSSIBLE_KEY_GROUPS">
 <em class="property">abstract property </em><code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><a class="headerlink" href="#bio_rtd.core.PDF.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Possible key combinations.</p>
@@ -764,9 +768,9 @@ size (<cite>_dt</cite>).</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.PDF.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.PDF.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.PDF.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -786,7 +790,7 @@ optional keys from <a class="reference internal" href="#bio_rtd.core.PDF.OPTIONA
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.PDF.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.core.PDF.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -800,9 +804,9 @@ optional keys from <a class="reference internal" href="#bio_rtd.core.PDF.OPTIONA
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.PDF.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.PDF.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.PDF.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -819,9 +823,9 @@ optional keys from <a class="reference internal" href="#bio_rtd.core.PDF.OPTIONA
 </div>
 <div class="section" id="chromatographyloadbreakthrough">
 <h2>ChromatographyLoadBreakthrough<a class="headerlink" href="#chromatographyloadbreakthrough" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">ChromatographyLoadBreakthrough</code><span class="sig-paren">(</span><em class="sig-param">dt</em>, <em class="sig-param">bt_profile_id='ChromatographyLoadBreakthrough'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ChromatographyLoadBreakthrough"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">ChromatographyLoadBreakthrough</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dt</span></em>, <em class="sig-param"><span class="n">bt_profile_id</span><span class="o">=</span><span class="default_value">'ChromatographyLoadBreakthrough'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ChromatographyLoadBreakthrough"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.core.ParameterSetList" title="bio_rtd.core.ParameterSetList"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.ParameterSetList</span></code></a>, <a class="reference internal" href="#bio_rtd.core.DefaultLoggerLogic" title="bio_rtd.core.DefaultLoggerLogic"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.DefaultLoggerLogic</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>What parts of the load bind to the column.</p>
 <dl class="field-list simple">
@@ -832,9 +836,9 @@ optional keys from <a class="reference internal" href="#bio_rtd.core.PDF.OPTIONA
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough.update_btc_parameters">
-<code class="sig-name descname">update_btc_parameters</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ChromatographyLoadBreakthrough.update_btc_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.update_btc_parameters" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update_btc_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ChromatographyLoadBreakthrough.update_btc_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.update_btc_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update binding dynamics for a given set of parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -845,9 +849,9 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough.calc_c_bound">
-<code class="sig-name descname">calc_c_bound</code><span class="sig-paren">(</span><em class="sig-param">f_load</em>, <em class="sig-param">c_load</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ChromatographyLoadBreakthrough.calc_c_bound"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.calc_c_bound" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calc_c_bound</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_load</span></em>, <em class="sig-param"><span class="n">c_load</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ChromatographyLoadBreakthrough.calc_c_bound"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.calc_c_bound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates what parts of load bind to the column.</p>
 <p>The default implementation calculates cumulative mass of the
 load material and passes it to <code class="xref py py-func docutils literal notranslate"><span class="pre">_update_btc_parameters()</span></code>
@@ -875,7 +879,7 @@ load step.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough.get_total_bc">
 <em class="property">abstract </em><code class="sig-name descname">get_total_bc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ChromatographyLoadBreakthrough.get_total_bc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.get_total_bc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total binding capacity.</p>
@@ -887,7 +891,7 @@ load step.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough.OPTIONAL_KEYS">
 <em class="property">abstract property </em><code class="sig-name descname">OPTIONAL_KEYS</code><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optional additional keys.</p>
@@ -900,7 +904,7 @@ load step.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough.POSSIBLE_KEY_GROUPS">
 <em class="property">abstract property </em><code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Possible key combinations.</p>
@@ -913,9 +917,9 @@ load step.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -935,7 +939,7 @@ optional keys from <a class="reference internal" href="#bio_rtd.core.Chromatogra
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -949,9 +953,9 @@ optional keys from <a class="reference internal" href="#bio_rtd.core.Chromatogra
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ChromatographyLoadBreakthrough.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.core.ChromatographyLoadBreakthrough.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -968,7 +972,7 @@ optional keys from <a class="reference internal" href="#bio_rtd.core.Chromatogra
 </div>
 <div class="section" id="parametersetlist">
 <h2>ParameterSetList<a class="headerlink" href="#parametersetlist" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.core.ParameterSetList">
 <em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">ParameterSetList</code><a class="reference internal" href="../_modules/bio_rtd/core.html#ParameterSetList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ParameterSetList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
@@ -995,7 +999,7 @@ from that group and all passed keys that can be also found in
 <span class="gr">KeyError</span>: <span class="n">&quot;Keys ... do not contain any of the required groups: ...</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ParameterSetList.POSSIBLE_KEY_GROUPS">
 <em class="property">abstract property </em><code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><a class="headerlink" href="#bio_rtd.core.ParameterSetList.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Possible key combinations.</p>
@@ -1008,7 +1012,7 @@ from that group and all passed keys that can be also found in
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ParameterSetList.OPTIONAL_KEYS">
 <em class="property">abstract property </em><code class="sig-name descname">OPTIONAL_KEYS</code><a class="headerlink" href="#bio_rtd.core.ParameterSetList.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Optional additional keys.</p>
@@ -1021,9 +1025,9 @@ from that group and all passed keys that can be also found in
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.ParameterSetList.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ParameterSetList.assert_and_get_provided_kv_pairs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ParameterSetList.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#ParameterSetList.assert_and_get_provided_kv_pairs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.ParameterSetList.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -1048,9 +1052,9 @@ optional keys from <a class="reference internal" href="#bio_rtd.core.ParameterSe
 </div>
 <div class="section" id="defaultloggerlogic">
 <h2>DefaultLoggerLogic<a class="headerlink" href="#defaultloggerlogic" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt id="bio_rtd.core.DefaultLoggerLogic">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">DefaultLoggerLogic</code><span class="sig-paren">(</span><em class="sig-param">logger_parent_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#DefaultLoggerLogic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.DefaultLoggerLogic" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.core.</code><code class="sig-name descname">DefaultLoggerLogic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger_parent_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#DefaultLoggerLogic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.DefaultLoggerLogic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Default binding of the <cite>RtdLogger</cite> to a class.</p>
 <p>The class holds a reference to a <a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.RtdLogger</span></code></a>
@@ -1097,7 +1101,7 @@ it received one, then an instance of
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="logger.html#bio_rtd.logger.DefaultLogger" title="bio_rtd.logger.DefaultLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.logger.DefaultLogger</span></code></a></p>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.DefaultLoggerLogic.log">
 <em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.core.DefaultLoggerLogic.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
@@ -1111,9 +1115,9 @@ it received one, then an instance of
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bio_rtd.core.DefaultLoggerLogic.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param">parent_id</em>, <em class="sig-param">logger</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#DefaultLoggerLogic.set_logger_from_parent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.DefaultLoggerLogic.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/core.html#DefaultLoggerLogic.set_logger_from_parent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.core.DefaultLoggerLogic.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
