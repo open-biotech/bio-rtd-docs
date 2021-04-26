@@ -1,38 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>bio_rtd.uo.special_uo &mdash; bio_rtd  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="bio_rtd.pdf" href="pdf.html" />
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -77,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -123,6 +127,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -157,11 +162,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../content.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -191,7 +198,7 @@ the following groups:</p>
 <h2>ComboUO<a class="headerlink" href="#combouo" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.uo.special_uo.ComboUO">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.special_uo.</code><code class="sig-name descname">ComboUO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">sub_uo_list</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'ComboUO'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.uo.special_uo.</span></code><code class="sig-name descname"><span class="pre">ComboUO</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_uo_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ComboUO'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Combines multiple unit operations into one.</p>
 <dl class="field-list simple">
@@ -201,20 +208,20 @@ the following groups:</p>
 <p>All unit operations need to have the same <cite>t</cite>.</p>
 </p></li>
 <li><p><strong>sub_uo_list</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitOperation</span></code></a>]) – List of unit operations to be merged into <cite>ComboUO</cite>.</p></li>
-<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identified of combined unit operation.</p></li>
-<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Human readable title for GUI or plots. Default = “ComboUO”.</p></li>
+<li><p><strong>uo_id</strong> (<em>str</em>) – Unique identified of combined unit operation.</p></li>
+<li><p><strong>gui_title</strong> (<em>str</em>) – Human readable title for GUI or plots. Default = “ComboUO”.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt id="bio_rtd.uo.special_uo.ComboUO.sub_uo_list">
-<code class="sig-name descname">sub_uo_list</code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.sub_uo_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">sub_uo_list</span></code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.sub_uo_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of unit operations that are merged into <cite>ComboUO</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.special_uo.ComboUO.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_in</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/special_uo.html#ComboUO.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates all child unit operations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -238,7 +245,7 @@ the following groups:</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.special_uo.ComboUO.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.get_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -256,7 +263,7 @@ the following groups:</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.special_uo.ComboUO.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -270,7 +277,7 @@ the following groups:</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.special_uo.ComboUO.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -278,6 +285,86 @@ the following groups:</p>
 <li><p><strong>parent_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier of parent instance.</p></li>
 <li><p><strong>logger</strong> (<a class="reference internal" href="logger.html#bio_rtd.logger.RtdLogger" title="bio_rtd.logger.RtdLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RtdLogger</span></code></a>) – Logger from parent instance.</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.uo_id">
+<code class="sig-name descname"><span class="pre">uo_id</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.uo_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier of the instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.gui_title">
+<code class="sig-name descname"><span class="pre">gui_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.gui_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readable title for GUI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.gui_hidden">
+<code class="sig-name descname"><span class="pre">gui_hidden</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.gui_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the of the unit operation (default False).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.discard_inlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.discard_inlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.discard_inlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.discard_inlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_inlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.discard_outlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.discard_outlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.discard_outlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.discard_outlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_outlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.special_uo.ComboUO.adj_par_list">
+<code class="sig-name descname"><span class="pre">adj_par_list</span></code><a class="headerlink" href="#bio_rtd.uo.special_uo.ComboUO.adj_par_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List
+of adjustable parameters exposed to the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="adj_par.html#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -292,29 +379,29 @@ the following groups:</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pdf.html" class="btn btn-neutral float-right" title="bio_rtd.pdf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="uo.surge_tank.html" class="btn btn-neutral float-left" title="bio_rtd.uo.surge_tank" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="pdf.html" class="btn btn-neutral float-right" title="bio_rtd.pdf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="uo.surge_tank.html" class="btn btn-neutral float-left" title="bio_rtd.uo.surge_tank" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -322,7 +409,6 @@ the following groups:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

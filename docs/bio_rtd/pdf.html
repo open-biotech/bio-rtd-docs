@@ -1,38 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>bio_rtd.pdf &mdash; bio_rtd  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="bio_rtd.logger" href="logger.html" />
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -77,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -127,6 +131,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -161,11 +166,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../content.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -204,7 +211,7 @@ a value of 1.</p>
 <h2>GaussianFixedDispersion<a class="headerlink" href="#gaussianfixeddispersion" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.pdf.</code><code class="sig-name descname">GaussianFixedDispersion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">dispersion_index</span></em>, <em class="sig-param"><span class="n">cutoff</span><span class="o">=</span><span class="default_value">0.0001</span></em>, <em class="sig-param"><span class="n">pdf_id</span><span class="o">=</span><span class="default_value">'GaussianFixedDispersion'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#GaussianFixedDispersion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.pdf.</span></code><code class="sig-name descname"><span class="pre">GaussianFixedDispersion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dispersion_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GaussianFixedDispersion'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#GaussianFixedDispersion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.PDF" title="bio_rtd.core.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.PDF</span></code></a></p>
 <p>Gaussian PDF with fixed dispersion.</p>
 <dl class="field-list simple">
@@ -241,17 +248,17 @@ standard deviation on time scale (not volume).</p>
 </div>
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.POSSIBLE_KEY_GROUPS">
-<code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><em class="property"> = [['f', 'v_void'], ['rt_mean']]</em><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">POSSIBLE_KEY_GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[['f',</span> <span class="pre">'v_void'],</span> <span class="pre">['rt_mean']]</span></em><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.OPTIONAL_KEYS">
-<code class="sig-name descname">OPTIONAL_KEYS</code><em class="property"> = []</em><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">OPTIONAL_KEYS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.dispersion_index">
-<code class="sig-name descname">dispersion_index</code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.dispersion_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">dispersion_index</span></code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.dispersion_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dispersion index.</p>
 <p>Dispersion index is defined as <cite>sigma * sigma / rt_mean</cite>. Where
 <cite>rt_mean</cite> is a mean residence time and <cite>sigma</cite> is a
@@ -260,14 +267,14 @@ standard deviation.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.cutoff_relative_to_max">
-<code class="sig-name descname">cutoff_relative_to_max</code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.cutoff_relative_to_max" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">cutoff_relative_to_max</span></code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.cutoff_relative_to_max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cutoff limit for trimming front and end tailing.</p>
 <p>Cutoff limit is relative to the peak max value.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">assert_and_get_provided_kv_pairs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -289,14 +296,14 @@ optional keys from <a class="reference internal" href="#bio_rtd.pdf.GaussianFixe
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.get_p">
-<code class="sig-name descname">get_p</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.get_p" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_p</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.get_p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get probability distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>p</strong> – Evaluated probability distribution function.</p>
 <p>Corresponding time axis starts with 0 and has a fixed step
 size (<cite>_dt</cite>).</p>
-<p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
+<p>If <a class="reference internal" href="#bio_rtd.pdf.GaussianFixedDispersion.trim_and_normalize" title="bio_rtd.pdf.GaussianFixedDispersion.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
 </p>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -307,7 +314,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -321,7 +328,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -335,7 +342,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedDispersion.update_pdf">
-<code class="sig-name descname">update_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.update_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">update_pdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.update_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-calculate PDF based on specified parameters.</p>
 <p>The calculated probability distribution can be obtained by
 <a class="reference internal" href="#bio_rtd.pdf.GaussianFixedDispersion.get_p" title="bio_rtd.pdf.GaussianFixedDispersion.get_p"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_p()</span></code></a></p>
@@ -348,6 +355,17 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.pdf.GaussianFixedDispersion.trim_and_normalize">
+<code class="sig-name descname"><span class="pre">trim_and_normalize</span></code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedDispersion.trim_and_normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trim edges of the pdf and normalize it afterwards.</p>
+<p>Default = True.</p>
+<p>Relative threshold value is specified by
+<a class="reference internal" href="#bio_rtd.pdf.GaussianFixedDispersion.cutoff_relative_to_max" title="bio_rtd.pdf.GaussianFixedDispersion.cutoff_relative_to_max"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cutoff_relative_to_max</span></code></a>.</p>
+<p>Normalization is performed after the trimming.
+The area of pd == 1.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -355,7 +373,7 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 <h2>GaussianFixedRelativeWidth<a class="headerlink" href="#gaussianfixedrelativewidth" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.pdf.</code><code class="sig-name descname">GaussianFixedRelativeWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">relative_sigma</span></em>, <em class="sig-param"><span class="n">cutoff</span><span class="o">=</span><span class="default_value">0.0001</span></em>, <em class="sig-param"><span class="n">pdf_id</span><span class="o">=</span><span class="default_value">'GaussianFixedRelativeWidth'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#GaussianFixedRelativeWidth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.pdf.</span></code><code class="sig-name descname"><span class="pre">GaussianFixedRelativeWidth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GaussianFixedRelativeWidth'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#GaussianFixedRelativeWidth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.PDF" title="bio_rtd.core.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.PDF</span></code></a></p>
 <p>Gaussian PDF with fixed relative peak width.</p>
 <dl class="field-list simple">
@@ -392,17 +410,17 @@ standard deviation.</p>
 </div>
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.POSSIBLE_KEY_GROUPS">
-<code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><em class="property"> = [['f', 'v_void'], ['rt_mean']]</em><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">POSSIBLE_KEY_GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[['f',</span> <span class="pre">'v_void'],</span> <span class="pre">['rt_mean']]</span></em><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.OPTIONAL_KEYS">
-<code class="sig-name descname">OPTIONAL_KEYS</code><em class="property"> = []</em><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">OPTIONAL_KEYS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.relative_sigma">
-<code class="sig-name descname">relative_sigma</code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.relative_sigma" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">relative_sigma</span></code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.relative_sigma" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relative sigma.</p>
 <p>Relative sigma is defined as <cite>sigma / rt_mean</cite>. Where
 <cite>rt_mean</cite> is a mean residence time and <cite>sigma</cite> is a
@@ -411,14 +429,14 @@ standard deviation.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.cutoff_relative_to_max">
-<code class="sig-name descname">cutoff_relative_to_max</code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.cutoff_relative_to_max" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">cutoff_relative_to_max</span></code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.cutoff_relative_to_max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cutoff limit for trimming front and end tailing.</p>
 <p>Cutoff limit is relative to the peak max value.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">assert_and_get_provided_kv_pairs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -440,14 +458,14 @@ optional keys from <a class="reference internal" href="#bio_rtd.pdf.GaussianFixe
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.get_p">
-<code class="sig-name descname">get_p</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.get_p" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_p</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.get_p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get probability distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>p</strong> – Evaluated probability distribution function.</p>
 <p>Corresponding time axis starts with 0 and has a fixed step
 size (<cite>_dt</cite>).</p>
-<p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
+<p>If <a class="reference internal" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.trim_and_normalize" title="bio_rtd.pdf.GaussianFixedRelativeWidth.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
 </p>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -458,7 +476,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -472,7 +490,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -486,7 +504,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.update_pdf">
-<code class="sig-name descname">update_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.update_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">update_pdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.update_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-calculate PDF based on specified parameters.</p>
 <p>The calculated probability distribution can be obtained by
 <a class="reference internal" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.get_p" title="bio_rtd.pdf.GaussianFixedRelativeWidth.get_p"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_p()</span></code></a></p>
@@ -499,6 +517,17 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.pdf.GaussianFixedRelativeWidth.trim_and_normalize">
+<code class="sig-name descname"><span class="pre">trim_and_normalize</span></code><a class="headerlink" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.trim_and_normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trim edges of the pdf and normalize it afterwards.</p>
+<p>Default = True.</p>
+<p>Relative threshold value is specified by
+<a class="reference internal" href="#bio_rtd.pdf.GaussianFixedRelativeWidth.cutoff_relative_to_max" title="bio_rtd.pdf.GaussianFixedRelativeWidth.cutoff_relative_to_max"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cutoff_relative_to_max</span></code></a>.</p>
+<p>Normalization is performed after the trimming.
+The area of pd == 1.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -506,7 +535,7 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 <h2>ExpModGaussianFixedDispersion<a class="headerlink" href="#expmodgaussianfixeddispersion" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.pdf.</code><code class="sig-name descname">ExpModGaussianFixedDispersion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">dispersion_index</span></em>, <em class="sig-param"><span class="n">skew</span></em>, <em class="sig-param"><span class="n">pdf_id</span><span class="o">=</span><span class="default_value">'ExpModGaussianFixedDispersion'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#ExpModGaussianFixedDispersion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.pdf.</span></code><code class="sig-name descname"><span class="pre">ExpModGaussianFixedDispersion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dispersion_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skew</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ExpModGaussianFixedDispersion'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#ExpModGaussianFixedDispersion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.PDF" title="bio_rtd.core.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.PDF</span></code></a></p>
 <p>Exponentially Modified Gaussian PDF with fixed dispersion.</p>
 <dl class="field-list simple">
@@ -545,17 +574,17 @@ standard deviation on time scale (not volume).</p>
 </div>
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.POSSIBLE_KEY_GROUPS">
-<code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><em class="property"> = [['f', 'v_void'], ['rt_mean']]</em><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">POSSIBLE_KEY_GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[['f',</span> <span class="pre">'v_void'],</span> <span class="pre">['rt_mean']]</span></em><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.OPTIONAL_KEYS">
-<code class="sig-name descname">OPTIONAL_KEYS</code><em class="property"> = ['skew']</em><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">OPTIONAL_KEYS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['skew']</span></em><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.dispersion_index">
-<code class="sig-name descname">dispersion_index</code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.dispersion_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">dispersion_index</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.dispersion_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dispersion index for Gaussian part.</p>
 <p>Dispersion index is defined as <cite>sigma * sigma / rt_mean</cite>. Where
 <cite>rt_mean</cite> is a mean residence time and <cite>sigma</cite> is a
@@ -564,13 +593,13 @@ standard deviation.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.skew">
-<code class="sig-name descname">skew</code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.skew" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">skew</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.skew" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of exponential part.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">assert_and_get_provided_kv_pairs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -592,14 +621,14 @@ optional keys from <a class="reference internal" href="#bio_rtd.pdf.ExpModGaussi
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.get_p">
-<code class="sig-name descname">get_p</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.get_p" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_p</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.get_p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get probability distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>p</strong> – Evaluated probability distribution function.</p>
 <p>Corresponding time axis starts with 0 and has a fixed step
 size (<cite>_dt</cite>).</p>
-<p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
+<p>If <a class="reference internal" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.trim_and_normalize" title="bio_rtd.pdf.ExpModGaussianFixedDispersion.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
 </p>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -610,7 +639,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -624,7 +653,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -638,7 +667,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.update_pdf">
-<code class="sig-name descname">update_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.update_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">update_pdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.update_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-calculate PDF based on specified parameters.</p>
 <p>The calculated probability distribution can be obtained by
 <a class="reference internal" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.get_p" title="bio_rtd.pdf.ExpModGaussianFixedDispersion.get_p"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_p()</span></code></a></p>
@@ -651,6 +680,25 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.trim_and_normalize">
+<code class="sig-name descname"><span class="pre">trim_and_normalize</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.trim_and_normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trim edges of the pdf and normalize it afterwards.</p>
+<p>Default = True.</p>
+<p>Relative threshold value is specified by
+<a class="reference internal" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.cutoff_relative_to_max" title="bio_rtd.pdf.ExpModGaussianFixedDispersion.cutoff_relative_to_max"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cutoff_relative_to_max</span></code></a>.</p>
+<p>Normalization is performed after the trimming.
+The area of pd == 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.pdf.ExpModGaussianFixedDispersion.cutoff_relative_to_max">
+<code class="sig-name descname"><span class="pre">cutoff_relative_to_max</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.cutoff_relative_to_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cutoff as a share of max value of the pdf (default 0.0001).</p>
+<p>It is defined to avoid very long tails of the distribution.</p>
+<p>Cutoff is enabled if <a class="reference internal" href="#bio_rtd.pdf.ExpModGaussianFixedDispersion.trim_and_normalize" title="bio_rtd.pdf.ExpModGaussianFixedDispersion.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == True.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -658,7 +706,7 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 <h2>ExpModGaussianFixedRelativeWidth<a class="headerlink" href="#expmodgaussianfixedrelativewidth" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.pdf.</code><code class="sig-name descname">ExpModGaussianFixedRelativeWidth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">sigma_relative</span></em>, <em class="sig-param"><span class="n">tau_relative</span></em>, <em class="sig-param"><span class="n">pdf_id</span><span class="o">=</span><span class="default_value">'ExpModGaussianFixedRelativeWidth'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#ExpModGaussianFixedRelativeWidth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.pdf.</span></code><code class="sig-name descname"><span class="pre">ExpModGaussianFixedRelativeWidth</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma_relative</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_relative</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ExpModGaussianFixedRelativeWidth'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#ExpModGaussianFixedRelativeWidth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.PDF" title="bio_rtd.core.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.PDF</span></code></a></p>
 <p>Exponentially Modified Gaussian PDF with fixed relative sigma.</p>
 <dl class="field-list simple">
@@ -699,17 +747,17 @@ standard deviation.</p>
 </div>
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.POSSIBLE_KEY_GROUPS">
-<code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><em class="property"> = [['rt_mean'], ['f', 'v_void']]</em><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">POSSIBLE_KEY_GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[['rt_mean'],</span> <span class="pre">['f',</span> <span class="pre">'v_void']]</span></em><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.OPTIONAL_KEYS">
-<code class="sig-name descname">OPTIONAL_KEYS</code><em class="property"> = ['skew']</em><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">OPTIONAL_KEYS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['skew']</span></em><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.sigma_relative">
-<code class="sig-name descname">sigma_relative</code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.sigma_relative" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">sigma_relative</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.sigma_relative" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relative sigma for Gaussian part.</p>
 <p>Relative sigma is defined as <cite>sigma / rt_mean</cite>. Where
 <cite>rt_mean</cite> is a mean residence time and <cite>sigma</cite> is a
@@ -718,7 +766,7 @@ standard deviation.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.tau_relative">
-<code class="sig-name descname">tau_relative</code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.tau_relative" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">tau_relative</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.tau_relative" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relative characteristic time of exponential part.</p>
 <p>Relative characteristic time is defined as
 1 / (<cite>skew</cite> * <cite>rt_mean</cite>). Where <cite>rt_mean</cite> is a mean residence
@@ -727,7 +775,7 @@ time and <cite>skew</cite> is the rate of the exponential part.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">assert_and_get_provided_kv_pairs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -749,14 +797,14 @@ optional keys from <a class="reference internal" href="#bio_rtd.pdf.ExpModGaussi
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.get_p">
-<code class="sig-name descname">get_p</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.get_p" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_p</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.get_p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get probability distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>p</strong> – Evaluated probability distribution function.</p>
 <p>Corresponding time axis starts with 0 and has a fixed step
 size (<cite>_dt</cite>).</p>
-<p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
+<p>If <a class="reference internal" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.trim_and_normalize" title="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
 </p>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -767,7 +815,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -781,7 +829,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -795,7 +843,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.update_pdf">
-<code class="sig-name descname">update_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.update_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">update_pdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.update_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-calculate PDF based on specified parameters.</p>
 <p>The calculated probability distribution can be obtained by
 <a class="reference internal" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.get_p" title="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.get_p"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_p()</span></code></a></p>
@@ -808,6 +856,25 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.trim_and_normalize">
+<code class="sig-name descname"><span class="pre">trim_and_normalize</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.trim_and_normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trim edges of the pdf and normalize it afterwards.</p>
+<p>Default = True.</p>
+<p>Relative threshold value is specified by
+<a class="reference internal" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.cutoff_relative_to_max" title="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.cutoff_relative_to_max"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cutoff_relative_to_max</span></code></a>.</p>
+<p>Normalization is performed after the trimming.
+The area of pd == 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.cutoff_relative_to_max">
+<code class="sig-name descname"><span class="pre">cutoff_relative_to_max</span></code><a class="headerlink" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.cutoff_relative_to_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cutoff as a share of max value of the pdf (default 0.0001).</p>
+<p>It is defined to avoid very long tails of the distribution.</p>
+<p>Cutoff is enabled if <a class="reference internal" href="#bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.trim_and_normalize" title="bio_rtd.pdf.ExpModGaussianFixedRelativeWidth.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == True.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -815,7 +882,7 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 <h2>TanksInSeries<a class="headerlink" href="#tanksinseries" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.pdf.TanksInSeries">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.pdf.</code><code class="sig-name descname">TanksInSeries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">n_tanks</span></em>, <em class="sig-param"><span class="n">pdf_id</span><span class="o">=</span><span class="default_value">'TanksInSeries'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#TanksInSeries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.pdf.</span></code><code class="sig-name descname"><span class="pre">TanksInSeries</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_tanks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TanksInSeries'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/pdf.html#TanksInSeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.PDF" title="bio_rtd.core.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.PDF</span></code></a></p>
 <p>Tanks in series PDF.</p>
 <p><cite>rt_mean</cite> means flow-through time through entire unit operation
@@ -862,7 +929,7 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </div>
 <dl class="py method">
 <dt id="bio_rtd.pdf.TanksInSeries.assert_and_get_provided_kv_pairs">
-<code class="sig-name descname">assert_and_get_provided_kv_pairs</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">assert_and_get_provided_kv_pairs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.assert_and_get_provided_kv_pairs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Inputs to <cite>calc_pdf(**kwargs)</cite> function</p>
@@ -884,14 +951,14 @@ optional keys from <a class="reference internal" href="#bio_rtd.pdf.TanksInSerie
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.TanksInSeries.get_p">
-<code class="sig-name descname">get_p</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.get_p" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_p</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.get_p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get probability distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><strong>p</strong> – Evaluated probability distribution function.</p>
 <p>Corresponding time axis starts with 0 and has a fixed step
 size (<cite>_dt</cite>).</p>
-<p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
+<p>If <a class="reference internal" href="#bio_rtd.pdf.TanksInSeries.trim_and_normalize" title="bio_rtd.pdf.TanksInSeries.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == 1 then <cite>sum(p * _dt) == 1</cite>.</p>
 </p>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -902,7 +969,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.TanksInSeries.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -916,7 +983,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.TanksInSeries.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -930,7 +997,7 @@ size (<cite>_dt</cite>).</p>
 
 <dl class="py method">
 <dt id="bio_rtd.pdf.TanksInSeries.update_pdf">
-<code class="sig-name descname">update_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.update_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">update_pdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.update_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-calculate PDF based on specified parameters.</p>
 <p>The calculated probability distribution can be obtained by
 <a class="reference internal" href="#bio_rtd.pdf.TanksInSeries.get_p" title="bio_rtd.pdf.TanksInSeries.get_p"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_p()</span></code></a></p>
@@ -944,24 +1011,43 @@ It may contain additional keys from <a class="reference internal" href="#bio_rtd
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="bio_rtd.pdf.TanksInSeries.trim_and_normalize">
+<code class="sig-name descname"><span class="pre">trim_and_normalize</span></code><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.trim_and_normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trim edges of the pdf and normalize it afterwards.</p>
+<p>Default = True.</p>
+<p>Relative threshold value is specified by
+<a class="reference internal" href="#bio_rtd.pdf.TanksInSeries.cutoff_relative_to_max" title="bio_rtd.pdf.TanksInSeries.cutoff_relative_to_max"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cutoff_relative_to_max</span></code></a>.</p>
+<p>Normalization is performed after the trimming.
+The area of pd == 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.pdf.TanksInSeries.cutoff_relative_to_max">
+<code class="sig-name descname"><span class="pre">cutoff_relative_to_max</span></code><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.cutoff_relative_to_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cutoff as a share of max value of the pdf (default 0.0001).</p>
+<p>It is defined to avoid very long tails of the distribution.</p>
+<p>Cutoff is enabled if <a class="reference internal" href="#bio_rtd.pdf.TanksInSeries.trim_and_normalize" title="bio_rtd.pdf.TanksInSeries.trim_and_normalize"><code class="xref py py-attr docutils literal notranslate"><span class="pre">trim_and_normalize</span></code></a> == True.</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="bio_rtd.pdf.TanksInSeries.POSSIBLE_KEY_GROUPS">
-<code class="sig-name descname">POSSIBLE_KEY_GROUPS</code><em class="property"> = [['rt_mean'], ['f', 'v_void']]</em><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">POSSIBLE_KEY_GROUPS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">[['rt_mean'],</span> <span class="pre">['f',</span> <span class="pre">'v_void']]</span></em><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.POSSIBLE_KEY_GROUPS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.TanksInSeries.OPTIONAL_KEYS">
-<code class="sig-name descname">OPTIONAL_KEYS</code><em class="property"> = ['n_tanks']</em><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">OPTIONAL_KEYS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">['n_tanks']</span></em><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.OPTIONAL_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.TanksInSeries.n_tanks">
-<code class="sig-name descname">n_tanks</code><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.n_tanks" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">n_tanks</span></code><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.n_tanks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of tanks.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.pdf.TanksInSeries.allow_open_end">
-<code class="sig-name descname">allow_open_end</code><em class="property">: bool</em><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.allow_open_end" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">allow_open_end</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.pdf.TanksInSeries.allow_open_end" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prevent warnings and errors if the pdf does not fit on <cite>t</cite>.</p>
 <p>Default: <cite>False</cite></p>
 <p>If <cite>True</cite>, no warnings or errors are reported in case the
@@ -978,29 +1064,29 @@ distribution does not fit on provided  time vector.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="logger.html" class="btn btn-neutral float-right" title="bio_rtd.logger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="uo.special_uo.html" class="btn btn-neutral float-left" title="bio_rtd.uo.special_uo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="logger.html" class="btn btn-neutral float-right" title="bio_rtd.logger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="uo.special_uo.html" class="btn btn-neutral float-left" title="bio_rtd.uo.special_uo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -1008,7 +1094,6 @@ distribution does not fit on provided  time vector.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

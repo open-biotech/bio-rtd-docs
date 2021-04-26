@@ -1,38 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>bio_rtd.uo.fc_uo &mdash; bio_rtd  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="bio_rtd.uo.sc_uo" href="uo.sc_uo.html" />
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -77,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -127,6 +131,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -161,11 +166,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../content.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -192,7 +199,7 @@ optional trailing zeros at front or at end.</p>
 <h2>Dilution<a class="headerlink" href="#dilution" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.uo.fc_uo.Dilution">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">Dilution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">dilution_ratio</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'Dilution'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#Dilution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.uo.fc_uo.</span></code><code class="sig-name descname"><span class="pre">Dilution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dilution_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Dilution'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#Dilution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Process fluid stream dilution by constant ratio.</p>
 <dl class="field-list simple">
@@ -201,8 +208,8 @@ optional trailing zeros at front or at end.</p>
 <li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
 Starts with 0 and has a constant time step.</p></li>
 <li><p><strong>dilution_ratio</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Dilution ratio. Must be &gt;= 1.</p></li>
-<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
-<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “Dilution”.</p></li>
+<li><p><strong>uo_id</strong> (<em>str</em>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<em>str</em>) – Readable title for GUI. Default = “Dilution”.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Variables</dt>
@@ -211,14 +218,14 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.Dilution.dilution_ratio">
-<code class="sig-name descname">dilution_ratio</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.dilution_ratio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">dilution_ratio</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.dilution_ratio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dilution ratio. Must be &gt;= 1.</p>
 <p>Dilution ratio of 1.2 means adding 20 % of dilution buffer.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.Dilution.c_add_buffer">
-<code class="sig-name descname">c_add_buffer</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.c_add_buffer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">c_add_buffer</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.c_add_buffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Concentration of species in dilution buffer.</p>
 <p>Default = empty array (= all components are 0).</p>
 <p>If defined, it must have a value for each process fluid specie.</p>
@@ -226,7 +233,7 @@ Starts with 0 and has a constant time step.</p></li>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.Dilution.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -251,7 +258,7 @@ Starts with 0 and has a constant time step.</p></li>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.Dilution.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.get_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -269,7 +276,7 @@ Starts with 0 and has a constant time step.</p></li>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.Dilution.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -283,7 +290,7 @@ Starts with 0 and has a constant time step.</p></li>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.Dilution.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -295,6 +302,86 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.uo_id">
+<code class="sig-name descname"><span class="pre">uo_id</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.uo_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier of the instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.gui_title">
+<code class="sig-name descname"><span class="pre">gui_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.gui_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readable title for GUI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.gui_hidden">
+<code class="sig-name descname"><span class="pre">gui_hidden</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.gui_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the of the unit operation (default False).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.discard_inlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.discard_inlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.discard_inlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.discard_inlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_inlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.discard_outlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.discard_outlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.discard_outlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.discard_outlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_outlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Dilution.adj_par_list">
+<code class="sig-name descname"><span class="pre">adj_par_list</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.Dilution.adj_par_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List
+of adjustable parameters exposed to the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="adj_par.html#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -302,7 +389,7 @@ Starts with 0 and has a constant time step.</p></li>
 <h2>Concentration<a class="headerlink" href="#concentration" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.uo.fc_uo.Concentration">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">Concentration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">flow_reduction</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'Concentration'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#Concentration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.uo.fc_uo.</span></code><code class="sig-name descname"><span class="pre">Concentration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flow_reduction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Concentration'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#Concentration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Concentrate process fluid stream.</p>
 <dl class="field-list simple">
@@ -311,8 +398,8 @@ Starts with 0 and has a constant time step.</p></li>
 <li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
 Starts with 0 and has a constant time step.</p></li>
 <li><p><strong>flow_reduction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Flow reduction (== volume reduction). Must be &gt; 1.</p></li>
-<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
-<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “Concentration”.</p></li>
+<li><p><strong>uo_id</strong> (<em>str</em>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<em>str</em>) – Readable title for GUI. Default = “Concentration”.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Variables</dt>
@@ -324,26 +411,26 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.Concentration.flow_reduction">
-<code class="sig-name descname">flow_reduction</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.flow_reduction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">flow_reduction</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.flow_reduction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flow reduction (== volume reduction). Must be &gt; 1.</p>
 <p><cite>outlet flow rate</cite> = <cite>inlet flow rate</cite> / <cite>flow_reduction</cite>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.Concentration.non_retained_species">
-<code class="sig-name descname">non_retained_species</code><em class="property">: Sequence[int]</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.non_retained_species" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">non_retained_species</span></code><em class="property"><span class="pre">:</span> <span class="pre">_typing.Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.non_retained_species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indexes of non-retained species. Indexing starts with 0.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.Concentration.relative_losses">
-<code class="sig-name descname">relative_losses</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.relative_losses" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">relative_losses</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.relative_losses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relative losses of retained species.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.Concentration.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -368,7 +455,7 @@ Starts with 0 and has a constant time step.</p></li>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.Concentration.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.get_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -386,7 +473,7 @@ Starts with 0 and has a constant time step.</p></li>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.Concentration.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -400,7 +487,7 @@ Starts with 0 and has a constant time step.</p></li>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.Concentration.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -412,6 +499,86 @@ Starts with 0 and has a constant time step.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.uo_id">
+<code class="sig-name descname"><span class="pre">uo_id</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.uo_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier of the instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.gui_title">
+<code class="sig-name descname"><span class="pre">gui_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.gui_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readable title for GUI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.gui_hidden">
+<code class="sig-name descname"><span class="pre">gui_hidden</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.gui_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the of the unit operation (default False).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.discard_inlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.discard_inlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.discard_inlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.discard_inlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_inlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.discard_outlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.discard_outlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.discard_outlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.discard_outlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_outlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.Concentration.adj_par_list">
+<code class="sig-name descname"><span class="pre">adj_par_list</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.Concentration.adj_par_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List
+of adjustable parameters exposed to the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="adj_par.html#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -419,7 +586,7 @@ Starts with 0 and has a constant time step.</p></li>
 <h2>BufferExchange<a class="headerlink" href="#bufferexchange" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">BufferExchange</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">exchange_ratio</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'BufferExchange'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#BufferExchange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.uo.fc_uo.</span></code><code class="sig-name descname"><span class="pre">BufferExchange</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchange_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'BufferExchange'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#BufferExchange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Buffer exchange.</p>
 <dl class="field-list simple">
@@ -428,8 +595,8 @@ Starts with 0 and has a constant time step.</p></li>
 <li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
 Starts with 0 and has a constant time step.</p></li>
 <li><p><strong>exchange_ratio</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – Exchange ratio (== efficiency). Must be &gt; 0 and &lt;= 1.</p></li>
-<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
-<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “BufferExchange”.</p></li>
+<li><p><strong>uo_id</strong> (<em>str</em>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<em>str</em>) – Readable title for GUI. Default = “BufferExchange”.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Variables</dt>
@@ -446,20 +613,20 @@ or <cite>FlowThroughWithSwitching</cite> steps
 in order to simulate unit operations such as SPTFF or UFDF</p>
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange.exchange_ratio">
-<code class="sig-name descname">exchange_ratio</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.exchange_ratio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">exchange_ratio</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.exchange_ratio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exchange ratio (== efficiency). Must be &gt; 0 and &lt;= 1.</p>
 <p>Share of exchange buffer in outlet buffer.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange.non_retained_species">
-<code class="sig-name descname">non_retained_species</code><em class="property">: Sequence[int]</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.non_retained_species" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">non_retained_species</span></code><em class="property"><span class="pre">:</span> <span class="pre">_typing.Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.non_retained_species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indexes of non-retained species. Indexing starts with 0.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange.c_exchange_buffer">
-<code class="sig-name descname">c_exchange_buffer</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.c_exchange_buffer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">c_exchange_buffer</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.c_exchange_buffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Concentration of species in exchange buffer.</p>
 <p>Default = empty array (= all components are 0).</p>
 <p>If defined, it must have a value for each process fluid specie.</p>
@@ -467,13 +634,13 @@ in order to simulate unit operations such as SPTFF or UFDF</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange.relative_losses">
-<code class="sig-name descname">relative_losses</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.relative_losses" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">relative_losses</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.relative_losses" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relative losses of retained species during dilution.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -498,7 +665,7 @@ in order to simulate unit operations such as SPTFF or UFDF</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.get_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -516,7 +683,7 @@ in order to simulate unit operations such as SPTFF or UFDF</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -530,7 +697,7 @@ in order to simulate unit operations such as SPTFF or UFDF</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.BufferExchange.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -542,6 +709,86 @@ in order to simulate unit operations such as SPTFF or UFDF</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.uo_id">
+<code class="sig-name descname"><span class="pre">uo_id</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.uo_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier of the instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.gui_title">
+<code class="sig-name descname"><span class="pre">gui_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.gui_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readable title for GUI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.gui_hidden">
+<code class="sig-name descname"><span class="pre">gui_hidden</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.gui_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the of the unit operation (default False).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.discard_inlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.discard_inlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.discard_inlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.discard_inlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_inlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.discard_outlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.discard_outlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.discard_outlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.discard_outlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_outlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.BufferExchange.adj_par_list">
+<code class="sig-name descname"><span class="pre">adj_par_list</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.BufferExchange.adj_par_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List
+of adjustable parameters exposed to the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="adj_par.html#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -549,7 +796,7 @@ in order to simulate unit operations such as SPTFF or UFDF</p>
 <h2>FlowThrough<a class="headerlink" href="#flowthrough" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">FlowThrough</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">pdf</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'FlowThrough'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#FlowThrough"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.uo.fc_uo.</span></code><code class="sig-name descname"><span class="pre">FlowThrough</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FlowThrough'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#FlowThrough"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Fully continuous unit operation without life cycle.</p>
 <p><cite>FlowThrough</cite> has a constant PDF, which depends on <cite>flow rate</cite> and
@@ -566,8 +813,8 @@ Starts with 0 and has a constant time step.</p></li>
 unit operation.</p>
 <p><cite>pdf</cite> is updated with <cite>void volume</cite> and <cite>flow rate</cite> at runtime.</p>
 </p></li>
-<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
-<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “FlowThrough”.</p></li>
+<li><p><strong>uo_id</strong> (<em>str</em>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<em>str</em>) – Readable title for GUI. Default = “FlowThrough”.</p></li>
 </ul>
 </dd>
 </dl>
@@ -608,7 +855,7 @@ Fully filled vessel serves then as an initial state for
 the rest of the simulation.</p>
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.pdf">
-<code class="sig-name descname">pdf</code><em class="property">: _core.PDF</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">pdf</span></code><em class="property"><span class="pre">:</span> <span class="pre">_core.PDF</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Probability distribution function for describing RTD.</p>
 <p>PDF that described propagation of process fluid through the
 unit operation.</p>
@@ -617,14 +864,14 @@ unit operation.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.v_void">
-<code class="sig-name descname">v_void</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_void" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_void</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_void" title="Permalink to this definition">¶</a></dt>
 <dd><p>Void volume. This is effective void volume.</p>
 <p>Either <cite>v_void</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.rt_target" title="bio_rtd.uo.fc_uo.FlowThrough.rt_target"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rt_target</span></code></a> should be defined.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.rt_target">
-<code class="sig-name descname">rt_target</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.rt_target" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">rt_target</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.rt_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Target residence time.</p>
 <p>Used to determine (effective) void volume of the unit operation.</p>
 <p>Either <cite>rt_target</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_void" title="bio_rtd.uo.fc_uo.FlowThrough.v_void"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_void</span></code></a> should be defined.</p>
@@ -632,7 +879,7 @@ unit operation.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.v_init">
-<code class="sig-name descname">v_init</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_init</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial fill volume.</p>
 <p>One of <cite>v_init</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio" title="bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init_ratio</span></code></a> may be defined,
 but not both. If both are undefined, then the init volume is
@@ -641,7 +888,7 @@ the same as void volume.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio">
-<code class="sig-name descname">v_init_ratio</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_init_ratio</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial fill volume relative to void volume.</p>
 <p>One of <cite>v_init</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio" title="bio_rtd.uo.fc_uo.FlowThrough.v_init_ratio"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init_ratio</span></code></a> may be defined,
 but not both. If both are undefined, then the init volume is
@@ -650,7 +897,7 @@ the same as void volume.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.c_init">
-<code class="sig-name descname">c_init</code><em class="property">: ndarray</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.c_init" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">c_init</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.c_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Buffer composition in initial fill volume.</p>
 <p>E.g. equilibration buffer composition.</p>
 <p>If undefined (default) then all components are set to 0.</p>
@@ -659,20 +906,20 @@ the same as void volume.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.losses_share">
-<code class="sig-name descname">losses_share</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_share" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">losses_share</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_share" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relative losses.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.losses_species_list">
-<code class="sig-name descname">losses_species_list</code><em class="property">: Sequence[int]</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_species_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">losses_species_list</span></code><em class="property"><span class="pre">:</span> <span class="pre">_typing.Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_species_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indexes of process fluid components affected by losses.</p>
 <p>Must be defined if <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough.losses_share" title="bio_rtd.uo.fc_uo.FlowThrough.losses_share"><code class="xref py py-attr docutils literal notranslate"><span class="pre">losses_share</span></code></a> &gt; 0.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -686,7 +933,7 @@ the same as void volume.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -711,7 +958,7 @@ the same as void volume.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.get_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -729,7 +976,7 @@ the same as void volume.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.FlowThrough.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -741,6 +988,86 @@ the same as void volume.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.uo_id">
+<code class="sig-name descname"><span class="pre">uo_id</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.uo_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier of the instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.gui_title">
+<code class="sig-name descname"><span class="pre">gui_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.gui_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readable title for GUI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.gui_hidden">
+<code class="sig-name descname"><span class="pre">gui_hidden</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.gui_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the of the unit operation (default False).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.discard_inlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.discard_inlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.discard_inlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.discard_inlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_inlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.discard_outlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.discard_outlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.discard_outlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.discard_outlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_outlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThrough.adj_par_list">
+<code class="sig-name descname"><span class="pre">adj_par_list</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThrough.adj_par_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List
+of adjustable parameters exposed to the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="adj_par.html#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -748,7 +1075,7 @@ the same as void volume.</p>
 <h2>FlowThroughWithSwitching<a class="headerlink" href="#flowthroughwithswitching" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.fc_uo.</code><code class="sig-name descname">FlowThroughWithSwitching</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">pdf</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'FlowThroughWithSwitching'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#FlowThroughWithSwitching"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.uo.fc_uo.</span></code><code class="sig-name descname"><span class="pre">FlowThroughWithSwitching</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'FlowThroughWithSwitching'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/fc_uo.html#FlowThroughWithSwitching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThrough" title="bio_rtd.uo.fc_uo.FlowThrough"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.uo.fc_uo.FlowThrough</span></code></a></p>
 <p>Fully continuous unit operation with inline switching.</p>
 <p><cite>FlowThroughWithSwitching</cite> has a constant PDF, which depends on
@@ -763,12 +1090,12 @@ During the fill-up an ideal mixing is assumed.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
 Starts with 0 and has a constant time step.</p></li>
-<li><p><strong>pdf</strong> (<a class="reference internal" href="core.html#bio_rtd.core.PDF" title="bio_rtd.core.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDF</span></code></a>) – <p>PDF that described propagation of process fluid through the
+<li><p><strong>pdf</strong> (<em>_core.PDF</em>) – <p>PDF that described propagation of process fluid through the
 unit operation.</p>
 <p><cite>pdf</cite> is updated with <cite>void volume</cite> and <cite>flow rate</cite> at runtime.</p>
 </p></li>
-<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
-<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “FlowThroughWithSwitching”.</p></li>
+<li><p><strong>uo_id</strong> (<em>str</em>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<em>str</em>) – Readable title for GUI. Default = “FlowThroughWithSwitching”.</p></li>
 </ul>
 </dd>
 </dl>
@@ -782,7 +1109,7 @@ the following attributes:</p>
 </ul>
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -807,7 +1134,7 @@ the following attributes:</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.get_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -825,7 +1152,7 @@ the following attributes:</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -839,7 +1166,7 @@ the following attributes:</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -852,8 +1179,152 @@ the following attributes:</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.uo_id">
+<code class="sig-name descname"><span class="pre">uo_id</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.uo_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier of the instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.gui_title">
+<code class="sig-name descname"><span class="pre">gui_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.gui_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readable title for GUI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.gui_hidden">
+<code class="sig-name descname"><span class="pre">gui_hidden</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.gui_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the of the unit operation (default False).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_inlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_inlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_inlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_inlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_inlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_outlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_outlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_outlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_outlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_outlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.pdf">
+<code class="sig-name descname"><span class="pre">pdf</span></code><em class="property"><span class="pre">:</span> <span class="pre">_core.PDF</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probability distribution function for describing RTD.</p>
+<p>PDF that described propagation of process fluid through the
+unit operation.</p>
+<p><cite>pdf</cite> is updated with <cite>void volume</cite> and <cite>flow rate</cite> at runtime.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_void">
+<code class="sig-name descname"><span class="pre">v_void</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_void" title="Permalink to this definition">¶</a></dt>
+<dd><p>Void volume. This is effective void volume.</p>
+<p>Either <cite>v_void</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.rt_target" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.rt_target"><code class="xref py py-attr docutils literal notranslate"><span class="pre">rt_target</span></code></a> should be defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.rt_target">
+<code class="sig-name descname"><span class="pre">rt_target</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.rt_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target residence time.</p>
+<p>Used to determine (effective) void volume of the unit operation.</p>
+<p>Either <cite>rt_target</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_void" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_void"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_void</span></code></a> should be defined.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_init">
+<code class="sig-name descname"><span class="pre">v_init</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial fill volume.</p>
+<p>One of <cite>v_init</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_init_ratio" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_init_ratio"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init_ratio</span></code></a> may be defined,
+but not both. If both are undefined, then the init volume is
+the same as void volume.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_init_ratio">
+<code class="sig-name descname"><span class="pre">v_init_ratio</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_init_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial fill volume relative to void volume.</p>
+<p>One of <cite>v_init</cite> or <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_init_ratio" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_init_ratio"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_init_ratio</span></code></a> may be defined,
+but not both. If both are undefined, then the init volume is
+the same as void volume.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.c_init">
+<code class="sig-name descname"><span class="pre">c_init</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.c_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Buffer composition in initial fill volume.</p>
+<p>E.g. equilibration buffer composition.</p>
+<p>If undefined (default) then all components are set to 0.</p>
+<p>If defined then it has to have a value for each specie.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.losses_share">
+<code class="sig-name descname"><span class="pre">losses_share</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.losses_share" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relative losses.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.losses_species_list">
+<code class="sig-name descname"><span class="pre">losses_species_list</span></code><em class="property"><span class="pre">:</span> <span class="pre">_typing.Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.losses_species_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indexes of process fluid components affected by losses.</p>
+<p>Must be defined if <a class="reference internal" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.losses_share" title="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.losses_share"><code class="xref py py-attr docutils literal notranslate"><span class="pre">losses_share</span></code></a> &gt; 0.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.adj_par_list">
+<code class="sig-name descname"><span class="pre">adj_par_list</span></code><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.adj_par_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List
+of adjustable parameters exposed to the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="adj_par.html#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle">
-<code class="sig-name descname">t_cycle</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">t_cycle</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.t_cycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cycle duration (time).</p>
 <p>E.g. lifecycle of flow-through column.</p>
 <p>Only one cycle duration definition is expected. Available:</p>
@@ -866,7 +1337,7 @@ the following attributes:</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle">
-<code class="sig-name descname">v_cycle</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_cycle</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cycle duration (volume).</p>
 <p>Cycle duration (time) = <cite>v_cycle</cite> / <cite>inlet flow rate</cite>.</p>
 <p>E.g. lifecycle of flow-through column.</p>
@@ -880,7 +1351,7 @@ the following attributes:</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative">
-<code class="sig-name descname">v_cycle_relative</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_cycle_relative</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.fc_uo.FlowThroughWithSwitching.v_cycle_relative" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cycle duration (relative volume).</p>
 <p>Cycle duration (time) = <cite>v_cycle_relative</cite> * <cite>void volume</cite>
 / <cite>inlet flow rate</cite>.</p>
@@ -903,29 +1374,29 @@ the following attributes:</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="uo.sc_uo.html" class="btn btn-neutral float-right" title="bio_rtd.uo.sc_uo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="inlet.html" class="btn btn-neutral float-left" title="bio_rtd.inlet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="uo.sc_uo.html" class="btn btn-neutral float-right" title="bio_rtd.uo.sc_uo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="inlet.html" class="btn btn-neutral float-left" title="bio_rtd.inlet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -933,7 +1404,6 @@ the following attributes:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

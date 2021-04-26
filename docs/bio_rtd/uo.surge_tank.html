@@ -1,38 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>bio_rtd.uo.surge_tank &mdash; bio_rtd  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="bio_rtd.uo.special_uo" href="uo.special_uo.html" />
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -77,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -124,6 +128,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -158,11 +163,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../content.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -187,7 +194,7 @@ constant or box-shaped profile.</p>
 <h2>CSTR<a class="headerlink" href="#cstr" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.uo.surge_tank.CSTR">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.surge_tank.</code><code class="sig-name descname">CSTR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'CSTR'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/surge_tank.html#CSTR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.uo.surge_tank.</span></code><code class="sig-name descname"><span class="pre">CSTR</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CSTR'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/surge_tank.html#CSTR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Simulation of CSTR with ideal mixing.</p>
 <p>Accepts constant, box-shaped or box-shaped periodic flow rate
@@ -198,8 +205,8 @@ profiles.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
 Starts with 0 and has a constant time step.</p></li>
-<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
-<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “CSTR”.</p></li>
+<li><p><strong>uo_id</strong> (<em>str</em>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<em>str</em>) – Readable title for GUI. Default = “CSTR”.</p></li>
 </ul>
 </dd>
 </dl>
@@ -252,20 +259,20 @@ Empty array (default) means that all components are 0.</p>
 </div>
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.CSTR.v_void">
-<code class="sig-name descname">v_void</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_void" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_void</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_void" title="Permalink to this definition">¶</a></dt>
 <dd><p>Target upper fluid volume (max fill level) in the CSTR.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.CSTR.rt_target">
-<code class="sig-name descname">rt_target</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.rt_target" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">rt_target</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.rt_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Target mean residence time in the CSTR.</p>
 <p>Max fill level = <cite>rt_target</cite> * outlet flow rate.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.CSTR.v_min">
-<code class="sig-name descname">v_min</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_min" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_min</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_min" title="Permalink to this definition">¶</a></dt>
 <dd><p>Target lowest fill level in the CSTR.</p>
 <p>Only valid for periodic inlet flow rate profile.</p>
 <p>Upper fill level is calculated at runtime.</p>
@@ -273,7 +280,7 @@ Empty array (default) means that all components are 0.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.CSTR.v_min_ratio">
-<code class="sig-name descname">v_min_ratio</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_min_ratio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_min_ratio</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_min_ratio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ratio between max and min fill levels in the CSTR.</p>
 <p>Only valid for periodic inlet flow rate profile.</p>
 <p>Absolute fill levels are calculated at runtime.</p>
@@ -281,32 +288,32 @@ Empty array (default) means that all components are 0.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.CSTR.v_init">
-<code class="sig-name descname">v_init</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_init" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_init</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial pre-fill level - absolute value.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.CSTR.v_init_ratio">
-<code class="sig-name descname">v_init_ratio</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_init_ratio" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_init_ratio</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.v_init_ratio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial pre-fill level as a share of max fill level.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.CSTR.starts_empty">
-<code class="sig-name descname">starts_empty</code><em class="property">: bool</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.starts_empty" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">starts_empty</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.starts_empty" title="Permalink to this definition">¶</a></dt>
 <dd><p>CSTR has a 0 initial fill level.</p>
 <p>If <cite>True</cite> it overrides <cite>v_init</cite> and <cite>v_init_ratio</cite>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.CSTR.c_init">
-<code class="sig-name descname">c_init</code><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.c_init" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">c_init</span></code><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.c_init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-fill buffer composition. Default = array([]) = all 0</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.surge_tank.CSTR.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -331,7 +338,7 @@ Empty array (default) means that all components are 0.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.surge_tank.CSTR.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.get_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -349,7 +356,7 @@ Empty array (default) means that all components are 0.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.surge_tank.CSTR.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -363,7 +370,7 @@ Empty array (default) means that all components are 0.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.surge_tank.CSTR.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -375,6 +382,86 @@ Empty array (default) means that all components are 0.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.uo_id">
+<code class="sig-name descname"><span class="pre">uo_id</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.uo_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier of the instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.gui_title">
+<code class="sig-name descname"><span class="pre">gui_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.gui_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readable title for GUI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.gui_hidden">
+<code class="sig-name descname"><span class="pre">gui_hidden</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.gui_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the of the unit operation (default False).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.discard_inlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.discard_inlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.discard_inlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.discard_inlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_inlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.discard_outlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.discard_outlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.discard_outlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.discard_outlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_outlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.CSTR.adj_par_list">
+<code class="sig-name descname"><span class="pre">adj_par_list</span></code><a class="headerlink" href="#bio_rtd.uo.surge_tank.CSTR.adj_par_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List
+of adjustable parameters exposed to the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="adj_par.html#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -382,7 +469,7 @@ Empty array (default) means that all components are 0.</p>
 <h2>TwoAlternatingCSTRs<a class="headerlink" href="#twoalternatingcstrs" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs">
-<em class="property">class </em><code class="sig-prename descclassname">bio_rtd.uo.surge_tank.</code><code class="sig-name descname">TwoAlternatingCSTRs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">uo_id</span></em>, <em class="sig-param"><span class="n">gui_title</span><span class="o">=</span><span class="default_value">'TwoAlternatingCSTRs'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/surge_tank.html#TwoAlternatingCSTRs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">bio_rtd.uo.surge_tank.</span></code><code class="sig-name descname"><span class="pre">TwoAlternatingCSTRs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uo_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TwoAlternatingCSTRs'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/uo/surge_tank.html#TwoAlternatingCSTRs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="core.html#bio_rtd.core.UnitOperation" title="bio_rtd.core.UnitOperation"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.core.UnitOperation</span></code></a></p>
 <p>Simulation of Two alternating CSTRs with ideal mixing.</p>
 <p>Accepts constant, box-shaped or periodic box-shaped flow rate
@@ -393,8 +480,8 @@ profiles.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Simulation time vector.
 Starts with 0 and has a constant time step.</p></li>
-<li><p><strong>uo_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Unique identifier.</p></li>
-<li><p><strong>gui_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Readable title for GUI. Default = “TwoAlternatingCSTRs”.</p></li>
+<li><p><strong>uo_id</strong> (<em>str</em>) – Unique identifier.</p></li>
+<li><p><strong>gui_title</strong> (<em>str</em>) – Readable title for GUI. Default = “TwoAlternatingCSTRs”.</p></li>
 </ul>
 </dd>
 </dl>
@@ -421,7 +508,7 @@ Starts with 0 and has a constant time step.</p></li>
 </ul>
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.collect_n_periods">
-<code class="sig-name descname">collect_n_periods</code><em class="property">: int</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.collect_n_periods" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">collect_n_periods</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.collect_n_periods" title="Permalink to this definition">¶</a></dt>
 <dd><p>How many periods of a periodic inlet a surge tank collects.</p>
 <p>Default = 1.</p>
 <p>Only relevant for periodic inlet flow rate profile.</p>
@@ -429,7 +516,7 @@ Starts with 0 and has a constant time step.</p></li>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.relative_role_switch_time">
-<code class="sig-name descname">relative_role_switch_time</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.relative_role_switch_time" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">relative_role_switch_time</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.relative_role_switch_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>When CSTRs switch roles within the inlet flow rate off time.</p>
 <p>Default = 0.9.</p>
 <p>This is valid for the first cycle. In case of leftover material,
@@ -446,7 +533,7 @@ variability in a real process.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_in</span></em>, <em class="sig-param"><span class="n">c_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">evaluate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the propagation throughout the unit operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -471,7 +558,7 @@ variability in a real process.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.get_result">
-<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.get_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_result</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.get_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns existing flow rate and concentration profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -489,7 +576,7 @@ variability in a real process.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.log">
-<em class="property">property </em><code class="sig-name descname">log</code><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.log" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">log</span></code><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reference of the <cite>RtdLogger</cite> instance.</p>
 <p>Setter also plants instance data tree into passed logger.</p>
 <p>If logger is requested, but not yet set, then a
@@ -503,7 +590,7 @@ variability in a real process.</p>
 
 <dl class="py method">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.set_logger_from_parent">
-<code class="sig-name descname">set_logger_from_parent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parent_id</span></em>, <em class="sig-param"><span class="n">logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_logger_from_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.set_logger_from_parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inherit logger from parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -516,8 +603,88 @@ variability in a real process.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.uo_id">
+<code class="sig-name descname"><span class="pre">uo_id</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.uo_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unique identifier of the instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.gui_title">
+<code class="sig-name descname"><span class="pre">gui_title</span></code><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.gui_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Readable title for GUI</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.gui_hidden">
+<code class="sig-name descname"><span class="pre">gui_hidden</span></code><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.gui_hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the of the unit operation (default False).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_inlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_inlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_inlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_inlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_inlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_inlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_inlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard inlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_inlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_inlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_inlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic inlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_outlet_until_t">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_t</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_outlet_until_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given time.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_outlet_until_min_c">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_outlet_until_min_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration is reached.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_outlet_until_min_c_rel">
+<code class="sig-name descname"><span class="pre">discard_outlet_until_min_c_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">_np.ndarray</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_outlet_until_min_c_rel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard outlet until given concentration relative to is reached.</p>
+<p>Specified concentration is relative to the max concentration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_outlet_n_cycles">
+<code class="sig-name descname"><span class="pre">discard_outlet_n_cycles</span></code><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.discard_outlet_n_cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discard first n cycles of the periodic outlet flow rate profile.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.adj_par_list">
+<code class="sig-name descname"><span class="pre">adj_par_list</span></code><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.adj_par_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List
+of adjustable parameters exposed to the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="adj_par.html#bio_rtd.adj_par.AdjustableParameter" title="bio_rtd.adj_par.AdjustableParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">bio_rtd.adj_par.AdjustableParameter</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.t_cycle">
-<code class="sig-name descname">t_cycle</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.t_cycle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">t_cycle</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.t_cycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>The duration (time) of cycle after which CSTRs switch roles.</p>
 <p>In case of constant inlet profile, one of <cite>t_cycle</cite> and
 <a class="reference internal" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_cycle" title="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_cycle</span></code></a> needs to be defined.</p>
@@ -527,7 +694,7 @@ this value should not be defined.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_cycle">
-<code class="sig-name descname">v_cycle</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_cycle" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_cycle</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_cycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collected volume after which CSTRs switch roles.</p>
 <p>In case of constant inlet profile, one of <cite>v_cycle</cite> and
 <a class="reference internal" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.t_cycle" title="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.t_cycle"><code class="xref py py-attr docutils literal notranslate"><span class="pre">t_cycle</span></code></a> needs to be defined.</p>
@@ -537,7 +704,7 @@ this value should not be defined.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_leftover">
-<code class="sig-name descname">v_leftover</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_leftover" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_leftover</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_leftover" title="Permalink to this definition">¶</a></dt>
 <dd><p>What amount of fluid stays in CSTR after discharge.</p>
 <p>Only one of <cite>v_leftover</cite> and
 <a class="reference internal" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_leftover_rel" title="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_leftover_rel"><code class="xref py py-attr docutils literal notranslate"><span class="pre">v_leftover_rel</span></code></a> should be defined.
@@ -546,7 +713,7 @@ If none are defined, then the leftover is set to 0.</p>
 
 <dl class="py attribute">
 <dt id="bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_leftover_rel">
-<code class="sig-name descname">v_leftover_rel</code><em class="property">: float</em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_leftover_rel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">v_leftover_rel</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#bio_rtd.uo.surge_tank.TwoAlternatingCSTRs.v_leftover_rel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relative amount of fluid that stays in CSTR after discharge.</p>
 <p>Relative to the amount of collected material in one cycle.</p>
 <p>Only one of <cite>v_leftover_rel</cite> and
@@ -564,29 +731,29 @@ If none are defined, then the leftover is set to 0.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="uo.special_uo.html" class="btn btn-neutral float-right" title="bio_rtd.uo.special_uo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="uo.sc_uo.html" class="btn btn-neutral float-left" title="bio_rtd.uo.sc_uo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="uo.special_uo.html" class="btn btn-neutral float-right" title="bio_rtd.uo.special_uo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="uo.sc_uo.html" class="btn btn-neutral float-left" title="bio_rtd.uo.sc_uo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -594,7 +761,6 @@ If none are defined, then the leftover is set to 0.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

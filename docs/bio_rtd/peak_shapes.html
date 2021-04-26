@@ -1,38 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>bio_rtd.peak_shapes &mdash; bio_rtd  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="bio_rtd.core" href="core.html" />
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -77,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -126,6 +130,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -160,11 +165,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../content.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -192,7 +199,7 @@ clipped if they do not fully fit on the time vector.</p>
 <h2>gaussian<a class="headerlink" href="#gaussian" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="bio_rtd.peak_shapes.gaussian">
-<code class="sig-prename descclassname">bio_rtd.peak_shapes.</code><code class="sig-name descname">gaussian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">rt_mean</span></em>, <em class="sig-param"><span class="n">sigma</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#gaussian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.peak_shapes.gaussian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">bio_rtd.peak_shapes.</span></code><code class="sig-name descname"><span class="pre">gaussian</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rt_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#gaussian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.peak_shapes.gaussian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gaussian distribution.</p>
 <p>p = exp(- ((t - rt_mean) / sigma) ** 2 / 2) / (sigma * sqrt(2 * pi))</p>
 <dl class="field-list simple">
@@ -218,7 +225,7 @@ clipped if they do not fully fit on the time vector.</p>
 <h2>emg<a class="headerlink" href="#emg" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="bio_rtd.peak_shapes.emg">
-<code class="sig-prename descclassname">bio_rtd.peak_shapes.</code><code class="sig-name descname">emg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">rt_mean</span></em>, <em class="sig-param"><span class="n">sigma</span></em>, <em class="sig-param"><span class="n">skew</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#emg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.peak_shapes.emg" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">bio_rtd.peak_shapes.</span></code><code class="sig-name descname"><span class="pre">emg</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rt_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skew</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#emg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.peak_shapes.emg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exponentially modified Gaussian distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -244,7 +251,7 @@ clipped if they do not fully fit on the time vector.</p>
 <h2>skewed_normal<a class="headerlink" href="#skewed-normal" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="bio_rtd.peak_shapes.skewed_normal">
-<code class="sig-prename descclassname">bio_rtd.peak_shapes.</code><code class="sig-name descname">skewed_normal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">rt_mean</span></em>, <em class="sig-param"><span class="n">sigma</span></em>, <em class="sig-param"><span class="n">skew</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#skewed_normal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.peak_shapes.skewed_normal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">bio_rtd.peak_shapes.</span></code><code class="sig-name descname"><span class="pre">skewed_normal</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rt_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skew</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#skewed_normal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.peak_shapes.skewed_normal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Skewed normal distribution.</p>
 <p>For <cite>skew</cite> == 0, the distribution becomes Gaussian distribution.</p>
 <dl class="field-list simple">
@@ -271,7 +278,7 @@ clipped if they do not fully fit on the time vector.</p>
 <h2>tanks_in_series<a class="headerlink" href="#tanks-in-series" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="bio_rtd.peak_shapes.tanks_in_series">
-<code class="sig-prename descclassname">bio_rtd.peak_shapes.</code><code class="sig-name descname">tanks_in_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span></em>, <em class="sig-param"><span class="n">rt_mean</span></em>, <em class="sig-param"><span class="n">n_tanks</span></em>, <em class="sig-param"><span class="n">logger</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">allow_open_end</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#tanks_in_series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.peak_shapes.tanks_in_series" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">bio_rtd.peak_shapes.</span></code><code class="sig-name descname"><span class="pre">tanks_in_series</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rt_mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_tanks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_open_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/peak_shapes.html#tanks_in_series"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.peak_shapes.tanks_in_series" title="Permalink to this definition">¶</a></dt>
 <dd><p>N tanks in series distribution.</p>
 <p><cite>rt_mean</cite> is for entire unit operation (all tanks together).</p>
 <p>For <cite>n_tanks</cite> == 1, the distribution results in exponential decay.</p>
@@ -301,29 +308,29 @@ clipped if they do not fully fit on the time vector.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="core.html" class="btn btn-neutral float-right" title="bio_rtd.core" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="peak_fitting.html" class="btn btn-neutral float-left" title="bio_rtd.peak_fitting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="core.html" class="btn btn-neutral float-right" title="bio_rtd.core" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="peak_fitting.html" class="btn btn-neutral float-left" title="bio_rtd.peak_fitting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -331,7 +338,6 @@ clipped if they do not fully fit on the time vector.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

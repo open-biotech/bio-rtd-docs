@@ -1,38 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Getting Started &mdash; bio_rtd  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="User Guide" href="user_guide.html" />
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -77,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,6 +107,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -137,11 +142,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="content.html">Docs</a> &raquo;</li>
+      <li><a href="content.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Getting Started</li>
     
@@ -180,6 +187,13 @@ environment</a>.</p>
 </div>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p><strong>Just the library</strong></p>
+<p>Install via <code class="docutils literal notranslate"><span class="pre">pip</span></code> package manager:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install bio_rtd
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Source code with the examples</strong></p>
 <p>Clone git repo:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/open-biotech/bio-rtd.git
 </pre></div>
@@ -193,6 +207,7 @@ environment</a>.</p>
 </pre></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="running-first-example">
 <h2>Running first example<a class="headerlink" href="#running-first-example" title="Permalink to this headline">¶</a></h2>
 <p>Run an example:</p>
@@ -243,7 +258,7 @@ more at <a class="reference external" href="https://docs.bokeh.org/en/latest/doc
 <p>Flag <code class="docutils literal notranslate"><span class="pre">--show</span></code> is optional and runs the newly created instance in a new tab in a web browser.
 Only one server instance can be run (on the same port). If you try to run another <code class="docutils literal notranslate"><span class="pre">bokeh</span> <span class="pre">serve</span></code> command while one
 is running, you will see the following exception:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cannot start Bokeh server, port <span class="m">5006</span> is already in use
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cannot start Bokeh server, port <span class="m">5006</span> is already <span class="k">in</span> use
 </pre></div>
 </div>
 <p>In that case find and close the existing running <code class="docutils literal notranslate"><span class="pre">bokeh</span> <span class="pre">serve</span></code> process.</p>
@@ -255,29 +270,29 @@ is running, you will see the following exception:</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="user_guide.html" class="btn btn-neutral float-right" title="User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to bio-rtd documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="user_guide.html" class="btn btn-neutral float-right" title="User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to bio-rtd documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -285,7 +300,6 @@ is running, you will see the following exception:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

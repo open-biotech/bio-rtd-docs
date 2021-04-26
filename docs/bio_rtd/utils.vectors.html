@@ -1,38 +1,41 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>bio_rtd.utils.vectors &mdash; bio_rtd  documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="bio_rtd.adj_par" href="adj_par.html" />
@@ -60,7 +63,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -77,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -125,6 +129,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -159,11 +164,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../content.html">Docs</a> &raquo;</li>
+      <li><a href="../content.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
         
@@ -186,7 +193,7 @@
 <h2>true_start<a class="headerlink" href="#true-start" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="bio_rtd.utils.vectors.true_start">
-<code class="sig-prename descclassname">bio_rtd.utils.vectors.</code><code class="sig-name descname">true_start</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">boolean_vector</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/vectors.html#true_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.utils.vectors.true_start" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">bio_rtd.utils.vectors.</span></code><code class="sig-name descname"><span class="pre">true_start</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boolean_vector</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/vectors.html#true_start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.utils.vectors.true_start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accepts array of booleans and returns index of first <cite>True</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -209,7 +216,7 @@
 <h2>true_end<a class="headerlink" href="#true-end" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="bio_rtd.utils.vectors.true_end">
-<code class="sig-prename descclassname">bio_rtd.utils.vectors.</code><code class="sig-name descname">true_end</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">boolean_vector</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/vectors.html#true_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.utils.vectors.true_end" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">bio_rtd.utils.vectors.</span></code><code class="sig-name descname"><span class="pre">true_end</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boolean_vector</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/vectors.html#true_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.utils.vectors.true_end" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accepts array of booleans and returns index AFTER last <cite>True</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -232,7 +239,7 @@
 <h2>true_start_and_end<a class="headerlink" href="#true-start-and-end" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="bio_rtd.utils.vectors.true_start_and_end">
-<code class="sig-prename descclassname">bio_rtd.utils.vectors.</code><code class="sig-name descname">true_start_and_end</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">boolean_vector</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/vectors.html#true_start_and_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bio_rtd.utils.vectors.true_start_and_end" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">bio_rtd.utils.vectors.</span></code><code class="sig-name descname"><span class="pre">true_start_and_end</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boolean_vector</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bio_rtd/utils/vectors.html#true_start_and_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bio_rtd.utils.vectors.true_start_and_end" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns indexes of first True value and AFTER last <cite>True</cite> value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -262,29 +269,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="adj_par.html" class="btn btn-neutral float-right" title="bio_rtd.adj_par" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="utils.convolution.html" class="btn btn-neutral float-left" title="bio_rtd.utils.convolution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="adj_par.html" class="btn btn-neutral float-right" title="bio_rtd.adj_par" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="utils.convolution.html" class="btn btn-neutral float-left" title="bio_rtd.utils.convolution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -292,7 +299,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
