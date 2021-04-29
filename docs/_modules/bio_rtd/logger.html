@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -449,7 +449,7 @@
                     <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="s2">&quot;self&quot;</span><span class="p">],</span> <span class="s1">&#39;_log_entity_id&#39;</span><span class="p">)</span>\
                     <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="s1">&#39;self&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_log_entity_id</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="c1"># noinspection PyProtectedMember</span>
-                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">f_locals</span><span class="p">[</span><span class="s1">&#39;self&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_log_entity_id</span><span class="si">}</span><span class="s2">: &quot;</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{frame[0].f_locals[&#39;self&#39;]._log_entity_id}</span><span class="s2">: &quot;</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
 <div class="viewcode-block" id="RtdLogger.get_data_tree"><a class="viewcode-back" href="../../bio_rtd/logger.html#bio_rtd.logger.RtdLogger.get_data_tree">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_tree_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
@@ -524,9 +524,9 @@
             <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">WARNING</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: {self._get_parent_log_id()}</span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;{self._get_parent_log_id()}</span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_on_data_stored</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
         <span class="k">pass</span></div>
@@ -584,13 +584,13 @@
         <span class="sd">&quot;&quot;&quot;Prints to terminal everything above `log_level`.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_level</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ERROR: {self._get_parent_log_id()}</span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">WARNING</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: {self._get_parent_log_id()}</span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">level</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">INFO</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;INFO: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;INFO: {self._get_parent_log_id()}</span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DEBUG: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_parent_log_id</span><span class="p">()</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DEBUG: {self._get_parent_log_id()}</span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_on_data_stored</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tree</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">):</span>
         <span class="c1"># send to log function if INFO or higher</span>
@@ -643,7 +643,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna.
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>

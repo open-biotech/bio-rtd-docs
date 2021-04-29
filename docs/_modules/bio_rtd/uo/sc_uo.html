@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -893,7 +893,7 @@
             <span class="n">flow</span> <span class="o">=</span> <span class="n">rel_flow</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_f</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">flow</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">step_name</span><span class="si">}</span><span class="s2"> step flow rate is not defined,&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{step_name}</span><span class="s2"> step flow rate is not defined,&quot;</span>
                        <span class="sa">f</span><span class="s2">&quot; using load flow rate instead.&quot;</span><span class="p">)</span>
             <span class="n">flow</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_f</span>
         <span class="k">return</span> <span class="n">flow</span>
@@ -928,7 +928,7 @@
         <span class="c1"># Calc.</span>
         <span class="n">t_sum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">cv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">flow</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">step_name</span><span class="si">}</span><span class="s2">: Flow rate must be defined (&gt; 0)&quot;</span> \
+            <span class="k">assert</span> <span class="n">flow</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{step_name}</span><span class="s2">: Flow rate must be defined (&gt; 0)&quot;</span> \
                              <span class="sa">f</span><span class="s2">&quot; if the duration is specified in CVs.&quot;</span>
             <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;CV must be determined (by `calc_cv`)&quot;</span> \
                                  <span class="sa">f</span><span class="s2">&quot; before calculating duration based on CVs.&quot;</span>
@@ -1619,9 +1619,9 @@
         <span class="n">_t_cycle_except_load</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_equilibration_t</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wash_t</span> \
             <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elution_t</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regeneration_t</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cycle_t</span> <span class="o">&lt;</span> <span class="n">_t_cycle_except_load</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Load step (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_cycle_t</span><span class="si">}</span><span class="s2">) should not be shorter&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">e</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Load step (</span><span class="si">{self._cycle_t}</span><span class="s2">) should not be shorter&quot;</span>
                        <span class="sa">f</span><span class="s2">&quot; than eq_t + wash_t + elution_t + regeneration_t&quot;</span>
-                       <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="n">_t_cycle_except_load</span><span class="si">:</span><span class="s2"> .6</span><span class="si">}</span><span class="s2">)!&quot;</span><span class="p">)</span>
+                       <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{_t_cycle_except_load: .6}</span><span class="s2">)!&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_sim_c_load_binding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                             <span class="n">f_load</span><span class="p">:</span> <span class="n">_np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -2531,7 +2531,7 @@
                 <span class="n">k</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>
                         <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">wash_desorption_desorbable_above_dbc</span>
                         <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cv</span> <span class="o">/</span> <span class="n">m_bound</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Share of desorbable material </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span> \
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Share of desorbable material </span><span class="si">{k}</span><span class="s2">&quot;</span> \
                             <span class="sa">f</span><span class="s2">&quot; must be &gt;= 0 and &lt;= 1.&quot;</span>
         <span class="n">i_wash_duration</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_wash_t</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span><span class="p">))</span>
         <span class="c1"># Generate exponential tail.</span>
@@ -2568,7 +2568,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna.
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>

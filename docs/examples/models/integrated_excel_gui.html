@@ -185,7 +185,7 @@ that the process parameters are sourced from <cite>Excel</cite> spreadsheets.</p
 to run examples with local <cite>bokeh</cite> server in order to build an
 interactive GUI.</p>
 
-<script src="bokeh-plot-037dff5c3c3b4d73bf2c8858fdbbcc8f-external-examples-models-integrated_excel_gui.js" id="de1e1b88-0e7e-44e9-8a82-c18c40f1aed8"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;RtdModel with process data read from Excel document</span>
+<script src="bokeh-plot-8df4373171cc49778d48e3c25a96c9d5-external-examples-models-integrated_excel_gui.js" id="3332b2c0-65a5-415e-a8f0-b2b0a2714608"></script><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;RtdModel with process data read from Excel document</span>
 
 <span class="sd">In this example we define a model of another hypothetical mAB process</span>
 <span class="sd">defined in Excel spreadsheet: `examples/models/integrated_excel.xlsx`.</span>
@@ -338,13 +338,13 @@ interactive GUI.</p>
 
         <span class="n">concentration</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">Concentration</span><span class="p">(</span>
             <span class="n">t</span><span class="p">,</span> <span class="n">flow_reduction</span><span class="o">=</span><span class="n">volume_reduction</span><span class="p">,</span>
-            <span class="n">uo_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uo</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_concentration&quot;</span><span class="p">)</span>
+            <span class="n">uo_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{uo[&#39;id&#39;]}</span><span class="s2">_concentration&quot;</span><span class="p">)</span>
         <span class="n">buffer_exchange</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">BufferExchange</span><span class="p">(</span>
             <span class="n">t</span><span class="p">,</span> <span class="n">exchange_ratio</span><span class="o">=</span><span class="n">efficiency</span><span class="p">,</span>
-            <span class="n">uo_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uo</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_buffer_exchange&quot;</span><span class="p">)</span>
+            <span class="n">uo_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{uo[&#39;id&#39;]}</span><span class="s2">_buffer_exchange&quot;</span><span class="p">)</span>
         <span class="n">flow_through</span> <span class="o">=</span> <span class="n">fc_uo</span><span class="o">.</span><span class="n">FlowThroughWithSwitching</span><span class="p">(</span>
             <span class="n">t</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="n">pdf</span><span class="o">.</span><span class="n">TanksInSeries</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">n_tanks</span><span class="p">),</span>
-            <span class="n">uo_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">uo</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">_rtd&quot;</span><span class="p">)</span>
+            <span class="n">uo_id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{uo[&#39;id&#39;]}</span><span class="s2">_rtd&quot;</span><span class="p">)</span>
         <span class="n">flow_through</span><span class="o">.</span><span class="n">rt_target</span> <span class="o">=</span> <span class="n">rt</span>
         <span class="n">flow_through</span><span class="o">.</span><span class="n">t_cycle</span> <span class="o">=</span> <span class="n">t_switch</span>
 
@@ -515,14 +515,14 @@ interactive GUI.</p>
                   <span class="k">if</span> <span class="n">_uo</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">method_2_func</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
         <span class="k">if</span> <span class="n">mm</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No parsing functions for methods:&quot;</span>
-                            <span class="sa">f</span><span class="s2">&quot; `</span><span class="si">{</span><span class="s1">&#39;`, `&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span><span class="si">}</span><span class="s2">`&quot;</span><span class="p">)</span>
+                            <span class="sa">f</span><span class="s2">&quot; `{&#39;`, `&#39;.join(mm)}`&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span>
     <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">ke</span><span class="p">:</span>
         <span class="c1"># noinspection PyUnboundLocalVariable</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unit operation: `</span><span class="si">{</span><span class="n">_uo</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-                       <span class="sa">f</span><span class="s2">&quot;` with title: `</span><span class="si">{</span><span class="n">_uo</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-                       <span class="sa">f</span><span class="s2">&quot;` is missing filed: `</span><span class="si">{</span><span class="n">ke</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">`&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unit operation: `</span><span class="si">{_uo[&#39;id&#39;]}</span><span class="s2">&quot;</span>
+                       <span class="sa">f</span><span class="s2">&quot;` with title: `</span><span class="si">{_uo[&#39;title&#39;]}</span><span class="s2">&quot;</span>
+                       <span class="sa">f</span><span class="s2">&quot;` is missing filed: `</span><span class="si">{ke.args[0]}</span><span class="s2">`&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">generate_dsp_uo_train</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">_uo_list</span><span class="p">,</span> <span class="n">_uo_lib</span><span class="p">):</span>
@@ -534,7 +534,7 @@ interactive GUI.</p>
         <span class="n">uo_instance</span> <span class="o">=</span> <span class="n">uo_class</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="o">**</span><span class="n">uo_pars</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">uo_attr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="c1"># Make sure attribute exist.</span>
-            <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">uo_instance</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">` is wrong.&quot;</span>
+            <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">uo_instance</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{key}</span><span class="s2">` is wrong.&quot;</span>
             <span class="c1"># Override value.</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="n">uo_instance</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
         <span class="n">_dsp_train</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">uo_instance</span><span class="p">)</span>

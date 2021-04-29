@@ -295,7 +295,7 @@ for each <a class="reference internal" href="../../bio_rtd/core.html#bio_rtd.cor
 
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">uo_attr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="c1"># Make sure attribute exist.</span>
-    <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cstr</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">` is wrong.&quot;</span>
+    <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cstr</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{key}</span><span class="s2">` is wrong.&quot;</span>
     <span class="c1"># Override value.</span>
     <span class="nb">setattr</span><span class="p">(</span><span class="n">cstr</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 

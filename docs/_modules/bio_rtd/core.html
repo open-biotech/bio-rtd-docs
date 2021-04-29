@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.7.3
               </div>
             
           
@@ -271,7 +271,7 @@
 <span class="sd">            Logger from parent instance.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span> <span class="o">=</span> <span class="n">logger</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_log_entity_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">parent_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_instance_id</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_entity_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{parent_id}</span><span class="s2">/</span><span class="si">{self._instance_id}</span><span class="s2">&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">set_data_tree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_entity_id</span><span class="p">,</span>
                                    <span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">)</span></div></div>
 
@@ -558,7 +558,7 @@
         <span class="n">_</span><span class="p">,</span> <span class="n">i_flow_on_d</span><span class="p">,</span> <span class="n">t_cycle_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assert_periodic_flow</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">i_flow_on_d</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Flow is turned on for </span><span class="si">{</span><span class="n">i_flow_on_d</span><span class="si">}</span><span class="s2"> (&lt; 6) time points&quot;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;Flow is turned on for </span><span class="si">{i_flow_on_d}</span><span class="s2"> (&lt; 6) time points&quot;</span><span class="p">)</span>
         <span class="n">f_mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="n">i_flow_on_d</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">/</span> <span class="n">t_cycle_duration</span>
         <span class="k">return</span> <span class="n">f_mean</span><span class="p">,</span> <span class="n">t_cycle_duration</span>
 
@@ -614,7 +614,7 @@
                        <span class="sa">f</span><span class="s2">&quot; as an average concentration withing 90 %&quot;</span>
                        <span class="sa">f</span><span class="s2">&quot; between the first and the last crossing of 90 %&quot;</span>
                        <span class="sa">f</span><span class="s2">&quot; of the max concentration for sum across&quot;</span>
-                       <span class="sa">f</span><span class="s2">&quot; species: </span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                       <span class="sa">f</span><span class="s2">&quot; species: </span><span class="si">{species}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">load_c_ss</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">c</span><span class="p">[:,</span> <span class="n">i_st</span><span class="p">:</span><span class="n">i_end</span><span class="p">],</span> <span class="mi">1</span><span class="p">)[:,</span> <span class="n">_np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_tree</span><span class="p">,</span> <span class="s1">&#39;load_c_ss&#39;</span><span class="p">,</span> <span class="n">load_c_ss</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">load_c_ss</span>
@@ -625,7 +625,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Steady-state concentration is being estimated&quot;</span>
                        <span class="sa">f</span><span class="s2">&quot; as an average concentration in the cycle&quot;</span>
                        <span class="sa">f</span><span class="s2">&quot; with the largest average concentration&quot;</span>
-                       <span class="sa">f</span><span class="s2">&quot; summed across species: </span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                       <span class="sa">f</span><span class="s2">&quot; summed across species: </span><span class="si">{species}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">m_max</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">c_max</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">species</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">i_st</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">i_flow_on_start_list</span><span class="p">):</span>
@@ -660,12 +660,12 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_null_keys</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
                 <span class="n">log_level_multiple</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s2">&quot;Only one of the parameters: </span><span class="si">{</span><span class="n">non_null_keys</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Only one of the parameters: </span><span class="si">{non_null_keys}</span><span class="s2">&quot;</span>
                 <span class="sa">f</span><span class="s2">&quot; should be defined!&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_null_keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
                 <span class="n">log_level_none</span><span class="p">,</span>
-                <span class="sa">f</span><span class="s2">&quot;One of the parameters: </span><span class="si">{</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2"> should be defined!&quot;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;One of the parameters: {kwargs.keys()} should be defined!&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_cut_start_of_c_and_f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outlet</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Trim beginning of flow rate and concentration profiles</span>
@@ -748,7 +748,7 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">c</span> <span class="o">=</span> <span class="n">discard_until_min_c_rel</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Threshold concentration profile&quot;</span>
-                           <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> was never reached!&quot;</span><span class="p">)</span>
+                           <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{c}</span><span class="s2"> was never reached!&quot;</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="k">return</span>
@@ -757,7 +757,7 @@
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_flow_on_start_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">discard_n_cycles</span><span class="p">:</span>
                 <span class="n">i_init_cut</span> <span class="o">=</span> <span class="n">i_flow_on_start_list</span><span class="p">[</span><span class="n">discard_n_cycles</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All the cycles </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">i_flow_on_start_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All the cycles {len(i_flow_on_start_list)}&quot;</span>
                            <span class="sa">f</span><span class="s2">&quot; are removed!&quot;</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -796,14 +796,14 @@
         <span class="c1"># Make sure concentration is not negative.</span>
         <span class="k">if</span> <span class="n">_np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_c</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Negative concentration at unit operation: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">uo_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;Negative concentration at unit operation: </span><span class="si">{self.uo_id}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="c1"># Make sure flow is not negative.</span>
         <span class="k">if</span> <span class="n">_np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Negative flow at unit operation: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">uo_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="sa">f</span><span class="s2">&quot;Negative flow at unit operation: </span><span class="si">{self.uo_id}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="c1"># Make sure flow is still there.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No inlet flow at unit operation: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">uo_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No inlet flow at unit operation: </span><span class="si">{self.uo_id}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">*</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span> <span class="o">*</span> <span class="mi">0</span>
 
         <span class="c1"># Calculate number of tracking species.</span>
@@ -929,8 +929,8 @@
                 <span class="c1"># Combine and return.</span>
                 <span class="k">return</span> <span class="p">{</span><span class="o">**</span><span class="n">d</span><span class="p">,</span> <span class="o">**</span><span class="n">d_extra</span><span class="p">}</span>
 
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Keys </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2"> do not contain any of&quot;</span>
-                       <span class="sa">f</span><span class="s2">&quot; the required groups: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">POSSIBLE_KEY_GROUPS</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Keys {list(kwargs.keys())} do not contain any of&quot;</span>
+                       <span class="sa">f</span><span class="s2">&quot; the required groups: </span><span class="si">{self.POSSIBLE_KEY_GROUPS}</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="PDF"><a class="viewcode-back" href="../../bio_rtd/core.html#bio_rtd.core.PDF">[docs]</a><span class="k">class</span> <span class="nc">PDF</span><span class="p">(</span><span class="n">ParameterSetList</span><span class="p">,</span> <span class="n">DefaultLoggerLogic</span><span class="p">,</span> <span class="n">_ABC</span><span class="p">):</span>
@@ -1240,8 +1240,8 @@
         <span class="k">for</span> <span class="n">uo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dsp_uo_chain</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">uo</span><span class="o">.</span><span class="n">uo_id</span> <span class="o">==</span> <span class="n">uo_id</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">uo</span>
-        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unit operation `</span><span class="si">{</span><span class="n">uo_id</span><span class="si">}</span><span class="s2">` not found.</span><span class="se">\n</span><span class="s2">&quot;</span>
-                       <span class="sa">f</span><span class="s2">&quot;Available: </span><span class="si">{</span><span class="p">[</span><span class="n">uo</span><span class="o">.</span><span class="n">uo_id</span> <span class="k">for</span> <span class="n">uo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dsp_uo_chain</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unit operation `</span><span class="si">{uo_id}</span><span class="s2">` not found.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                       <span class="sa">f</span><span class="s2">&quot;Available: {[uo.uo_id for uo in self.dsp_uo_chain]}&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RtdModel.recalculate"><a class="viewcode-back" href="../../bio_rtd/core.html#bio_rtd.core.RtdModel.recalculate">[docs]</a>    <span class="k">def</span> <span class="nf">recalculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                     <span class="n">start_at</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
@@ -1288,7 +1288,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="s2">&quot;Inlet profile updated&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">uo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dsp_uo_chain</span><span class="p">[</span><span class="n">uo_i</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unit operation `</span><span class="si">{</span><span class="n">uo</span><span class="o">.</span><span class="n">uo_id</span><span class="si">}</span><span class="s2">` updated&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">i</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unit operation `</span><span class="si">{uo.uo_id}</span><span class="s2">` updated&quot;</span><span class="p">)</span>
         <span class="c1"># Store profiles in DEBUG data log.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">log_level</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
             <span class="n">f</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">uo</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span>
@@ -1406,7 +1406,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, University of Natural Resources and Life Sciences (BOKU), Vienna.
+        &#169; Copyright 2020 - BOKU Vienna; 2021 - Jure Sencar.
 
     </p>
   </div>
